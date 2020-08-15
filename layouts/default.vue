@@ -93,7 +93,20 @@ export default {
         }
       ],
       miniVariant: false,
-      title: 'Coyo.dev'
+      title: 'CoyoTech'
+    };
+  },
+  head () {
+    return {
+      title: this.title,
+      meta: [
+        // hid est utilisé comme identifiant unique. N'utilisez pas `vmid` car ça ne fonctionnera pas
+        {
+          // hid: 'description',
+          // name: 'description',
+          // content: 'Ma description personnalisée'
+        }
+      ]
     };
   }
 };
