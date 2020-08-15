@@ -1,6 +1,7 @@
 <template>
   <v-app dark>
     <v-navigation-drawer
+      v-if="0"
       v-model="drawer"
       :mini-variant="miniVariant"
       :clipped="clipped"
@@ -25,6 +26,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
+      v-if="0"
       :clipped-left="clipped"
       fixed
       app

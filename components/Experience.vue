@@ -17,7 +17,9 @@
     <v-img v-if="project.image" :src="project.image" height="194" />
     <v-card-text>
       <p v-html="marked(project.text)" />
-      Technologies: {{ project.techonologies.map(tech => formatTech(tech)).join(", ") }}
+      <template v-if="project.technologies">
+        Technologies: {{ project.technologies.map(tech => formatTech(tech)).join(", ") }}
+      </template>
     </v-card-text>
   </v-card>
 </template>
