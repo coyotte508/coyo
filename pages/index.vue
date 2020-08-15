@@ -1,16 +1,40 @@
 <template>
   <v-container fluid>
-    <v-row justify="center" style="margin-top: 180px; margin-bottom: 150px;">
-      <v-col cols="12" md="8">
+    <v-row justify="center" align-content="center" style="min-height: 80vh">
+      <v-col cols="12" md="8" lg="6">
         <v-card>
           <v-card-text>
-            <p>
-              I have a lot of experience designing complex projects from end to end, and handling every separate aspect: server configuration, database, deployment, frontend. Nowadays I specialize towards SaaS web software with Node.js, but I have ample C++ / Qt experience as well.
-            </p>
-            <p class="mb-0">
-              I like well designed code, up-to-date framework, new technologies and clean git repos. I can help you update your codebase to current standards, design a project from the ground up, or give you a helping hand in a bind.
-            </p>
+            <img style="float: left; height: 80px" src="/icons/logo.png" class="mr-4 mb-4">
+            <div>
+              <p>
+                I have a lot of experience designing complex projects from end to end, and handling every separate aspect: server configuration, database, deployment, frontend. Nowadays I specialize towards SaaS web software with Node.js, but I have ample C++ / Qt experience as well.
+              </p>
+              <p class="mb-0">
+                I like well designed code, up-to-date framework, new technologies and clean git repos. I can help you update your codebase to current standards, design a project from the ground up, or give you a helping hand in a bind.
+              </p>
+            </div>
+            <div style="clear: both" />
           </v-card-text>
+          <v-card-actions>
+            <v-btn href="mailto:contact@coyo.dev" target="blank">
+              <v-icon class="mr-2">
+                mdi-email
+              </v-icon>
+              Email
+            </v-btn>
+            <v-btn href="//github.com/coyotte508" target="blank">
+              <v-icon class="mr-2">
+                mdi-github
+              </v-icon>
+              Github
+            </v-btn>
+            <v-btn href="https://stackoverflow.com/users/835629/coyotte508" target="blank">
+              <v-icon class="mr-2">
+                mdi-stack-overflow
+              </v-icon>
+              Stackoverflow
+            </v-btn>
+          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
