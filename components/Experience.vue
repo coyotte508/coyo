@@ -5,7 +5,7 @@
         <template v-if="project.avatar">
           {{ project.avatar }}
         </template>
-        <img v-else :src="project.icon">
+        <img v-else :src="project.icon" />
       </v-list-item-avatar>
       <v-list-item-content>
         <v-list-item-title class="headline">
@@ -18,34 +18,43 @@
     <v-card-text>
       <p v-html="marked(project.text)" />
       <template v-if="project.technologies">
-        Technologies: {{ project.technologies.map(tech => formatTech(tech)).join(", ") }}
+        Technologies:
+        {{ project.technologies.map((tech) => formatTech(tech)).join(", ") }}
       </template>
     </v-card-text>
   </v-card>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
-import marked from 'marked';
-import { Project, Technology } from '../data/projects';
+import { Vue, Component, Prop } from "vue-property-decorator";
+import marked from "marked";
+import { Project, Technology } from "../data/projects";
 
 @Component
 export default class Experience extends Vue {
   @Prop()
   project!: Project;
 
-  formatTech (tech: Technology) {
+  formatTech(tech: Technology) {
     switch (tech) {
-      case 'vue': return 'VueJS';
-      case 'svg': return 'SVG';
-      case 'node': return 'Node.js';
-      case 'opengl': return 'OpenGL';
-      case 'mongo': return 'MongoDB';
-      case 'pwa': return 'PWA';
-      default: return tech[0].toUpperCase() + tech.slice(1);
+      case "vue":
+        return "VueJS";
+      case "svg":
+        return "SVG";
+      case "node":
+        return "Node.js";
+      case "opengl":
+        return "OpenGL";
+      case "mongo":
+        return "MongoDB";
+      case "pwa":
+        return "PWA";
+      case "graphql":
+        return "GraphQL";
+      default:
+        return tech[0].toUpperCase() + tech.slice(1);
     }
   }
 
   marked = marked;
 }
-
 </script>
