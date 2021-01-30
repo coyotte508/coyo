@@ -50,6 +50,8 @@ export default class Experience extends Vue {
         return "PWA";
       case "graphql":
         return "GraphQL";
+      case "nest":
+        return "NestJS";
       default:
         return tech[0].toUpperCase() + tech.slice(1);
     }
