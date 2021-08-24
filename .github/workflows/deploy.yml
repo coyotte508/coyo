@@ -1,4 +1,4 @@
-name: Deploy Blog
+name: Deploy
 
 on:
   push:
@@ -15,8 +15,8 @@ jobs:
           node-version: 14
       - name: Install dependencies
         run: yarn install
-      - name: Run Lint
-        run: yarn run lint
+      # - name: Run Lint
+      #   run: yarn run lint
       - name: Build
         run: yarn run generate
       - name: Set AWS credentials
