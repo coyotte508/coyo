@@ -18,13 +18,13 @@ jobs:
       # - name: Run Lint
       #   run: yarn run lint
       - name: Build
-        run: yarn run generate
-      - name: Set AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: fr-par
-      - name: Deploy to S3
         run: |
-          aws s3 sync dist s3://coyo.dev.s3.fr-par.scw.cloud
+          yarn run generate
+          ls /home/runner/work/coyo/coyo
+      - name: Deploy to S3
+        uses: docker://amazon/aws-cli:2.0.7
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        with:
+          args: s3 sync /github/workspace/dist s3://coyo.dev --delete --endpoint-url https://s3.fr-par.scw.cloud
