@@ -1,5 +1,7 @@
 # coyo
 
+Personal portfolio
+
 ## Build Setup
 
 ```bash
