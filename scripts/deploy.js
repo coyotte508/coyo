@@ -1,3 +1,4 @@
+const mime = require("mime-types");
 const S3SyncClient = require("s3-sync-client");
 
 const client = new S3SyncClient({
@@ -9,10 +10,18 @@ const client = new S3SyncClient({
   endpoint: "https://s3.fr-par.scw.cloud"
 });
 
-client.sync("dist", "s3://coyo.dev", { del: true }).then(
-  () => process.exit(0),
-  err => {
-    console.error(err);
-    process.exit(1);
-  }
-);
+client
+  .sync("dist", "s3://coyo.dev", {
+    del: true,
+    commandInput: {
+      ContentType: syncCommandInput =>
+        mime.lookup(syncCommandInput.Key) || "text/html"
+    }
+  })
+  .then(
+    () => process.exit(0),
+    err => {
+      console.error(err);
+      process.exit(1);
+    }
+  );
