@@ -58,7 +58,7 @@
 				</div>
 			</div>
       <p class="mt-6 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
-				I design complex projects fully end to end. I am proficient in <b
+				I design complex projects from the ground up. I am proficient in <b
 					class="font-semibold text-neutral-900 dark:text-white">Node.js</b
 				> / <b class="font-semibold text-neutral-900 dark:text-white">Typescript</b> / <b
 					class="font-semibold text-neutral-900 dark:text-white">Svelte</b
