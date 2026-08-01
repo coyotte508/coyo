@@ -25,6 +25,7 @@ export interface Project {
   text: string;
   avatar?: string;
   icon?: string;
+  current?: boolean;
 }
 
 export const projects: Project[] = [
@@ -118,6 +119,7 @@ export const experiences: Project[] = [
     title: "Hugging Face",
     link: "//huggingface.co",
     avatar: "🤗",
+    current: true,
     text: `Hugging Face is the platform where the ML community uploads hundreds of thousands of Models, Datasets and Spaces (demos). I help evolve the platform so it scales and meets its growing challenges:
 
 - Switched from a FS-based git backend to Gitaly

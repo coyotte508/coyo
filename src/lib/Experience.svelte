@@ -59,9 +59,15 @@
 		{/if}
 		<div class="min-w-0">
 			<h2
-				class="truncate text-lg font-semibold leading-snug transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-400"
+				class="flex items-center gap-2 text-lg font-semibold leading-snug transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-400"
 			>
 				{project.title}
+				{#if project.current}
+					<span
+						class="rounded-full bg-blue-50 px-2 py-0.5 text-xs font-semibold text-blue-600 ring-1 ring-blue-200 dark:bg-blue-950 dark:text-blue-400 dark:ring-blue-800"
+						>Current</span
+					>
+				{/if}
 			</h2>
 			<p class="text-sm text-neutral-500 dark:text-neutral-400">{project.years}</p>
 		</div>
