@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Experience from '$lib/Experience.svelte';
 	import { projects, experiences } from '$lib/projects';
+	import { talks } from '$lib/talks';
 </script>
 
 <svelte:head>
@@ -89,4 +90,41 @@
 			</div>
 		</section>
 	</div>
+
+	<section class="pb-16">
+		<h1 class="text-center text-3xl font-semibold">Talks &amp; Articles</h1>
+		<div class="mx-auto mt-6 max-w-2xl space-y-4">
+			{#each talks as talk (talk.id)}
+				<div
+					class="rounded-lg border border-neutral-200 bg-white p-5 shadow-sm dark:border-neutral-700 dark:bg-neutral-800"
+				>
+					<div class="flex items-baseline justify-between gap-4">
+						<h2 class="text-lg font-medium leading-snug">{talk.title}</h2>
+						<span class="shrink-0 text-sm text-neutral-500 dark:text-neutral-400">{talk.years}</span>
+					</div>
+					<p class="mt-1 text-sm text-neutral-600 dark:text-neutral-300">{talk.text}</p>
+					<div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm">
+						<a
+							href={talk.href}
+							target={talk.kind === 'slides' ? '_blank' : undefined}
+							rel={talk.kind === 'slides' ? 'noopener noreferrer' : undefined}
+							class="font-medium text-blue-600 hover:underline dark:text-blue-400"
+						>
+							{talk.kind === 'slides' ? 'View slides' : 'Read article'}
+						</a>
+						{#if talk.source}
+							<a
+								href={talk.source}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="text-neutral-500 hover:underline dark:text-neutral-400"
+							>
+								Original on {talk.sourceLabel} ↗
+							</a>
+						{/if}
+					</div>
+				</div>
+			{/each}
+		</div>
+	</section>
 </div>
