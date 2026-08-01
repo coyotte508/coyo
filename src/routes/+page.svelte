@@ -79,10 +79,6 @@
 					>Hugging Face</a
 				>.
 			</p>
-			<p class="mt-4 text-neutral-600 md:hidden dark:text-neutral-300">
-				I also <a href="#talks" class="font-medium text-blue-600 hover:underline dark:text-blue-400">write and talk</a>
-				about what I build.
-			</p>
 			<div id="contact" class="mt-8 flex flex-wrap gap-3 scroll-mt-24">
 				<a
 					href="mailto:contact@coyo.dev"
@@ -158,19 +154,19 @@
 			</div>
 		</section>
 		<section id="projects" class="order-2 scroll-mt-24 lg:order-1 lg:col-span-3">
-			<h2 class="text-2xl font-bold tracking-tight">Projects</h2>
+			<div class="flex items-baseline justify-between gap-4">
+				<h2 class="text-2xl font-bold tracking-tight">Projects</h2>
+				<a
+					href="#talks"
+					class="text-sm font-medium text-blue-600 hover:underline lg:hidden dark:text-blue-400"
+					>Skip to talks ↓</a
+				>
+			</div>
 			<div class="mt-6 space-y-6">
 				{#each projects as project (project.id)}
 					<Experience {project} />
 				{/each}
 			</div>
-			<a
-				href="#talks"
-				class="mt-8 flex items-center justify-between rounded-xl border border-dashed border-neutral-300 px-5 py-4 text-sm font-medium text-neutral-600 transition-colors hover:border-blue-400 hover:text-blue-600 dark:border-neutral-600 dark:text-neutral-300 dark:hover:border-blue-500 dark:hover:text-blue-400"
-			>
-				<span>I also write articles and give talks about this stuff</span>
-				<span class="text-blue-600 dark:text-blue-400">See them →</span>
-			</a>
 		</section>
 	</div>
 
