@@ -13,8 +13,9 @@ export type Technology =
 	| "react"
 	| "nest"
 	| "graphql"
-	| "SQL"
-	| "svelte";
+  | "SQL"
+  | "svelte"
+  | "flutter";
 
 export interface Project {
 	id: string;
@@ -30,8 +31,17 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-	{
-		id: "mongoku",
+  {
+    id: "bergere",
+    years: "2022-now",
+    title: "Bergère Enchantée",
+    link: "https://bergereenchantee.fr/",
+    image: "/bergere.webp",
+    technologies: ["svelte", "node", "mongo", "flutter"],
+    text: "The online presence for my wife's upholstery business. A full storefront ([source](https://github.com/coyotte508/bergere-enchantee)): catalog and made-to-measure armchairs, fabrics & finishes, pricing, an appointment/contact flow backed by MongoDB, and emails via Mailgun — built with SvelteKit & Tailwind. Plus a companion [Flutter app](https://github.com/coyotte508/cutting-fabric) for upholsterers that generates fabric cutting plans, available on the [Play Store](https://play.google.com/store/apps/details?id=com.coyotte508.cutting_fabric).",
+  },
+  {
+    id: "mongoku",
 		technologies: ["svelte", "node", "mongo"],
 		years: "2025",
 		title: "Mongoku",

@@ -31,6 +31,8 @@
 				return "NestJS";
 			case "svelte":
 				return "Svelte";
+			case "flutter":
+				return "Flutter";
 			default:
 				return tech[0].toUpperCase() + tech.slice(1);
 		}
