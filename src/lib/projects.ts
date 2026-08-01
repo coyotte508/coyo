@@ -41,7 +41,7 @@ export const projects: Project[] = sortByStartYearDesc([
 		title: "Mongoku",
 		link: "//github.com/huggingface/Mongoku",
 		image: "/mongoku.png",
-		text: "The web-scale GUI for MongoDB. I took over the project in 2025 and reworked it end to end: OAuth authentication, sharding & schema-auditing insights, aggregation pipeline support, user/role management, and a lot of query and deployment polish. A standout addition is mappings — links between collections/documents that let you navigate your database like a relational graph. Blazing fast even on 1TB+ clusters.",
+		text: "The web-scale GUI for MongoDB. It also has OAuth authentication, sharding & schema-auditing insights, aggregation pipeline support, user/role management, relational graphs, and a lot of query and deployment polish.",
 	},
 	{
 		id: "bergere",
@@ -51,7 +51,7 @@ export const projects: Project[] = sortByStartYearDesc([
 		link: "https://bergereenchantee.fr/",
 		image: "/bergere.webp",
 		technologies: ["svelte", "node", "mongo", "flutter"],
-		text: "The online presence for my wife's upholstery business. A full storefront ([source](https://github.com/coyotte508/bergere-enchantee)): catalog and made-to-measure armchairs, fabrics & finishes, pricing, an appointment/contact flow backed by MongoDB, and emails via Mailgun — built with SvelteKit & Tailwind. Plus a companion [Flutter app](https://github.com/coyotte508/cutting-fabric) for upholsterers that generates fabric cutting plans, available on the [Play Store](https://play.google.com/store/apps/details?id=com.coyotte508.cutting_fabric).",
+		text: "The online presence for my wife's upholstery business. A full storefront ([source](https://github.com/coyotte508/bergere-enchantee)): catalog and made-to-measure armchairs, fabrics & finishes, pricing, an appointment/contact flow. Plus a companion [Flutter app](https://github.com/coyotte508/cutting-fabric) for upholsterers that generates fabric cutting plans, available on the [Play Store](https://play.google.com/store/apps/details?id=com.coyotte508.cutting_fabric).",
 	},
 	{
 		id: "bgs",
