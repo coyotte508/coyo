@@ -113,9 +113,9 @@
 		</div>
 		<div class="shrink-0 md:self-center">
 			<img
-				src="/icons/logo.png"
+				src="/me.jpeg"
 				alt="Eliott Coyac"
-				class="h-40 w-40 rounded-2xl object-contain ring-1 ring-neutral-200 md:h-56 md:w-56 dark:ring-neutral-700"
+				class="h-40 w-40 rounded-full object-cover ring-4 ring-white md:h-56 md:w-56 dark:ring-neutral-800"
 			/>
 		</div>
 	</div>
