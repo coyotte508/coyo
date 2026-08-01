@@ -4,9 +4,43 @@
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/png" href="/icons/logo.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="Eliott Coyac: full-stack software engineer. Projects and experiences." />
-		<title>coyo</title>
+		<meta name="description" content="Eliott Coyac: full-stack software engineer. Projects, experience, talks & articles." />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="coyo.dev" />
+		<meta property="og:title" content="Eliott Coyac: Full-stack engineer" />
+		<meta property="og:description" content="Full-stack software engineer. Projects, experience, talks & articles — currently helping scale Hugging Face." />
+		<meta property="og:url" content="https://coyo.dev/" />
+		<meta property="og:image" content="https://coyo.dev/og.png" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Eliott Coyac: Full-stack engineer" />
+		<meta name="twitter:description" content="Full-stack software engineer. Projects, experience, talks & articles — currently helping scale Hugging Face." />
+		<meta name="twitter:image" content="https://coyo.dev/og.png" />
+
+		<link rel="canonical" href="https://coyo.dev/" />
+		<title>Eliott Coyac: Full-stack engineer</title>
 		%sveltekit.head%
+
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Person",
+				"name": "Eliott Coyac",
+				"url": "https://coyo.dev/",
+				"image": "https://coyo.dev/me.jpeg",
+				"jobTitle": "Full-stack software engineer",
+				"worksFor": { "@type": "Organization", "name": "Hugging Face" },
+				"sameAs": [
+					"https://github.com/coyotte508",
+					"https://stackoverflow.com/users/835629/coyotte508"
+				]
+			}
+		</script>
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>

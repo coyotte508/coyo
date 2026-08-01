@@ -13,10 +13,6 @@
 	];
 </script>
 
-<svelte:head>
-	<title>Eliott Coyac: Full-stack engineer</title>
-</svelte:head>
-
 <!-- Sticky nav -->
 <header
 	class="sticky top-0 z-20 border-b border-neutral-200/70 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-neutral-900/80"
