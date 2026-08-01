@@ -48,10 +48,6 @@
 				Full-stack software engineer
 			</p>
 			<h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">Eliott Coyac</h1>
-			<p class="mt-4 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
-				I like sovereign platforms and vendor independence. Currently taking full advantage of
-				<b class="font-semibold text-neutral-900 dark:text-white">Kimi K3</b> for old & new projects.
-			</p>
       <p class="mt-6 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
 				I design complex projects from end to end — server configuration, database, deployment,
 				frontend. I am proficient in <b
@@ -60,6 +56,10 @@
 					class="font-semibold text-neutral-900 dark:text-white">Svelte</b
 				>, and used to be in
 				<b class="font-semibold text-neutral-900 dark:text-white">C++</b>.
+			</p>
+      <p class="mt-4 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
+				Currently taking full advantage of
+				<b class="font-semibold text-neutral-900 dark:text-white">Kimi K3</b> and other open-weight LLMs for old & new projects. I like sovereign platforms — ones that own their IT rather than renting it from US hyperscalers.
 			</p>
 			<p class="mt-4 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
 				Right now I'm helping scale
