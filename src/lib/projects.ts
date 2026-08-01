@@ -48,7 +48,7 @@ export const projects: Project[] = [
     image: "/bgs.png",
     text: `A platform to play boardgames online. Boardgames can be added, updated and removed dynamically. Features include game creation, spectating, ELO rankings, a variety of options and integration with a NodeBB forum.
 
-There are currently two boardgames on the platform: Gaia Project and 6nimmt.`,
+There are currently four boardgames on the platform: Gaia Project, Powergrid, Container and 6nimmt.`,
     avatar: "🌌",
   },
   {
