@@ -19,7 +19,7 @@ export const talks: Talk[] = [
 		title: "Hooks Everywhere",
 		years: "2023",
 		href: "/talks/hooks-everywhere/",
-		text: "Slides (in French) about SvelteKit hooks: server hooks, universal hooks and client hooks: what they are and how to use them.",
+		text: "Slides (in French) about SvelteKit hooks — server hooks, universal hooks and client hooks: what they are and how to use them.",
 		kind: "slides",
 	},
 	{
