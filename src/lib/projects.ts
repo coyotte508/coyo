@@ -33,11 +33,11 @@ export const projects: Project[] = [
   {
     id: "mongoku",
     technologies: ["svelte", "node", "mongo"],
-    years: "2022-now",
+    years: "2025-now",
     title: "Mongoku",
-    link: "//github.com/coyotte508/mongoku",
+    link: "//github.com/huggingface/Mongoku",
     image: "/mongoku.png",
-    text: "A modern, fast web-based MongoDB client. Browse databases, run queries, edit documents and inspect indexes — a lighter alternative to Compass, right in the browser.",
+    text: "The web-scale GUI for MongoDB. I took over the project in 2025 and reworked it end to end: OAuth authentication, sharding & schema-auditing insights, aggregation pipeline support, user/role management, and a lot of query and deployment polish. Browse databases, run queries and edit documents right in the browser.",
   },
   {
     id: "bgs",
