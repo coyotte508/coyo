@@ -44,10 +44,19 @@
 		class="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-16 md:flex-row md:items-center md:py-24"
 	>
 		<div class="flex-1">
-			<p class="text-sm font-medium uppercase tracking-widest text-blue-600 dark:text-blue-400">
-				Full-stack software engineer
-			</p>
-			<h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">Eliott Coyac</h1>
+			<div class="flex items-center gap-5">
+				<img
+					src="/me.jpeg"
+					alt="Eliott Coyac"
+					class="h-24 w-24 shrink-0 rounded-full object-cover ring-4 ring-white md:hidden dark:ring-neutral-800"
+				/>
+				<div>
+					<p class="text-sm font-medium uppercase tracking-widest text-blue-600 dark:text-blue-400">
+						Full-stack software engineer
+					</p>
+					<h1 class="mt-1 text-4xl font-bold tracking-tight sm:mt-3 sm:text-5xl">Eliott Coyac</h1>
+				</div>
+			</div>
       <p class="mt-6 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
 				I design complex projects fully end to end. I am proficient in <b
 					class="font-semibold text-neutral-900 dark:text-white">Node.js</b
@@ -120,7 +129,7 @@
 				</a>
 			</div>
 		</div>
-		<div class="shrink-0 md:self-center">
+		<div class="hidden shrink-0 md:block md:self-center">
 			<img
 				src="/me.jpeg"
 				alt="Eliott Coyac"
