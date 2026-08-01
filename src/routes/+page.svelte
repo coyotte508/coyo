@@ -61,7 +61,7 @@
 				<b class="font-semibold text-neutral-900 dark:text-white">Rust</b> and
 				<b class="font-semibold text-neutral-900 dark:text-white">Svelte</b>.
 			</p>
-			<p class="mt-4 text-neutral-600 dark:text-neutral-300">
+			<p class="mt-4 text-neutral-600 md:hidden dark:text-neutral-300">
 				I also <a href="#talks" class="font-medium text-blue-600 hover:underline dark:text-blue-400">write and talk</a>
 				about what I build.
 			</p>
