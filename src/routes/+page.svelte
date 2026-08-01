@@ -141,8 +141,23 @@
 
 <main class="mx-auto w-full max-w-6xl px-4">
 	<!-- Projects + Experience -->
-	<div class="grid gap-16 py-16 lg:grid-cols-5">
-		<section id="projects" class="scroll-mt-24 lg:col-span-3">
+	<div class="flex flex-col gap-16 py-16 lg:grid lg:grid-cols-5">
+		<section id="experience" class="order-1 scroll-mt-24 lg:order-2 lg:col-span-2">
+			<div class="flex items-baseline justify-between gap-4">
+				<h2 class="text-2xl font-bold tracking-tight">Experience</h2>
+				<a
+					href="#projects"
+					class="text-sm font-medium text-blue-600 hover:underline lg:hidden dark:text-blue-400"
+					>Skip to projects ↓</a
+				>
+			</div>
+			<div class="mt-6 space-y-5">
+				{#each experiences as experience (experience.id)}
+					<Experience project={experience} />
+				{/each}
+			</div>
+		</section>
+		<section id="projects" class="order-2 scroll-mt-24 lg:order-1 lg:col-span-3">
 			<h2 class="text-2xl font-bold tracking-tight">Projects</h2>
 			<div class="mt-6 space-y-6">
 				{#each projects as project (project.id)}
@@ -156,14 +171,6 @@
 				<span>I also write articles and give talks about this stuff</span>
 				<span class="text-blue-600 dark:text-blue-400">See them →</span>
 			</a>
-		</section>
-		<section id="experience" class="scroll-mt-24 lg:col-span-2">
-			<h2 class="text-2xl font-bold tracking-tight">Experience</h2>
-			<div class="mt-6 space-y-5">
-				{#each experiences as experience (experience.id)}
-					<Experience project={experience} />
-				{/each}
-			</div>
 		</section>
 	</div>
 
