@@ -10,20 +10,30 @@ Built with [SvelteKit](https://svelte.dev/docs/kit) (static adapter), Svelte 5, 
 
 ```bash
 # install dependencies
-$ yarn install
+$ pnpm install
 
 # serve with hot reload at localhost:5173
-$ yarn dev
+$ pnpm dev
 
 # build static production site into build/
-$ yarn build
+$ pnpm build
 
 # preview the production build
-$ yarn preview
+$ pnpm preview
 ```
 
 ## Deployment
 
-Deployment is currently **manual** (the GitHub Actions auto-deploy is disabled in
-`.github/workflows/deploy.yml`). The static output in `build/` is synced to the
-server and served behind nginx.
+Deployment is **manual** (the GitHub Actions auto-deploy is disabled in
+`.github/workflows/deploy.yml`).
+
+```bash
+$ pnpm deploy
+```
+
+This builds the site, uploads `build/` to the server (`ssh coyo`), swaps it
+into `/home/coyo/site` (keeping a timestamped backup), and verifies that
+https://coyo.dev/ responds. The files are served by pm2 as the `coyo` user
+(`serve /home/coyo/site` on `127.0.0.1:3010`) behind nginx.
+
+To roll back: `ssh coyo 'sudo cp -a /home/coyo/site.bak.<timestamp>/. /home/coyo/site/'`.
