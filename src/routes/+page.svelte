@@ -21,7 +21,7 @@
 <header
 	class="sticky top-0 z-20 border-b border-neutral-200/70 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-neutral-900/80"
 >
-	<div class="mx-auto flex w-full max-w-5xl items-center gap-6 px-4 py-3">
+	<div class="mx-auto flex w-full max-w-6xl items-center gap-6 px-4 py-3">
 		<a href="#top" class="flex items-center gap-2 font-semibold tracking-tight">
 			<img src="/icons/logo.png" alt="" class="h-6 w-6" />
 			<span>coyo<span class="text-blue-600 dark:text-blue-400">.dev</span></span>
@@ -41,7 +41,7 @@
 <!-- Hero band -->
 <section id="top" class="border-b border-neutral-200 dark:border-neutral-800">
 	<div
-		class="mx-auto flex w-full max-w-5xl flex-col gap-10 px-4 py-16 md:flex-row md:items-center md:py-24"
+		class="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-16 md:flex-row md:items-center md:py-24"
 	>
 		<div class="flex-1">
 			<p class="text-sm font-medium uppercase tracking-widest text-blue-600 dark:text-blue-400">
@@ -60,6 +60,10 @@
 				I like well-designed code, up-to-date frameworks and clean git repos. Currently into
 				<b class="font-semibold text-neutral-900 dark:text-white">Rust</b> and
 				<b class="font-semibold text-neutral-900 dark:text-white">Svelte</b>.
+			</p>
+			<p class="mt-4 text-neutral-600 dark:text-neutral-300">
+				I also <a href="#talks" class="font-medium text-blue-600 hover:underline dark:text-blue-400">write and talk</a>
+				about what I build.
 			</p>
 			<div id="contact" class="mt-8 flex flex-wrap gap-3 scroll-mt-24">
 				<a
@@ -99,6 +103,12 @@
 					</svg>
 					Stack Overflow
 				</a>
+				<a
+					href="#talks"
+					class="inline-flex items-center gap-2 rounded-lg border border-neutral-300 px-4 py-2.5 text-sm font-medium text-neutral-700 transition-all hover:border-blue-400 hover:text-blue-600 dark:border-neutral-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-400"
+				>
+					Talks &amp; Articles ↓
+				</a>
 			</div>
 		</div>
 		<div class="shrink-0 md:self-center">
@@ -111,7 +121,7 @@
 	</div>
 </section>
 
-<main class="mx-auto w-full max-w-5xl px-4">
+<main class="mx-auto w-full max-w-6xl px-4">
 	<!-- Projects + Experience -->
 	<div class="grid gap-16 py-16 lg:grid-cols-5">
 		<section id="projects" class="scroll-mt-24 lg:col-span-3">
@@ -121,6 +131,13 @@
 					<Experience {project} />
 				{/each}
 			</div>
+			<a
+				href="#talks"
+				class="mt-8 flex items-center justify-between rounded-xl border border-dashed border-neutral-300 px-5 py-4 text-sm font-medium text-neutral-600 transition-colors hover:border-blue-400 hover:text-blue-600 dark:border-neutral-600 dark:text-neutral-300 dark:hover:border-blue-500 dark:hover:text-blue-400"
+			>
+				<span>I also write articles and give talks about this stuff</span>
+				<span class="text-blue-600 dark:text-blue-400">See them →</span>
+			</a>
 		</section>
 		<section id="experience" class="scroll-mt-24 lg:col-span-2">
 			<h2 class="text-2xl font-bold tracking-tight">Experience</h2>
