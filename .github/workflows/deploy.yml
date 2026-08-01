@@ -1,11 +1,14 @@
 name: Deploy
 
+# Autodeploy disabled for now — deployments are done manually on the server.
 # on:
 #   workflow_dispatch:
+# on:
+#   push:
+#     branches:
+#       - master
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest

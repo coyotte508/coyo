@@ -1,6 +1,10 @@
 # coyo
 
-Personal portfolio
+Personal portfolio — https://coyo.dev
+
+Built with [SvelteKit](https://svelte.dev/docs/kit) (static adapter), Svelte 5, Tailwind CSS 4 and TypeScript.
+
+> The previous Nuxt 2 implementation is kept in [`legacy-nuxt2/`](legacy-nuxt2/) for reference.
 
 ## Build Setup
 
@@ -8,15 +12,18 @@ Personal portfolio
 # install dependencies
 $ yarn install
 
-# serve with hot reload at localhost:3000
+# serve with hot reload at localhost:5173
 $ yarn dev
 
-# build for production and launch server
+# build static production site into build/
 $ yarn build
-$ yarn start
 
-# generate static project
-$ yarn generate
+# preview the production build
+$ yarn preview
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## Deployment
+
+Deployment is currently **manual** (the GitHub Actions auto-deploy is disabled in
+`.github/workflows/deploy.yml`). The static output in `build/` is synced to the
+server and served behind nginx.
