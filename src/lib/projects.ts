@@ -41,7 +41,7 @@ export const projects: Project[] = sortByStartYearDesc([
 		title: "Mongoku",
 		link: "//github.com/huggingface/Mongoku",
 		image: "/mongoku.png",
-		text: "The web-scale GUI for MongoDB. It also has OAuth authentication, sharding & schema-auditing insights, aggregation pipeline support, user/role management, relational graphs, and a lot of query and deployment polish.",
+		text: "The web-scale GUI for MongoDB. It also has OAuth authentication, sharding & schema-auditing insights, aggregation pipeline support, user/role management, relational graphs, and a lot of query and deployment polish. Used internally at <a href='https://huggingface.co'>Hugging Face</a>.",
 	},
 	{
 		id: "bergere",
