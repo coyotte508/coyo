@@ -2,6 +2,8 @@
 	import Experience from '$lib/Experience.svelte';
 	import { projects, experiences } from '$lib/projects';
 	import { talks } from '$lib/talks';
+
+	const talksByDateDesc = [...talks].sort((a, b) => Number(b.years) - Number(a.years));
 </script>
 
 <svelte:head>
@@ -94,7 +96,7 @@
 	<section class="pb-16">
 		<h1 class="text-center text-3xl font-semibold">Talks &amp; Articles</h1>
 		<div class="mx-auto mt-6 max-w-2xl space-y-4">
-			{#each talks as talk (talk.id)}
+			{#each talksByDateDesc as talk (talk.id)}
 				<div
 					class="rounded-lg border border-neutral-200 bg-white p-5 shadow-sm dark:border-neutral-700 dark:bg-neutral-800"
 				>

@@ -24,10 +24,10 @@ export const talks: Talk[] = [
 	},
 	{
 		id: 'oss',
-		title: 'Open Source',
+		title: "L'Open Source",
 		years: '2020',
 		href: '/talks/oss.pdf',
-		text: 'Slides (in French) about open source — why and how to contribute.',
+		text: 'Slides (in French) about open source — why and how to contribute. Talk given while at Zenika.',
 		kind: 'slides'
 	},
 	{
