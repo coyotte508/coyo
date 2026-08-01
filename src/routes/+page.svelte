@@ -21,16 +21,16 @@
 <header
 	class="sticky top-0 z-20 border-b border-neutral-200/70 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-neutral-900/80"
 >
-	<div class="mx-auto flex w-full max-w-6xl items-center gap-6 px-4 py-3">
-		<a href="#top" class="flex items-center gap-2 font-semibold tracking-tight">
-			<img src="/icons/logo.png" alt="" class="h-6 w-6" />
-			<span>coyo<span class="text-blue-600 dark:text-blue-400">.dev</span></span>
+	<div class="mx-auto flex w-full max-w-6xl items-center gap-3 px-4 py-3 sm:gap-6">
+		<a href="#top" class="flex shrink-0 items-center gap-2 font-semibold tracking-tight">
+			<img src="/icons/logo.png" alt="coyo.dev" class="h-6 w-6" />
+			<span class="hidden sm:inline">coyo<span class="text-blue-600 dark:text-blue-400">.dev</span></span>
 		</a>
-		<nav class="ml-auto flex items-center gap-1 text-sm">
+		<nav class="ml-auto flex items-center gap-0.5 overflow-x-auto text-sm sm:gap-1">
 			{#each nav as item (item.href)}
 				<a
 					href={item.href}
-					class="rounded-md px-3 py-1.5 text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-white"
+					class="whitespace-nowrap rounded-md px-2 py-1.5 text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900 sm:px-3 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-white"
 					>{item.label}</a
 				>
 			{/each}
