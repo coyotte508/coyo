@@ -1,6 +1,6 @@
 # Building Moon Bot: A Slack-Native Coding Agent Backed by HuggingFace Buckets
 
-*How we built an always-on engineering assistant that lives in Slack, remembers everything, and uses HuggingFace's own infrastructure to do it.*
+_How we built an always-on engineering assistant that lives in Slack, remembers everything, and uses HuggingFace's own infrastructure to do it._
 
 ## The problem
 
@@ -8,9 +8,10 @@ The HuggingFace team lives in Slack. But answering a question often means contex
 
 Moon Bot collapses all of that into a single Slack thread. Support can ask about user-facing behaviour without touching a terminal. Engineers can ask whether a feature exists, how it works, or whether something is a bug — even in codebases they don't know well.
 
-It turned out to be just as useful for **metrics and analytics**. Because Moon Bot already holds the Elasticsearch and MongoDB connections, asking *"how many Pro users signed up last month?"*  is a one-line Slack message — no juggling authentication across half a dozen tools, no exporting CSVs, no remembering which dashboard has which metric. It's fast, and it meets you where you already are.
+It turned out to be just as useful for **metrics and analytics**. Because Moon Bot already holds the Elasticsearch and MongoDB connections, asking _"how many Pro users signed up last month?"_ is a one-line Slack message — no juggling authentication across half a dozen tools, no exporting CSVs, no remembering which dashboard has which metric. It's fast, and it meets you where you already are.
 
 We wanted an agent that could:
+
 - Query Elasticsearch logs and MongoDB directly from a Slack thread
 - Pull quick metrics and stats without juggling auth across tools
 - Browse and understand the Hub codebase
@@ -40,45 +41,47 @@ Each Slack thread gets its own independent **Pi agent session**, a stateful conv
 When the bot restarts (daily rolling deploy, or a crash), it needs to pick up exactly where it left off in every active thread. We solved this with three files in a private HuggingFace Bucket (`huggingface/moon-bot-memory`):
 
 ### `sessions/<id>.jsonl`
+
 Each Pi agent session serializes its full message history — including all tool calls and results — as an append-only JSONL file. On first message in a thread, a new file is created. On follow-ups (even days later, even after a pod restart), it's downloaded on-demand and the session is resumed.
 
 ```ts
 // On startup: lazy download from bucket when thread resumes
 export async function ensureSessionFile(filename: string): Promise<string | undefined> {
-  const localPath = join(LOCAL_SESSIONS_DIR, filename);
-  if (existsSync(localPath)) return localPath; // already cached
+	const localPath = join(LOCAL_SESSIONS_DIR, filename);
+	if (existsSync(localPath)) return localPath; // already cached
 
-  const blob = await downloadFile({ repo: REPO, path: `sessions/${filename}`, ...credentials() });
-  writeFileSync(localPath, Buffer.from(await blob.arrayBuffer()));
-  return localPath;
+	const blob = await downloadFile({ repo: REPO, path: `sessions/${filename}`, ...credentials() });
+	writeFileSync(localPath, Buffer.from(await blob.arrayBuffer()));
+	return localPath;
 }
 ```
 
 ### `thread-map.json`
+
 Maps Slack `thread_ts` timestamps to session filenames. This is how we reconnect a new Slack message to the right `.jsonl` file:
 
 ```json
 {
-  "1776379256.075999": {
-    "sessionFilename": "abc123.jsonl",
-    "lastProcessedMessageTs": "1776381044.000200"
-  }
+	"1776379256.075999": {
+		"sessionFilename": "abc123.jsonl",
+		"lastProcessedMessageTs": "1776381044.000200"
+	}
 }
 ```
 
 ### `memory.json`
+
 A rolling log of the last 200 interactions across **all threads** — prompt + outcome, timestamped. This is exposed to the LLM as a `memory` tool with two modes:
 
 ```ts
 // Search across all past threads
-memory({ mode: "search", query: "gradio PR" })
+memory({ mode: "search", query: "gradio PR" });
 
 // Or just get recent history
-memory({ mode: "recent", limit: 20 })
+memory({ mode: "recent", limit: 20 });
 ```
 
-This is what lets Moon Bot say things like *"last week you asked me to investigate Gitaly timeouts — here's what we found."*
-
+This is what lets Moon Bot say things like _"last week you asked me to investigate Gitaly timeouts — here's what we found."_
 
 ## Observability: every response links back to the Hub
 
@@ -97,22 +100,22 @@ Skills are Markdown files in `skills/<name>/SKILL.md` following the [Agent Skill
 
 A key design principle: **every skill uses a CLI tool as its interface**. The LLM never speaks directly to APIs or databases — it runs a command-line tool via `bash`, reads stdout, and iterates. This keeps skills simple, testable independently, and easy to swap out.
 
-| Skill | CLI tool | What it does |
-|---|---|---|
-| `es-cli` | [`es-cli`](https://github.com/XciD/es-cli) — a Rust CLI by [@XciD](https://github.com/XciD) | Query Elasticsearch (Hub access logs, Gitaly logs, debug logs) |
-| `mongo` | `mongosh` | Query the Hub's MongoDB with schema reference |
-| `github` | `gh` (GitHub CLI) + in-process PR tools | Browse repos read-only; open PRs / issues via dedicated tools |
-| `hub-code` | `gh`, `grep`, `find` | Navigate the Hub codebase |
-| `workloads` | `gh`, `grep`, `find` | Navigate the Spaces/Endpoints/Jobs codebase |
-| `athena` | `athena-query` — a bash wrapper around the AWS CLI | Query ALB/WAF/CloudFront logs via AWS Athena |
-| `sizzle` | `sizzle-query` — a bash wrapper around DuckDB | Query Xet storage statistics via DuckLake |
-| `plausible` | `plausible-query` — a bash wrapper around the Plausible Stats API | Privacy-preserving traffic analytics for public marketing / blog / docs pages |
+| Skill       | CLI tool                                                                                    | What it does                                                                  |
+| ----------- | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `es-cli`    | [`es-cli`](https://github.com/XciD/es-cli) — a Rust CLI by [@XciD](https://github.com/XciD) | Query Elasticsearch (Hub access logs, Gitaly logs, debug logs)                |
+| `mongo`     | `mongosh`                                                                                   | Query the Hub's MongoDB with schema reference                                 |
+| `github`    | `gh` (GitHub CLI) + in-process PR tools                                                     | Browse repos read-only; open PRs / issues via dedicated tools                 |
+| `hub-code`  | `gh`, `grep`, `find`                                                                        | Navigate the Hub codebase                                                     |
+| `workloads` | `gh`, `grep`, `find`                                                                        | Navigate the Spaces/Endpoints/Jobs codebase                                   |
+| `athena`    | `athena-query` — a bash wrapper around the AWS CLI                                          | Query ALB/WAF/CloudFront logs via AWS Athena                                  |
+| `sizzle`    | `sizzle-query` — a bash wrapper around DuckDB                                               | Query Xet storage statistics via DuckLake                                     |
+| `plausible` | `plausible-query` — a bash wrapper around the Plausible Stats API                           | Privacy-preserving traffic analytics for public marketing / blog / docs pages |
 
 Adding a new skill — say, for `gradio` — is as simple as dropping a `SKILL.md` into `skills/gradio/` describing where the repo is, how to clone it, and any domain conventions.
 
 ## Security: tiered access, sandboxed execution, and local credential proxies
 
-Moon Bot can read production databases and logs, so access control is central. Three things need protecting: *who* gets to reach *which* data, the host credentials, and the runner process itself.
+Moon Bot can read production databases and logs, so access control is central. Three things need protecting: _who_ gets to reach _which_ data, the host credentials, and the runner process itself.
 
 ### Access tiers from Okta
 
@@ -134,7 +137,7 @@ Even a sandboxed runner never gets raw credentials for external services. Instea
 
 - **ES proxy** (`localhost:9201`): forwards to Elastic Cloud, injecting the real API key server-side. The runner hits `http://localhost:9201` and never sees the key.
 - **HF proxy** (`localhost:9202`): forwards GET requests to `huggingface.co` for Sizzle DuckLake catalog files, injecting the HF token. Path-restricted to the `storage-visualization-data` dataset.
-- **Plausible proxy** (`localhost:9203`): forwards to the Plausible Stats API, hard-allowlisted to a single `POST /api/v2/query` endpoint. Because it has its own token — handed to *every* tier including basic — anyone can pull public-traffic analytics without that also unlocking the ES or Sizzle proxies.
+- **Plausible proxy** (`localhost:9203`): forwards to the Plausible Stats API, hard-allowlisted to a single `POST /api/v2/query` endpoint. Because it has its own token — handed to _every_ tier including basic — anyone can pull public-traffic analytics without that also unlocking the ES or Sizzle proxies.
 
 A compromised or prompt-injected tool call can query the data its tier is allowed to, but cannot exfiltrate the credentials used to do so.
 
@@ -149,7 +152,7 @@ Two nice properties fall out of this:
 
 ## A second, locked-down pod for GitHub
 
-Moon Bot also runs as a **GitHub bot** on a separate, far less privileged pod: it replies to `@moon-bot` mentions on issues and PRs in our internal repos. That pod has *no* Slack token, *no* Mongo/Elasticsearch/AWS credentials — only what it needs to read code and post comments. It's the same codebase and the same in-process PR tools, just deployed with a credential-poor environment and scoped to internal repos. Defense in depth: even a hypothetical sandbox escape there has nothing valuable to escalate to.
+Moon Bot also runs as a **GitHub bot** on a separate, far less privileged pod: it replies to `@moon-bot` mentions on issues and PRs in our internal repos. That pod has _no_ Slack token, _no_ Mongo/Elasticsearch/AWS credentials — only what it needs to read code and post comments. It's the same codebase and the same in-process PR tools, just deployed with a credential-poor environment and scoped to internal repos. Defense in depth: even a hypothetical sandbox escape there has nothing valuable to escalate to.
 
 ## Scheduled tasks
 
@@ -161,6 +164,7 @@ Beyond reactive Slack responses, Moon Bot runs two scheduled tasks:
 ## What's next
 
 The pattern — **LLM agent + file-based sessions in a Bucket + skill Markdown files** — is simple enough to replicate for any team. You need:
+
 1. A HuggingFace Bucket (or any object store)
 2. The Pi SDK for session management
 3. Skill files describing your domain
@@ -170,4 +174,4 @@ The hardest part is writing good skills :). The infrastructure to get started is
 
 ---
 
-*Moon Bot is an internal tool at HuggingFace. The Pi coding agent SDK is open source. Huge thanks to Mario Zechner for Pi.*
+_Moon Bot is an internal tool at HuggingFace. The Pi coding agent SDK is open source. Huge thanks to Mario Zechner for Pi._

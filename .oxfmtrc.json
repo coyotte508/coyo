@@ -1,0 +1,9 @@
+{
+	"$schema": "./node_modules/oxfmt/configuration_schema.json",
+	"useTabs": true,
+	"tabWidth": 2,
+	"printWidth": 120,
+	"singleQuote": false,
+	"svelte": true,
+	"ignorePatterns": ["static/talks/**", "build/**"]
+}

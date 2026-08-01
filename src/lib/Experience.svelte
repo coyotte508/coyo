@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { marked } from 'marked';
-	import type { Project, Technology } from './projects';
+	import { marked } from "marked";
+	import type { Project, Technology } from "./projects";
 
 	interface Props {
 		project: Project;
@@ -13,24 +13,24 @@
 
 	function formatTech(tech: Technology): string {
 		switch (tech) {
-			case 'vue':
-				return 'VueJS';
-			case 'svg':
-				return 'SVG';
-			case 'node':
-				return 'Node.js';
-			case 'opengl':
-				return 'OpenGL';
-			case 'mongo':
-				return 'MongoDB';
-			case 'pwa':
-				return 'PWA';
-			case 'graphql':
-				return 'GraphQL';
-			case 'nest':
-				return 'NestJS';
-			case 'svelte':
-				return 'Svelte';
+			case "vue":
+				return "VueJS";
+			case "svg":
+				return "SVG";
+			case "node":
+				return "Node.js";
+			case "opengl":
+				return "OpenGL";
+			case "mongo":
+				return "MongoDB";
+			case "pwa":
+				return "PWA";
+			case "graphql":
+				return "GraphQL";
+			case "nest":
+				return "NestJS";
+			case "svelte":
+				return "Svelte";
 			default:
 				return tech[0].toUpperCase() + tech.slice(1);
 		}
@@ -40,10 +40,10 @@
 </script>
 
 <svelte:element
-	this={project.link ? 'a' : 'div'}
+	this={project.link ? "a" : "div"}
 	href={project.link}
-	target={project.link ? '_blank' : undefined}
-	rel={project.link ? 'noopener noreferrer' : undefined}
+	target={project.link ? "_blank" : undefined}
+	rel={project.link ? "noopener noreferrer" : undefined}
 	class="group block overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-lg dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-blue-600"
 	style={minHeight ? `min-height: ${minHeight}px` : undefined}
 >

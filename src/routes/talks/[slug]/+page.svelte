@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { marked } from 'marked';
-	import type { PageData } from './$types';
+	import { marked } from "marked";
+	import type { PageData } from "./$types";
 
 	let { data }: { data: PageData } = $props();
 

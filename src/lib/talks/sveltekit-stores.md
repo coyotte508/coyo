@@ -1,4 +1,4 @@
-> Edit 19 January 2022: Recently SvelteKit introduced the ability to get `stuff`  from `getStores().page`. The article has not been updated to reflect this, but it may simplify the code.
+> Edit 19 January 2022: Recently SvelteKit introduced the ability to get `stuff` from `getStores().page`. The article has not been updated to reflect this, but it may simplify the code.
 
 Svelte is really nice with stores. You can have a separate folder like this with named global stores:
 
@@ -17,18 +17,18 @@ import { user } from "../user";
 export const products = writable<Product[] | null>(null);
 
 // Remove products on log out
-user.subscribe($user => {
-  if (!$user) {
-    products.set(null);
-  }
+user.subscribe(($user) => {
+	if (!$user) {
+		products.set(null);
+	}
 });
 
 export async function loadProducts() {
-  // Simple caching mechanism
-  if (!$(products) && $(user)) {
-    const response = await fetch('/api/products');
-    products.set(await response.json());
-  }
+	// Simple caching mechanism
+	if (!$(products) && $(user)) {
+		const response = await fetch("/api/products");
+		products.set(await response.json());
+	}
 }
 ```
 
@@ -89,22 +89,22 @@ export const sessionData = new WeakMap<Session, SessionData>();
 
 // Typescript magic
 type ReturnTypes<T> = T extends [...infer U, infer A]
-  ? A extends (...args: unknown[]) => unknown
-    ? ReturnType<A> & ReturnTypes<U>
-    : void
-  : void;
+	? A extends (...args: unknown[]) => unknown
+		? ReturnType<A> & ReturnTypes<U>
+		: void
+	: void;
 
 export function useLoad<T extends Array<(...args: unknown[]) => unknown>>(input: LoadInput, ...fns: T): ReturnTypes<T> {
-  if (!sessionData.has(input.session)) {
-    sessionData.set(input.session, { stores: new Map(), fetch: input.fetch });
-  }
-  loadSession.set(input.session);
+	if (!sessionData.has(input.session)) {
+		sessionData.set(input.session, { stores: new Map(), fetch: input.fetch });
+	}
+	loadSession.set(input.session);
 
-  try {
-    return Object.assign({}, ...fns.map((fn) => fn()));
-  } finally {
-    loadSession.set(null);
-  }
+	try {
+		return Object.assign({}, ...fns.map((fn) => fn()));
+	} finally {
+		loadSession.set(null);
+	}
 }
 ```
 
@@ -115,18 +115,18 @@ import { get as $, writable } from "svelte/store";
 import { loadSession, sessionData } from "../useLoad";
 
 export function useSession(): { session: Session; data: SessionData } {
-  const session = $(loadSession) ?? ($(getStores().session) as Session);
+	const session = $(loadSession) ?? ($(getStores().session) as Session);
 
-  const data = sessionData.get(session);
+	const data = sessionData.get(session);
 
-  if (!data) {
-    throw new Error("Call useLoad before calls to useSession");
-  }
+	if (!data) {
+		throw new Error("Call useLoad before calls to useSession");
+	}
 
-  return {
-    session,
-    data,
-  };
+	return {
+		session,
+		data,
+	};
 }
 ```
 
@@ -149,11 +149,11 @@ import { writable } from "svelte/store";
 import { defineStore } from "./defineStore";
 
 const useUser = defineStore(() => {
-  const user = writable<User|null>(null);
+	const user = writable<User | null>(null);
 
-  return {
-    user
-  }
+	return {
+		user,
+	};
 });
 ```
 
@@ -187,15 +187,15 @@ How does this work? `defineStore` takes a function as a parameter. The first tim
 import { useSession } from "./useSession";
 
 export function defineStore<T>(fn: () => T): () => T {
-  return () => {
-    const { data } = useSession();
+	return () => {
+		const { data } = useSession();
 
-    if (!data.stores!.has(fn)) {
-      data.stores!.set(fn, fn());
-    }
+		if (!data.stores!.has(fn)) {
+			data.stores!.set(fn, fn());
+		}
 
-    return data.stores!.get(fn) as T;
-  };
+		return data.stores!.get(fn) as T;
+	};
 }
 ```
 
@@ -211,9 +211,9 @@ To access it, we can create a `useFetch` function:
 
 ```ts
 export const useFetch = () => {
-  const { data } = useSession();
-  return { fetch: data.fetch };
-}
+	const { data } = useSession();
+	return { fetch: data.fetch };
+};
 ```
 
 And we can now improve our `useProducts` function to add `loadProducts`:
@@ -287,14 +287,14 @@ And here is what it would look like inside a component:
 <script lang="ts">
 import { useProduct } from "$lib/use/useProduct";
 
-const {products, loadProducts} = useProducts();
-const {user} = useUser();
+const { products, loadProducts } = useProducts();
+const { user } = useUser();
 
-$: loadProducts(), [$user] // reloads products each time user changes
+$: (loadProducts(), [$user]); // reloads products each time user changes
 </script>
 
 {#each ($products || []) as product}
-  <Product {product}/>
+<Product {product} />
 {/each}
 ```
 
