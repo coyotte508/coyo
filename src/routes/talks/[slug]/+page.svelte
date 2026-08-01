@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-	<title>{data.talk.title} — coyo</title>
+	<title>{data.talk.title}: coyo</title>
 	<meta name="description" content={data.talk.text} />
 </svelte:head>
 

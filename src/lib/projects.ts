@@ -21,7 +21,7 @@ export interface Project {
 	id: string;
 	technologies?: Technology[];
 	years: string;
-	/** First year of the project/job — used to sort entries chronologically. */
+	/** First year of the project/job: used to sort entries chronologically. */
 	startYear: number;
 	title: string;
 	image?: string;
@@ -154,15 +154,15 @@ export const experiences: Project[] = sortByStartYearDesc([
 - Moved a lot of "source of truth" into the DB: list of all uploaded S3 storage files, repo configuration
 - Made Hugging Face an OAuth identity provider, added fine-grained tokens
 - Various security and performance improvements
-- Made the backend scale horizontally — removed the reliance on "Process 0", made long operations instantaneous (renaming a model) and resilient to pod restarts (uploading thousands of GB of files at once)
+- Made the backend scale horizontally: removed the reliance on "Process 0", made long operations instantaneous (renaming a model) and resilient to pod restarts (uploading thousands of GB of files at once)
 - And much more: webhooks support, a notification center, one-click email-unsubscribing, implementing the LFS protocol from the browser, DX & CI improvements...
 
 #### Offshoot projects
 
 - [Moonbot](https://huggingface.co/blog/huggingface/moon-bot), a Slack/GitHub agent linking everything together at the company
-- [Hugging Chat](https://github.com/huggingface/chat-ui/), an open-source ChatGPT alternative — see it on [hf.co/chat](https://hf.co/chat)
+- [Hugging Chat](https://github.com/huggingface/chat-ui/), an open-source ChatGPT alternative: see it on [hf.co/chat](https://hf.co/chat)
 - [huggingface.js](https://github.com/huggingface/huggingface.js), a collection of libraries to interact with the platform
-- The [documentation instrumentation](https://github.com/huggingface/doc-builder/) for the Hugging Face ecosystem — see the results on [hf.co/docs](https://hf.co/docs)`,
+- The [documentation instrumentation](https://github.com/huggingface/doc-builder/) for the Hugging Face ecosystem: see the results on [hf.co/docs](https://hf.co/docs)`,
 	},
 	{
 		id: "treckea",

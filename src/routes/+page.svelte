@@ -14,7 +14,7 @@
 </script>
 
 <svelte:head>
-	<title>Eliott Coyac — Full-stack engineer</title>
+	<title>Eliott Coyac: Full-stack engineer</title>
 </svelte:head>
 
 <!-- Sticky nav -->
@@ -67,7 +67,7 @@
 			</p>
       <p class="mt-4 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
     		Taking full advantage of
-				<b class="font-semibold text-neutral-900 dark:text-white">Kimi K3</b> and other open-weight LLMs for old & new projects. I like sovereign platforms — ones that own their IT and are not vendor-locked-in to hyperscalers.
+				<b class="font-semibold text-neutral-900 dark:text-white">Kimi K3</b> and other open-weight LLMs for old & new projects. I like sovereign platforms: ones that own their IT and are not vendor-locked-in to hyperscalers.
 			</p>
 			<p class="mt-4 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
 				Right now I'm helping scale

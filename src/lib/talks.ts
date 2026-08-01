@@ -19,7 +19,7 @@ export const talks: Talk[] = [
 		title: "Hooks Everywhere",
 		years: "2023",
 		href: "/talks/hooks-everywhere/",
-		text: "Slides (in French) about SvelteKit hooks — server hooks, universal hooks and client hooks: what they are and how to use them.",
+		text: "Slides (in French) about SvelteKit hooks: server hooks, universal hooks and client hooks: what they are and how to use them.",
 		kind: "slides",
 	},
 	{
@@ -27,7 +27,7 @@ export const talks: Talk[] = [
 		title: "L'Open Source",
 		years: "2020",
 		href: "/talks/oss.pdf",
-		text: "Slides (in French) about open source — why and how to contribute. Talk given while at Zenika.",
+		text: "Slides (in French) about open source: why and how to contribute. Talk given while at Zenika.",
 		kind: "slides",
 	},
 	{
