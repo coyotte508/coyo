@@ -29,6 +29,8 @@
 				return 'GraphQL';
 			case 'nest':
 				return 'NestJS';
+			case 'svelte':
+				return 'Svelte';
 			default:
 				return tech[0].toUpperCase() + tech.slice(1);
 		}

@@ -13,7 +13,8 @@ export type Technology =
   | "react"
   | "nest"
   | "graphql"
-  | "SQL";
+  | "SQL"
+  | "svelte";
 
 export interface Project {
   id: string;
@@ -29,6 +30,15 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    id: "mongoku",
+    technologies: ["svelte", "node", "mongo"],
+    years: "2022-now",
+    title: "Mongoku",
+    link: "//github.com/coyotte508/mongoku",
+    image: "/mongoku.png",
+    text: "A modern, fast web-based MongoDB client. Browse databases, run queries, edit documents and inspect indexes — a lighter alternative to Compass, right in the browser.",
+  },
   {
     id: "bgs",
     technologies: ["vue", "mongo", "node", "svg"],
