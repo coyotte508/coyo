@@ -9,7 +9,9 @@
 
 <div class="mx-auto w-full max-w-6xl px-4">
 	<div class="flex min-h-[70vh] items-center justify-center py-10">
-		<div class="w-full max-w-2xl rounded-lg border border-neutral-200 bg-white p-6 shadow-sm">
+		<div
+			class="w-full max-w-2xl rounded-lg border border-neutral-200 bg-white p-6 shadow-sm dark:border-neutral-700 dark:bg-neutral-800"
+		>
 			<div>
 				<img src="/icons/logo.png" alt="logo" class="float-left mr-4 mb-4 h-20" />
 				<div class="space-y-3">
@@ -43,7 +45,7 @@
 					href="https://github.com/coyotte508"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="inline-flex items-center gap-2 rounded-md bg-neutral-800 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-neutral-900"
+					class="inline-flex items-center gap-2 rounded-md bg-neutral-800 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-neutral-900 dark:bg-neutral-700 dark:hover:bg-neutral-600"
 				>
 					<svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
 						<path

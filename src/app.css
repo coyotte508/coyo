@@ -6,8 +6,9 @@
 
 html {
 	scroll-behavior: smooth;
+	color-scheme: light dark;
 }
 
 body {
-	@apply bg-neutral-100 text-neutral-900 antialiased;
+	@apply bg-neutral-100 text-neutral-900 antialiased dark:bg-neutral-900 dark:text-neutral-100;
 }

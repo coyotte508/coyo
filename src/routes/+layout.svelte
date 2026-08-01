@@ -8,7 +8,9 @@
 	<main class="flex-1">
 		{@render children()}
 	</main>
-	<footer class="border-t border-neutral-200 py-4 text-center text-sm text-neutral-500">
+	<footer
+		class="border-t border-neutral-200 py-4 text-center text-sm text-neutral-500 dark:border-neutral-800 dark:text-neutral-400"
+	>
 		&copy; {new Date().getFullYear()} Eliott Coyac
 	</footer>
 </div>
