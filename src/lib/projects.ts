@@ -33,11 +33,11 @@ export const projects: Project[] = [
   {
     id: "mongoku",
     technologies: ["svelte", "node", "mongo"],
-    years: "2025-now",
+    years: "2025",
     title: "Mongoku",
     link: "//github.com/huggingface/Mongoku",
     image: "/mongoku.png",
-    text: "The web-scale GUI for MongoDB. I took over the project in 2025 and reworked it end to end: OAuth authentication, sharding & schema-auditing insights, aggregation pipeline support, user/role management, and a lot of query and deployment polish. Browse databases, run queries and edit documents right in the browser.",
+    text: "The web-scale GUI for MongoDB. I took over the project in 2025 and reworked it end to end: OAuth authentication, sharding & schema-auditing insights, aggregation pipeline support, user/role management, and a lot of query and deployment polish. A standout addition is mappings — links between collections/documents that let you navigate your database like a relational graph. Blazing fast even on 1TB+ clusters.",
   },
   {
     id: "bgs",
@@ -130,7 +130,9 @@ export const experiences: Project[] = [
     link: "//huggingface.co",
     avatar: "🤗",
     current: true,
-    text: `Hugging Face is the platform where the ML community uploads hundreds of thousands of Models, Datasets and Spaces (demos). I help evolve the platform so it scales and meets its growing challenges:
+    text: `Hugging Face is the platform where the ML community uploads hundreds of thousands of Models, Datasets and Spaces (demos). I help evolve the platform so it scales and meets its growing challenges.
+
+#### Scaling the platform
 
 - Switched from a FS-based git backend to Gitaly
 - Moved a lot of "source of truth" into the DB: list of all uploaded S3 storage files, repo configuration
@@ -139,7 +141,7 @@ export const experiences: Project[] = [
 - Made the backend scale horizontally — removed the reliance on "Process 0", made long operations instantaneous (renaming a model) and resilient to pod restarts (uploading thousands of GB of files at once)
 - And much more: webhooks support, a notification center, one-click email-unsubscribing, implementing the LFS protocol from the browser, DX & CI improvements...
 
-I also contributed heavily to offshoot projects:
+#### Offshoot projects
 
 - [Moonbot](https://huggingface.co/blog/huggingface/moon-bot), a Slack/GitHub agent linking everything together at the company
 - [Hugging Chat](https://github.com/huggingface/chat-ui/), an open-source ChatGPT alternative — see it on [hf.co/chat](https://hf.co/chat)
