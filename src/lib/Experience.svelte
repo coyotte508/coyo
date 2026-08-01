@@ -87,7 +87,9 @@
 		/>
 	{/if}
 
-	<div class="prose-sm px-5 py-4 text-neutral-600 [&_p]:mb-2 dark:text-neutral-300">
+	<div
+		class="prose-sm px-5 py-4 text-neutral-600 [&_a]:font-medium [&_a]:text-blue-600 [&_a]:hover:underline [&_li]:mb-1 [&_ol]:mb-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_p]:mb-2 [&_ul]:mb-2 [&_ul]:list-disc [&_ul]:pl-5 dark:text-neutral-300 dark:[&_a]:text-blue-400"
+	>
 		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 		{@html html}
 		{#if technologies}
