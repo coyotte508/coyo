@@ -68,7 +68,7 @@ export const projects: Project[] = sortByStartYearDesc([
 		image: "/cutting-fabric.webp",
 		icon: "/icons/cutting-fabric.png",
 		technologies: ["flutter", "dart", "android"],
-		text: `A Flutter app for upholsterers that computes optimal fabric cutting plans ([source](https://github.com/coyotte508/cutting-fabric)). Enter the pieces to cut and it packs them into the fabric with a bottom-left heuristic, minimizing waste. Instant, offline and precise. Available on the [Play Store](https://play.google.com/store/apps/details?id=com.coyotte508.cutting_fabric). Born from [Bergère Enchantée](#project-bergere).`,
+		text: `A Flutter app for upholsterers that computes optimal fabric cutting plans. Enter the pieces to cut and it packs them into the fabric with a bottom-left heuristic, minimizing waste. Instant, offline and precise. Available on the [Play Store](https://play.google.com/store/apps/details?id=com.coyotte508.cutting_fabric). Born from [Bergère Enchantée](#project-bergere).`,
 	},
 	{
 		id: "bgs",
