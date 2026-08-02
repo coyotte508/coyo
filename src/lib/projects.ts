@@ -281,7 +281,7 @@ Geared toward IT and Computer science.
 		id: "mongo-cert",
 		years: "2021",
 		startYear: 2021,
-		title: "MongoDB Associate Developer",
+		title: "MongoDB Certification",
 		link: "https://www.credly.com/badges/f2e9f7d0-f37a-4320-a8bc-82360e54feb8",
 		text: "[MongoDB Associate Developer certification](https://www.credly.com/badges/f2e9f7d0-f37a-4320-a8bc-82360e54feb8): data modeling, the document model, indexes, drivers and day-to-day operational tasks.",
 		icon: "/icons/mongodb.png",
