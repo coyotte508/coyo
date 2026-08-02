@@ -27,11 +27,11 @@
 		type="button"
 		onclick={() => (expanded = true)}
 		aria-expanded="false"
-		class="group flex w-full flex-wrap items-center gap-x-2.5 gap-y-1 overflow-hidden rounded-xl border border-neutral-200 bg-white px-4 py-3 text-left shadow-sm transition-colors hover:border-blue-300 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-blue-600"
+		class="group grid w-full grid-cols-[auto_1fr_auto] items-center gap-x-2.5 gap-y-1 overflow-hidden rounded-xl border border-neutral-200 bg-white px-3 py-2.5 text-left shadow-sm transition-colors hover:border-blue-300 sm:flex sm:flex-wrap sm:px-4 sm:py-3 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-blue-600"
 	>
 		{#if project.avatar || project.icon}
 			<span
-				class="flex h-7 w-7 shrink-0 items-center justify-center overflow-hidden rounded-full bg-neutral-50 text-base ring-1 ring-neutral-200 dark:bg-neutral-700 dark:ring-neutral-600"
+				class="row-span-2 flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-neutral-50 text-lg ring-1 ring-neutral-200 sm:h-7 sm:w-7 sm:text-base dark:bg-neutral-700 dark:ring-neutral-600"
 			>
 				{#if project.avatar}
 					{project.avatar}
@@ -40,13 +40,26 @@
 				{/if}
 			</span>
 		{/if}
-		<span
-			class="text-sm font-semibold text-neutral-800 transition-colors group-hover:text-blue-600 dark:text-neutral-100 dark:group-hover:text-blue-400"
-			>{project.title}</span
+		<div class="min-w-0 {project.avatar || project.icon ? '' : 'col-start-1'} sm:contents">
+			<div
+				class="text-sm font-semibold leading-tight text-neutral-800 transition-colors group-hover:text-blue-600 dark:text-neutral-100 dark:group-hover:text-blue-400"
+			>
+				{project.title}
+			</div>
+			<div class="text-xs text-neutral-400 dark:text-neutral-500">{project.years}</div>
+		</div>
+		<svg
+			class="row-span-2 h-4 w-4 shrink-0 text-neutral-400 sm:ml-auto"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="2"
+			aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round" /></svg
 		>
-		<span class="text-xs text-neutral-400 dark:text-neutral-500">{project.years}</span>
 		{#if technologies}
-			<span class="flex flex-wrap gap-1">
+			<span
+				class="{project.avatar || project.icon ? 'col-start-2' : 'col-start-1'} flex flex-wrap gap-1 sm:col-start-auto"
+			>
 				{#each technologies as tech (tech)}
 					<span
 						class="rounded-full bg-neutral-100 px-2 py-px text-[11px] font-medium text-neutral-500 ring-1 ring-neutral-200 dark:bg-neutral-700 dark:text-neutral-300 dark:ring-neutral-600"
@@ -55,14 +68,6 @@
 				{/each}
 			</span>
 		{/if}
-		<svg
-			class="ml-auto h-4 w-4 shrink-0 text-neutral-400"
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			stroke-width="2"
-			aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round" /></svg
-		>
 	</button>
 {:else}
 	<!-- Full card (majors always; minors once expanded) -->

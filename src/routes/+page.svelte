@@ -149,7 +149,7 @@
 				{#each experiences as experience, i (experience.id)}
 					{#if startsRun(experiences, i)}
 						{#if experiences[i + 1]?.minor}
-							<div class="grid gap-3 sm:grid-cols-2">
+							<div class="grid grid-cols-2 gap-2 sm:gap-3">
 								<Experience project={experience} collapsible />
 								<Experience project={experiences[i + 1]} collapsible />
 							</div>
@@ -173,7 +173,7 @@
 				{#each projects as project, i (project.id)}
 					{#if startsRun(projects, i)}
 						{#if projects[i + 1]?.minor}
-							<div class="grid gap-3 sm:grid-cols-2">
+							<div class="grid grid-cols-2 gap-2 sm:gap-3">
 								<Experience {project} collapsible />
 								<Experience project={projects[i + 1]} collapsible />
 							</div>
