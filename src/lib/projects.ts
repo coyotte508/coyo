@@ -111,6 +111,7 @@ There are currently four boardgames on the platform: Gaia Project, Powergrid, Co
 		minor: true,
 		title: "mongo-locks",
 		link: "//github.com/coyotte508/mongo-locks",
+		icon: "/icons/mongodb.png",
 		text: "A Node.JS module to lock a resource using MongoDB as a mutex. Useful when deploying a NodeJS application as a cloud, to prevent race conditions.",
 	},
 	{
@@ -121,6 +122,7 @@ There are currently four boardgames on the platform: Gaia Project, Powergrid, Co
 		minor: true,
 		title: "mongo-limiter",
 		link: "//github.com/coyotte508/mongo-limiter",
+		icon: "/icons/mongodb.png",
 		text: "A Node.JS module to rate limit actions per IP or user. Useful to prevent spam, and collect basic analytics.",
 	},
 	{
