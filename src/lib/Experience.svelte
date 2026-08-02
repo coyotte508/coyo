@@ -73,10 +73,11 @@
 	<!-- Full card (majors always; minors once expanded) -->
 	<svelte:element
 		this={tag}
+		id="project-{project.id}"
 		href={!collapsible && project.link ? project.link : undefined}
 		target={!collapsible && project.link ? "_blank" : undefined}
 		rel={!collapsible && project.link ? "noopener noreferrer" : undefined}
-		class="group block overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-lg dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-blue-600"
+		class="group block scroll-mt-24 overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-lg dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-blue-600"
 		style={minHeight ? `min-height: ${minHeight}px` : undefined}
 	>
 		<div class="flex items-center gap-4 px-5 pt-5">
