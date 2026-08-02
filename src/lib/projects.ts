@@ -18,6 +18,7 @@ export type Technology =
 	| "flutter"
 	| "android"
 	| "dart"
+	| "kubernetes"
 	| "agents";
 
 export interface Project {
@@ -162,7 +163,7 @@ There are currently four boardgames on the platform: Gaia Project, Powergrid, Co
 export const experiences: Project[] = sortByEndYearDesc([
 	{
 		id: "huggingface",
-		technologies: ["node", "react", "mongo", "SQL", "agents"],
+		technologies: ["node", "mongo", "agents", "kubernetes"],
 		years: "2022 - now",
 		startYear: 2022,
 		title: "Hugging Face",
