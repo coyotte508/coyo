@@ -148,12 +148,14 @@
 			<div class="mt-6 space-y-5">
 				{#each experiences as experience, i (experience.id)}
 					{#if startsRun(experiences, i)}
-						<div class="grid gap-3 sm:grid-cols-2">
-							<Experience project={experience} collapsible />
-							{#if experiences[i + 1]?.minor}
+						{#if experiences[i + 1]?.minor}
+							<div class="grid gap-3 sm:grid-cols-2">
+								<Experience project={experience} collapsible />
 								<Experience project={experiences[i + 1]} collapsible />
-							{/if}
-						</div>
+							</div>
+						{:else}
+							<Experience project={experience} collapsible />
+						{/if}
 					{:else if !experiences[i - 1]?.minor}
 						<Experience project={experience} collapsible={!!experience.minor} />
 					{/if}
@@ -170,12 +172,14 @@
 			<div class="mt-6 space-y-6">
 				{#each projects as project, i (project.id)}
 					{#if startsRun(projects, i)}
-						<div class="grid gap-3 sm:grid-cols-2">
-							<Experience {project} collapsible />
-							{#if projects[i + 1]?.minor}
+						{#if projects[i + 1]?.minor}
+							<div class="grid gap-3 sm:grid-cols-2">
+								<Experience {project} collapsible />
 								<Experience project={projects[i + 1]} collapsible />
-							{/if}
-						</div>
+							</div>
+						{:else}
+							<Experience {project} collapsible />
+						{/if}
 					{:else if !projects[i - 1]?.minor}
 						<Experience {project} collapsible={!!project.minor} />
 					{/if}
