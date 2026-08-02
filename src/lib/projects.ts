@@ -238,7 +238,7 @@ export const experiences: Project[] = sortByEndYearDesc([
 		years: "2017 - 2020",
 		startYear: 2017,
 		title: "Teractys",
-		text: "Work on several SaaS applications for professional photographers",
+		text: "Work on SaaS applications for professional photographers: [Lumys](https://lumys.photo/), for selling and delivering photos online, and [Lumys Scolaire](https://lumys-scolaire.photo/), dedicated to school photography.",
 		link: "//teractys.fr",
 		icon: "/icons/teractys.png",
 	},
