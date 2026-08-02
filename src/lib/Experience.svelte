@@ -27,7 +27,7 @@
 		type="button"
 		onclick={() => (expanded = true)}
 		aria-expanded="false"
-		class="group grid w-full grid-cols-[auto_1fr_auto] items-center gap-x-2.5 gap-y-1 overflow-hidden rounded-xl border border-neutral-200 bg-white px-3 py-2.5 text-left shadow-sm transition-colors hover:border-blue-300 sm:flex sm:flex-wrap sm:px-4 sm:py-3 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-blue-600"
+		class="group grid w-full cursor-pointer grid-cols-[auto_1fr_auto] items-center gap-x-2.5 gap-y-1 overflow-hidden rounded-xl border border-neutral-200 bg-white px-3 py-2.5 text-left shadow-sm transition-colors hover:border-blue-300 sm:flex sm:flex-wrap sm:px-4 sm:py-3 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-blue-600"
 	>
 		{#if project.avatar || project.icon}
 			<span
@@ -48,14 +48,6 @@
 			</div>
 			<div class="text-xs text-neutral-400 dark:text-neutral-500">{project.years}</div>
 		</div>
-		<svg
-			class="row-span-2 h-4 w-4 shrink-0 text-neutral-400 sm:ml-auto"
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			stroke-width="2"
-			aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round" /></svg
-		>
 		{#if technologies}
 			<span
 				class="{project.avatar || project.icon ? 'col-start-2' : 'col-start-1'} flex flex-wrap gap-1 sm:col-start-auto"
@@ -68,6 +60,14 @@
 				{/each}
 			</span>
 		{/if}
+		<svg
+			class="row-span-2 ml-auto h-4 w-4 shrink-0 text-neutral-400"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="2"
+			aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round" /></svg
+		>
 	</button>
 {:else}
 	<!-- Full card (majors always; minors once expanded) -->
