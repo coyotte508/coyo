@@ -1,18 +1,9 @@
 <script lang="ts">
 	import Experience from "$lib/Experience.svelte";
-	import MinorChips from "$lib/MinorChips.svelte";
 	import { projects, experiences } from "$lib/projects";
 	import { talks } from "$lib/talks";
 
 	const talksByDateDesc = [...talks].sort((a, b) => Number(b.years) - Number(a.years));
-
-	const majorProjects = projects.filter((p) => !p.minor);
-	const minorProjects = projects.filter((p) => p.minor);
-	const majorExperiences = experiences.filter((p) => !p.minor);
-	const minorExperiences = experiences.filter((p) => p.minor);
-
-	let showMoreProjects = $state(false);
-	let showMoreExperiences = $state(false);
 
 	const nav = [
 		{ href: "#projects", label: "Projects" },
@@ -150,33 +141,10 @@
 				>
 			</div>
 			<div class="mt-6 space-y-5">
-				{#each majorExperiences as experience (experience.id)}
-					<Experience project={experience} />
+				{#each experiences as experience (experience.id)}
+					<Experience project={experience} collapsible={!!experience.minor} />
 				{/each}
 			</div>
-			{#if minorExperiences.length}
-				{#if showMoreExperiences}
-					<div class="mt-4">
-						<MinorChips items={minorExperiences} />
-					</div>
-				{/if}
-				<button
-					type="button"
-					onclick={() => (showMoreExperiences = !showMoreExperiences)}
-					aria-expanded={showMoreExperiences}
-					class="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:underline dark:text-blue-400"
-				>
-					<svg
-						class="h-4 w-4 transition-transform duration-200 {showMoreExperiences ? 'rotate-180' : ''}"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" /></svg
-					>
-					{showMoreExperiences ? "Show less" : `${minorExperiences.length} earlier roles`}
-				</button>
-			{/if}
 		</section>
 		<section id="projects" class="order-2 scroll-mt-24 lg:order-1 lg:col-span-3">
 			<div class="flex items-baseline justify-between gap-4">
@@ -186,33 +154,10 @@
 				>
 			</div>
 			<div class="mt-6 space-y-6">
-				{#each majorProjects as project (project.id)}
-					<Experience {project} />
+				{#each projects as project (project.id)}
+					<Experience {project} collapsible={!!project.minor} />
 				{/each}
 			</div>
-			{#if minorProjects.length}
-				{#if showMoreProjects}
-					<div class="mt-4">
-						<MinorChips items={minorProjects} />
-					</div>
-				{/if}
-				<button
-					type="button"
-					onclick={() => (showMoreProjects = !showMoreProjects)}
-					aria-expanded={showMoreProjects}
-					class="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:underline dark:text-blue-400"
-				>
-					<svg
-						class="h-4 w-4 transition-transform duration-200 {showMoreProjects ? 'rotate-180' : ''}"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" /></svg
-					>
-					{showMoreProjects ? "Show less" : `${minorProjects.length} more projects`}
-				</button>
-			{/if}
 		</section>
 	</div>
 
