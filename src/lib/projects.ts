@@ -146,7 +146,7 @@ There are currently four boardgames on the platform: Gaia Project, Powergrid, Co
 	},
 ]);
 
-export const experiences: Project[] = sortByStartYearDesc([
+export const experiences: Project[] = sortByEndYearDesc([
 	{
 		id: "huggingface",
 		technologies: ["node", "react", "mongo", "SQL", "agents"],
@@ -270,5 +270,20 @@ function sortByStartYearDesc(entries: Project[]): Project[] {
 	return entries
 		.map((entry, index) => ({ entry, index }))
 		.sort((a, b) => b.entry.startYear - a.entry.startYear || a.index - b.index)
+		.map(({ entry }) => entry);
+}
+
+/** Last 4-digit year in a `years` string ("2020-2021" -> 2021); "now"/current counts as the current year. */
+function endYear(entry: Project): number {
+	if (entry.current || /now/i.test(entry.years)) return new Date().getFullYear() + 1;
+	const matches = entry.years.match(/\d{4}/g);
+	return matches ? Number(matches[matches.length - 1]) : entry.startYear;
+}
+
+/** Sort experiences by end year, most recent first (current roles first). Ties keep their authored order. */
+function sortByEndYearDesc(entries: Project[]): Project[] {
+	return entries
+		.map((entry, index) => ({ entry, index }))
+		.sort((a, b) => endYear(b.entry) - endYear(a.entry) || a.index - b.index)
 		.map(({ entry }) => entry);
 }
