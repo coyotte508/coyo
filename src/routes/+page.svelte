@@ -5,10 +5,33 @@
 
 	const talksByDateDesc = [...talks].sort((a, b) => Number(b.years) - Number(a.years));
 
-	/** True when item i begins a run of consecutive collapsible items (which go two-per-row). */
-	function startsRun(items: { minor?: boolean }[], i: number): boolean {
-		return !!items[i].minor && (i === 0 || !items[i - 1].minor);
+	type Project = (typeof experiences)[number];
+
+	/** A render row: a major card alone, or a row of up to two minor (collapsible) chips. */
+	type Row = { kind: "major"; project: Project } | { kind: "minors"; projects: Project[] };
+
+	/** Group entries into rows: majors render on their own; consecutive minors pair up two-per-row. */
+	function groupRuns(items: Project[]): Row[] {
+		const rows: Row[] = [];
+		for (let i = 0; i < items.length; i++) {
+			const item = items[i];
+			if (!item.minor) {
+				rows.push({ kind: "major", project: item });
+				continue;
+			}
+			const next = items[i + 1];
+			if (next?.minor) {
+				rows.push({ kind: "minors", projects: [item, next] });
+				i++;
+			} else {
+				rows.push({ kind: "minors", projects: [item] });
+			}
+		}
+		return rows;
 	}
+
+	const experienceRows = groupRuns(experiences);
+	const projectRows = groupRuns(projects);
 
 	const nav = [
 		{ href: "#projects", label: "Projects" },
@@ -146,18 +169,15 @@
 				>
 			</div>
 			<div class="mt-6 space-y-5">
-				{#each experiences as experience, i (experience.id)}
-					{#if startsRun(experiences, i)}
-						{#if experiences[i + 1]?.minor}
-							<div class="grid gap-3 sm:grid-cols-2">
-								<Experience project={experience} collapsible />
-								<Experience project={experiences[i + 1]} collapsible />
-							</div>
-						{:else}
-							<Experience project={experience} collapsible />
-						{/if}
-					{:else if !experiences[i - 1]?.minor}
-						<Experience project={experience} collapsible={!!experience.minor} />
+				{#each experienceRows as row (row.kind === "major" ? row.project.id : row.projects.map((p) => p.id).join("+"))}
+					{#if row.kind === "major"}
+						<Experience project={row.project} />
+					{:else}
+						<div class="grid gap-3 sm:grid-cols-2">
+							{#each row.projects as project (project.id)}
+								<Experience {project} collapsible />
+							{/each}
+						</div>
 					{/if}
 				{/each}
 			</div>
@@ -170,18 +190,15 @@
 				>
 			</div>
 			<div class="mt-6 space-y-6">
-				{#each projects as project, i (project.id)}
-					{#if startsRun(projects, i)}
-						{#if projects[i + 1]?.minor}
-							<div class="grid gap-3 sm:grid-cols-2">
+				{#each projectRows as row (row.kind === "major" ? row.project.id : row.projects.map((p) => p.id).join("+"))}
+					{#if row.kind === "major"}
+						<Experience project={row.project} />
+					{:else}
+						<div class="grid gap-3 sm:grid-cols-2">
+							{#each row.projects as project (project.id)}
 								<Experience {project} collapsible />
-								<Experience project={projects[i + 1]} collapsible />
-							</div>
-						{:else}
-							<Experience {project} collapsible />
-						{/if}
-					{:else if !projects[i - 1]?.minor}
-						<Experience {project} collapsible={!!project.minor} />
+							{/each}
+						</div>
 					{/if}
 				{/each}
 			</div>

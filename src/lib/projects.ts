@@ -277,6 +277,25 @@ Geared toward IT and Computer science.
 		technologies: ["c++"],
 		image: "/monopoly.png",
 	},
+	{
+		id: "mongo-cert",
+		years: "2021",
+		startYear: 2021,
+		title: "MongoDB Associate Developer",
+		link: "https://www.credly.com/badges/f2e9f7d0-f37a-4320-a8bc-82360e54feb8",
+		text: "[MongoDB Associate Developer certification](https://www.credly.com/badges/f2e9f7d0-f37a-4320-a8bc-82360e54feb8): data modeling, the document model, indexes, drivers and day-to-day operational tasks.",
+		icon: "/icons/mongodb.png",
+		technologies: ["mongo"],
+	},
+	{
+		id: "ieeextreme",
+		years: "2011",
+		startYear: 2011,
+		title: "IEEEXtreme 2011",
+		link: "https://ieeextreme.org/wp-content/uploads/2016/11/Ranking-by-Country.pdf",
+		text: "[5th place worldwide](https://www.slideshare.net/slideshow/ieee-xtreme-50-results/11819078) (team 142857, ENST Bretagne) at IEEEXtreme 5.0, the 24-hour programming competition: in a team of three, using C++.",
+		technologies: ["c++"],
+	},
 ]);
 
 /** Sort entries by start year, most recent first. Ties keep their authored order. */
