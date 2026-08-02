@@ -175,6 +175,20 @@ export const experiences: Project[] = sortByStartYearDesc([
 - The [documentation instrumentation](https://github.com/huggingface/doc-builder/) for the Hugging Face ecosystem: see the results on [hf.co/docs](https://hf.co/docs)`,
 	},
 	{
+		id: "bebop",
+		technologies: ["svelte", "node", "mongo"],
+		years: "2023-2025",
+		startYear: 2023,
+		title: "be-BOP",
+		link: "//github.com/be-BOP-io-SA/be-BOP",
+		icon: "/icons/bebop.png",
+		text: `Core developer on an open-source, crypto-native monetization platform for communities and creators: e-commerce, point-of-sale, subscriptions, crowdfunding, ticketing, donations and pay-what-you-want under one roof.
+
+- Native Bitcoin & Lightning payments: trustless on-chain setup (BIP84 xpub, multisig) plus Lightning via LND or phoenixd — no payment processor or private key needed on the server
+- Peer-to-peer protocols: Nostr integration for notifications and discovery
+- Built with SvelteKit and MongoDB; self-hosted and sovereign, no third-party dependency`,
+	},
+	{
 		id: "treckea",
 		technologies: ["node", "react", "nest", "graphql", "SQL"],
 		years: "2020-2021",
