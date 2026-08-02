@@ -5,6 +5,11 @@
 
 	const talksByDateDesc = [...talks].sort((a, b) => Number(b.years) - Number(a.years));
 
+	/** True when item i begins a run of consecutive collapsible items (which go two-per-row). */
+	function startsRun(items: { minor?: boolean }[], i: number): boolean {
+		return !!items[i].minor && (i === 0 || !items[i - 1].minor);
+	}
+
 	const nav = [
 		{ href: "#projects", label: "Projects" },
 		{ href: "#experience", label: "Experience" },
@@ -141,8 +146,17 @@
 				>
 			</div>
 			<div class="mt-6 space-y-5">
-				{#each experiences as experience (experience.id)}
-					<Experience project={experience} collapsible={!!experience.minor} />
+				{#each experiences as experience, i (experience.id)}
+					{#if startsRun(experiences, i)}
+						<div class="grid gap-3 sm:grid-cols-2">
+							<Experience project={experience} collapsible />
+							{#if experiences[i + 1]?.minor}
+								<Experience project={experiences[i + 1]} collapsible />
+							{/if}
+						</div>
+					{:else if !experiences[i - 1]?.minor}
+						<Experience project={experience} collapsible={!!experience.minor} />
+					{/if}
 				{/each}
 			</div>
 		</section>
@@ -154,8 +168,17 @@
 				>
 			</div>
 			<div class="mt-6 space-y-6">
-				{#each projects as project (project.id)}
-					<Experience {project} collapsible={!!project.minor} />
+				{#each projects as project, i (project.id)}
+					{#if startsRun(projects, i)}
+						<div class="grid gap-3 sm:grid-cols-2">
+							<Experience {project} collapsible />
+							{#if projects[i + 1]?.minor}
+								<Experience project={projects[i + 1]} collapsible />
+							{/if}
+						</div>
+					{:else if !projects[i - 1]?.minor}
+						<Experience {project} collapsible={!!project.minor} />
+					{/if}
 				{/each}
 			</div>
 		</section>
