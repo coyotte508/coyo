@@ -173,7 +173,7 @@
 					{#if row.kind === "major"}
 						<Experience project={row.project} />
 					{:else}
-						<div class="grid gap-3 sm:grid-cols-2">
+						<div class={row.projects.length > 1 ? "grid gap-3 sm:grid-cols-2" : ""}>
 							{#each row.projects as project (project.id)}
 								<Experience {project} collapsible />
 							{/each}
@@ -194,7 +194,7 @@
 					{#if row.kind === "major"}
 						<Experience project={row.project} />
 					{:else}
-						<div class="grid gap-3 sm:grid-cols-2">
+						<div class={row.projects.length > 1 ? "grid gap-3 sm:grid-cols-2" : ""}>
 							{#each row.projects as project (project.id)}
 								<Experience {project} collapsible />
 							{/each}
