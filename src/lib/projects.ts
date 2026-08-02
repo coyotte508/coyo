@@ -13,9 +13,10 @@ export type Technology =
 	| "react"
 	| "nest"
 	| "graphql"
-  | "SQL"
-  | "svelte"
-  | "flutter";
+	| "SQL"
+	| "svelte"
+	| "flutter"
+	| "agents";
 
 export interface Project {
 	id: string;
@@ -30,11 +31,13 @@ export interface Project {
 	avatar?: string;
 	icon?: string;
 	current?: boolean;
+	/** Less prominent entries: rendered as compact expandable chips instead of full cards. */
+	minor?: boolean;
 }
 
 export const projects: Project[] = sortByStartYearDesc([
-  {
-    id: "mongoku",
+	{
+		id: "mongoku",
 		technologies: ["svelte", "node", "mongo"],
 		years: "2025",
 		startYear: 2025,
@@ -83,6 +86,7 @@ There are currently four boardgames on the platform: Gaia Project, Powergrid, Co
 		technologies: ["vue", "svg"],
 		years: "2018",
 		startYear: 2018,
+		minor: true,
 		link: "//colorizer.coyo.dev",
 		image: "/colorizer.png",
 		text: "A simple web app images are uploaded on a grid and can be colored at will. Uses SVG filters and matrixes to achieve the effect.",
@@ -102,6 +106,7 @@ There are currently four boardgames on the platform: Gaia Project, Powergrid, Co
 		technologies: ["node", "mongo"],
 		years: "2017",
 		startYear: 2017,
+		minor: true,
 		title: "mongo-locks",
 		link: "//github.com/coyotte508/mongo-locks",
 		text: "A Node.JS module to lock a resource using MongoDB as a mutex. Useful when deploying a NodeJS application as a cloud, to prevent race conditions.",
@@ -111,6 +116,7 @@ There are currently four boardgames on the platform: Gaia Project, Powergrid, Co
 		technologies: ["node", "mongo"],
 		years: "2017",
 		startYear: 2017,
+		minor: true,
 		title: "mongo-limiter",
 		link: "//github.com/coyotte508/mongo-limiter",
 		text: "A Node.JS module to rate limit actions per IP or user. Useful to prevent spam, and collect basic analytics.",
@@ -139,7 +145,7 @@ There are currently four boardgames on the platform: Gaia Project, Powergrid, Co
 export const experiences: Project[] = sortByStartYearDesc([
 	{
 		id: "huggingface",
-		technologies: ["node", "react", "mongo", "SQL"],
+		technologies: ["node", "react", "mongo", "SQL", "agents"],
 		years: "2022 - now",
 		startYear: 2022,
 		title: "Hugging Face",
@@ -169,6 +175,7 @@ export const experiences: Project[] = sortByStartYearDesc([
 		technologies: ["node", "react", "nest", "graphql", "SQL"],
 		years: "2020-2021",
 		startYear: 2020,
+		minor: true,
 		title: "Treckea",
 		text: "Work on a secure platform to make buying and building houses more efficient, by automating a lot of the communication between the different parties.",
 		icon: "/icons/arkea.png",
@@ -178,6 +185,7 @@ export const experiences: Project[] = sortByStartYearDesc([
 		technologies: ["c++", "qt"],
 		years: "2020",
 		startYear: 2020,
+		minor: true,
 		title: "Hachette",
 		text: "Work on a software application for Hachette Livre.",
 		icon: "/icons/hachette.png",
@@ -206,6 +214,7 @@ export const experiences: Project[] = sortByStartYearDesc([
 		id: "stoneraise",
 		years: "2017",
 		startYear: 2017,
+		minor: true,
 		title: "Stoneraise",
 		link: "//stoneraise.com",
 		technologies: ["angular", "node"],

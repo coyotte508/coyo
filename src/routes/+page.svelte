@@ -1,15 +1,24 @@
 <script lang="ts">
-	import Experience from '$lib/Experience.svelte';
-	import { projects, experiences } from '$lib/projects';
-	import { talks } from '$lib/talks';
+	import Experience from "$lib/Experience.svelte";
+	import MinorChips from "$lib/MinorChips.svelte";
+	import { projects, experiences } from "$lib/projects";
+	import { talks } from "$lib/talks";
 
 	const talksByDateDesc = [...talks].sort((a, b) => Number(b.years) - Number(a.years));
 
+	const majorProjects = projects.filter((p) => !p.minor);
+	const minorProjects = projects.filter((p) => p.minor);
+	const majorExperiences = experiences.filter((p) => !p.minor);
+	const minorExperiences = experiences.filter((p) => p.minor);
+
+	let showMoreProjects = $state(false);
+	let showMoreExperiences = $state(false);
+
 	const nav = [
-		{ href: '#projects', label: 'Projects' },
-		{ href: '#experience', label: 'Experience' },
-		{ href: '#talks', label: 'Talks' },
-		{ href: '#contact', label: 'Contact' }
+		{ href: "#projects", label: "Projects" },
+		{ href: "#experience", label: "Experience" },
+		{ href: "#talks", label: "Talks" },
+		{ href: "#contact", label: "Contact" },
 	];
 </script>
 
@@ -36,9 +45,7 @@
 
 <!-- Hero band -->
 <section id="top" class="border-b border-neutral-200 dark:border-neutral-800">
-	<div
-		class="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-16 md:flex-row md:items-center md:py-24"
-	>
+	<div class="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-16 md:flex-row md:items-center md:py-24">
 		<div class="flex-1">
 			<div class="flex items-center gap-5">
 				<img
@@ -53,17 +60,18 @@
 					<h1 class="mt-1 text-4xl font-bold tracking-tight sm:mt-3 sm:text-5xl">Eliott Coyac</h1>
 				</div>
 			</div>
-      <p class="mt-6 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
+			<p class="mt-6 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
 				I design complex projects from the ground up. I am proficient in <b
 					class="font-semibold text-neutral-900 dark:text-white">Node.js</b
-				> / <b class="font-semibold text-neutral-900 dark:text-white">Typescript</b> / <b
-					class="font-semibold text-neutral-900 dark:text-white">Svelte</b
-				>, and formerly
+				>
+				/ <b class="font-semibold text-neutral-900 dark:text-white">Typescript</b> /
+				<b class="font-semibold text-neutral-900 dark:text-white">Svelte</b>, and formerly
 				<b class="font-semibold text-neutral-900 dark:text-white">C++</b>.
 			</p>
-      <p class="mt-4 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
-    		Taking full advantage of
-				<b class="font-semibold text-neutral-900 dark:text-white">Kimi K3</b> and other open-weight LLMs for old & new projects. I like sovereign platforms: ones that own their IT and are not vendor-locked-in to hyperscalers.
+			<p class="mt-4 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
+				Taking full advantage of
+				<b class="font-semibold text-neutral-900 dark:text-white">Kimi K3</b> and other open-weight LLMs for old & new projects.
+				I like sovereign platforms: ones that own their IT and are not vendor-locked-in to hyperscalers.
 			</p>
 			<p class="mt-4 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
 				Right now I'm helping scale
@@ -137,32 +145,74 @@
 		<section id="experience" class="order-1 scroll-mt-24 lg:order-2 lg:col-span-2">
 			<div class="flex items-baseline justify-between gap-4">
 				<h2 class="text-2xl font-bold tracking-tight">Experience</h2>
-				<a
-					href="#projects"
-					class="text-sm font-medium text-blue-600 hover:underline lg:hidden dark:text-blue-400"
+				<a href="#projects" class="text-sm font-medium text-blue-600 hover:underline lg:hidden dark:text-blue-400"
 					>Skip to projects ↓</a
 				>
 			</div>
 			<div class="mt-6 space-y-5">
-				{#each experiences as experience (experience.id)}
+				{#each majorExperiences as experience (experience.id)}
 					<Experience project={experience} />
 				{/each}
 			</div>
+			{#if minorExperiences.length}
+				{#if showMoreExperiences}
+					<div class="mt-4">
+						<MinorChips items={minorExperiences} />
+					</div>
+				{/if}
+				<button
+					type="button"
+					onclick={() => (showMoreExperiences = !showMoreExperiences)}
+					aria-expanded={showMoreExperiences}
+					class="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:underline dark:text-blue-400"
+				>
+					<svg
+						class="h-4 w-4 transition-transform duration-200 {showMoreExperiences ? 'rotate-180' : ''}"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" /></svg
+					>
+					{showMoreExperiences ? "Show less" : `${minorExperiences.length} earlier roles`}
+				</button>
+			{/if}
 		</section>
 		<section id="projects" class="order-2 scroll-mt-24 lg:order-1 lg:col-span-3">
 			<div class="flex items-baseline justify-between gap-4">
 				<h2 class="text-2xl font-bold tracking-tight">Projects</h2>
-				<a
-					href="#talks"
-					class="text-sm font-medium text-blue-600 hover:underline lg:hidden dark:text-blue-400"
+				<a href="#talks" class="text-sm font-medium text-blue-600 hover:underline lg:hidden dark:text-blue-400"
 					>Skip to talks ↓</a
 				>
 			</div>
 			<div class="mt-6 space-y-6">
-				{#each projects as project (project.id)}
+				{#each majorProjects as project (project.id)}
 					<Experience {project} />
 				{/each}
 			</div>
+			{#if minorProjects.length}
+				{#if showMoreProjects}
+					<div class="mt-4">
+						<MinorChips items={minorProjects} />
+					</div>
+				{/if}
+				<button
+					type="button"
+					onclick={() => (showMoreProjects = !showMoreProjects)}
+					aria-expanded={showMoreProjects}
+					class="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:underline dark:text-blue-400"
+				>
+					<svg
+						class="h-4 w-4 transition-transform duration-200 {showMoreProjects ? 'rotate-180' : ''}"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" /></svg
+					>
+					{showMoreProjects ? "Show less" : `${minorProjects.length} more projects`}
+				</button>
+			{/if}
 		</section>
 	</div>
 
@@ -179,8 +229,8 @@
 						<h3 class="font-semibold leading-snug">
 							<a
 								href={primary}
-								target={primary.startsWith('http') ? '_blank' : undefined}
-								rel={primary.startsWith('http') ? 'noopener noreferrer' : undefined}
+								target={primary.startsWith("http") ? "_blank" : undefined}
+								rel={primary.startsWith("http") ? "noopener noreferrer" : undefined}
 								class="transition-colors hover:text-blue-600 dark:hover:text-blue-400">{talk.title}</a
 							>
 						</h3>
@@ -192,11 +242,11 @@
 					<div class="mt-4 flex items-center gap-x-4 gap-y-1 text-sm">
 						<a
 							href={primary}
-							target={primary.startsWith('http') ? '_blank' : undefined}
-							rel={primary.startsWith('http') ? 'noopener noreferrer' : undefined}
+							target={primary.startsWith("http") ? "_blank" : undefined}
+							rel={primary.startsWith("http") ? "noopener noreferrer" : undefined}
 							class="font-medium text-blue-600 hover:underline dark:text-blue-400"
 						>
-							{talk.kind === 'slides' ? 'View slides' : 'Read article'}
+							{talk.kind === "slides" ? "View slides" : "Read article"}
 							{#if talk.source}
 								on {talk.sourceLabel}{/if} →
 						</a>

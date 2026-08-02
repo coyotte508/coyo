@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { marked } from "marked";
-	import type { Project, Technology } from "./projects";
+	import type { Project } from "./projects";
+	import { formatTech } from "./format";
 
 	interface Props {
 		project: Project;
@@ -10,33 +11,6 @@
 	let { project, minHeight }: Props = $props();
 
 	const html = $derived(marked.parse(project.text, { async: false }) as string);
-
-	function formatTech(tech: Technology): string {
-		switch (tech) {
-			case "vue":
-				return "VueJS";
-			case "svg":
-				return "SVG";
-			case "node":
-				return "Node.js";
-			case "opengl":
-				return "OpenGL";
-			case "mongo":
-				return "MongoDB";
-			case "pwa":
-				return "PWA";
-			case "graphql":
-				return "GraphQL";
-			case "nest":
-				return "NestJS";
-			case "svelte":
-				return "Svelte";
-			case "flutter":
-				return "Flutter";
-			default:
-				return tech[0].toUpperCase() + tech.slice(1);
-		}
-	}
 
 	const technologies = $derived(project.technologies?.map(formatTech));
 </script>

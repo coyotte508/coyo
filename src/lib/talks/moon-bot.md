@@ -100,13 +100,13 @@ Skills are Markdown files in `skills/<name>/SKILL.md` following the [Agent Skill
 
 A key design principle: **every skill uses a CLI tool as its interface**. The LLM never speaks directly to APIs or databases: it runs a command-line tool via `bash`, reads stdout, and iterates. This keeps skills simple, testable independently, and easy to swap out.
 
-| Skill       | CLI tool                                                                                    | What it does                                                                  |
-| ----------- | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Skill       | CLI tool                                                                                   | What it does                                                                  |
+| ----------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------- |
 | `es-cli`    | [`es-cli`](https://github.com/XciD/es-cli): a Rust CLI by [@XciD](https://github.com/XciD) | Query Elasticsearch (Hub access logs, Gitaly logs, debug logs)                |
-| `mongo`     | `mongosh`                                                                                   | Query the Hub's MongoDB with schema reference                                 |
-| `github`    | `gh` (GitHub CLI) + in-process PR tools                                                     | Browse repos read-only; open PRs / issues via dedicated tools                 |
-| `hub-code`  | `gh`, `grep`, `find`                                                                        | Navigate the Hub codebase                                                     |
-| `workloads` | `gh`, `grep`, `find`                                                                        | Navigate the Spaces/Endpoints/Jobs codebase                                   |
+| `mongo`     | `mongosh`                                                                                  | Query the Hub's MongoDB with schema reference                                 |
+| `github`    | `gh` (GitHub CLI) + in-process PR tools                                                    | Browse repos read-only; open PRs / issues via dedicated tools                 |
+| `hub-code`  | `gh`, `grep`, `find`                                                                       | Navigate the Hub codebase                                                     |
+| `workloads` | `gh`, `grep`, `find`                                                                       | Navigate the Spaces/Endpoints/Jobs codebase                                   |
 | `athena`    | `athena-query`: a bash wrapper around the AWS CLI                                          | Query ALB/WAF/CloudFront logs via AWS Athena                                  |
 | `sizzle`    | `sizzle-query`: a bash wrapper around DuckDB                                               | Query Xet storage statistics via DuckLake                                     |
 | `plausible` | `plausible-query`: a bash wrapper around the Plausible Stats API                           | Privacy-preserving traffic analytics for public marketing / blog / docs pages |
