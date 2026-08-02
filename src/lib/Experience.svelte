@@ -27,7 +27,7 @@
 		type="button"
 		onclick={() => (expanded = true)}
 		aria-expanded="false"
-		class="group grid w-full cursor-pointer grid-cols-[auto_1fr_auto] items-center gap-x-2.5 gap-y-1 overflow-hidden rounded-xl border border-neutral-200 bg-white px-3 py-2.5 text-left shadow-sm transition-colors hover:border-blue-300 sm:flex sm:flex-wrap sm:px-4 sm:py-3 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-blue-600"
+		class="group relative grid w-full cursor-pointer grid-cols-[auto_1fr_auto] items-center gap-x-2.5 gap-y-1 overflow-hidden rounded-xl border border-neutral-200 bg-white px-3 py-2.5 text-left shadow-sm transition-colors hover:border-blue-300 sm:flex sm:flex-wrap sm:py-3 sm:pr-9 sm:pl-4 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-blue-600"
 	>
 		{#if project.avatar || project.icon}
 			<span
@@ -61,7 +61,7 @@
 			</span>
 		{/if}
 		<svg
-			class="row-span-2 ml-auto h-4 w-4 shrink-0 text-neutral-400"
+			class="row-span-2 ml-auto h-4 w-4 shrink-0 self-center text-neutral-400 sm:absolute sm:top-1/2 sm:right-4 sm:-translate-y-1/2"
 			viewBox="0 0 24 24"
 			fill="none"
 			stroke="currentColor"
