@@ -7,7 +7,7 @@ Cutting Fabric ("the app") is published by **Coyotech** (SAS, SIREN 934 559 592,
 
 ## The short version
 
-**The app collects nothing.** It runs entirely on your device. Your projects, measurements, and settings never leave your device unless you choose to export or share them yourself. Because we collect nothing, Coyotech acts as no data controller for any personal data — there is none.
+**The app collects nothing.** It runs entirely on your device. Your projects, measurements, and settings never leave your device unless you choose to export or share them yourself. To the extent any data protection law applies, Coyotech is the data controller; however, no personal data is collected or processed.
 
 ## Data the app stores
 
