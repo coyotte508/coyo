@@ -3,11 +3,11 @@
 
 	const markdown = `**Effective date: August 2, 2025**
 
-Cutting Fabric ("the app") is a tool that helps upholsterers and DIYers work out how much fabric to buy and how to lay out each piece. This policy explains, in plain terms, what the app does with your information.
+Cutting Fabric ("the app") is published by **Coyotech** (SAS, SIREN 934 559 592, 39 route de l'Argoat, 29460 Logonna-Daoulas, France) — "we", "us". It is a tool that helps upholsterers and DIYers work out how much fabric to buy and how to lay out each piece. This policy explains, in plain terms, what the app does with your information.
 
 ## The short version
 
-**The app collects nothing.** It runs entirely on your device. Your projects, measurements, and settings never leave your device unless you choose to export or share them yourself.
+**The app collects nothing.** It runs entirely on your device. Your projects, measurements, and settings never leave your device unless you choose to export or share them yourself. Because we collect nothing, Coyotech acts as no data controller for any personal data — there is none.
 
 ## Data the app stores
 
@@ -48,7 +48,7 @@ If the app's behavior ever changes in a way that affects privacy, this policy wi
 
 ## Contact
 
-If you have questions about this policy, you can reach the developer via the contact information on [coyo.dev](https://coyo.dev/).`;
+The app is published by **Coyotech** (see the company details at the top of this policy). If you have questions about it, you can reach us via the contact information on [coyo.dev](https://coyo.dev/).`;
 
 	const html = marked.parse(markdown, { async: false }) as string;
 </script>
