@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Development in the AI Era — Eliott C.</title>
+<style>
+	:root {
+		--bg: #0c0f14;
+		--fg: #e8eaf0;
+		--dim: #8a93a6;
+		--faint: #4a5266;
+		--amber: #f0b429;
+		--cyan: #53c3f0;
+		--violet: #a78bfa;
+		--green: #4ade80;
+		--red: #f87171;
+		--card: #141823;
+		--border: #232a3a;
+	}
+	* { margin: 0; padding: 0; box-sizing: border-box; }
+	html, body { height: 100%; background: var(--bg); color: var(--fg); }
+	body { font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+
+	.slide {
+		position: absolute; inset: 0;
+		display: none;
+		flex-direction: column;
+		padding: 7vh 8vw;
+	}
+	.slide.active { display: flex; }
+
+	/* subtle grid backdrop */
+	.slide::before {
+		content: "";
+		position: absolute; inset: 0;
+		background-image:
+			linear-gradient(var(--border) 1px, transparent 1px),
+			linear-gradient(90deg, var(--border) 1px, transparent 1px);
+		background-size: 64px 64px;
+		opacity: 0.18;
+		pointer-events: none;
+	}
+	.slide > * { position: relative; z-index: 1; }
+
+	h1 { font-size: 5.2rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; }
+	h2 { font-size: 3.2rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 4.5vh; }
+	.sub { color: var(--dim); font-size: 1.5rem; margin-top: 2vh; }
+	.kicker {
+		font-size: 0.95rem; font-weight: 700; letter-spacing: 0.28em;
+		text-transform: uppercase; color: var(--amber); margin-bottom: 2.5vh;
+	}
+	.accent { color: var(--amber); }
+	.accent-c { color: var(--cyan); }
+	.accent-v { color: var(--violet); }
+	.accent-g { color: var(--green); }
+	.dim { color: var(--dim); }
+	.faint { color: var(--faint); }
+	.mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+
+	/* layout helpers */
+	.cols { display: flex; gap: 3vw; flex: 1; align-items: stretch; min-height: 0; }
+	.col { flex: 1; display: flex; flex-direction: column; gap: 2vh; min-width: 0; }
+	.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5vh 2.5vw; flex: 1; align-content: center; }
+	.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5vh 2vw; flex: 1; align-content: center; }
+
+	.card {
+		background: var(--card);
+		border: 1px solid var(--border);
+		border-radius: 16px;
+		padding: 2.6vh 1.6vw;
+	}
+	.card h3 { font-size: 1.35rem; margin-bottom: 1vh; font-weight: 700; }
+	.card p, .card li { color: var(--dim); font-size: 1.02rem; line-height: 1.5; }
+
+	.big-num { font-size: 3.4rem; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
+	.big-num small { font-size: 1.1rem; font-weight: 600; color: var(--dim); margin-left: 0.4rem; letter-spacing: 0; }
+
+	ul.clean { list-style: none; }
+	ul.clean li { padding-left: 1.6em; position: relative; margin-bottom: 1.6vh; font-size: 1.35rem; line-height: 1.45; }
+	ul.clean li::before { content: "▸"; position: absolute; left: 0; color: var(--amber); }
+	ul.clean li.dim-li { color: var(--dim); font-size: 1.2rem; }
+
+	table.stats { width: 100%; border-collapse: collapse; font-size: 1.12rem; }
+	table.stats th { text-align: left; color: var(--faint); font-weight: 600; text-transform: uppercase; font-size: 0.78rem; letter-spacing: 0.12em; padding: 0.7em 0.9em; border-bottom: 1px solid var(--border); }
+	table.stats td { padding: 0.75em 0.9em; border-bottom: 1px solid var(--border); }
+	table.stats tr:last-child td { border-bottom: none; }
+	table.stats td:first-child { font-weight: 600; }
+	table.stats td.n { font-variant-numeric: tabular-nums; color: var(--cyan); font-family: ui-monospace, Menlo, monospace; }
+	table.stats td.s { color: var(--dim); font-family: ui-monospace, Menlo, monospace; }
+
+	.footer {
+		position: absolute; bottom: 3.2vh; left: 8vw; right: 8vw;
+		display: flex; justify-content: space-between;
+		color: var(--faint); font-size: 0.8rem; letter-spacing: 0.1em;
+		text-transform: uppercase; z-index: 1;
+	}
+
+	.quote {
+		border-left: 4px solid var(--amber);
+		padding: 2.5vh 2vw;
+		font-size: 2rem; font-weight: 500; line-height: 1.4;
+	}
+	.quote .who { display: block; margin-top: 1.6vh; font-size: 1rem; color: var(--faint); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+
+	/* speaker notes */
+	#notes {
+		display: none;
+		position: fixed; right: 0; top: 0; bottom: 0; width: 430px;
+		background: #10131c; border-left: 2px solid var(--border);
+		padding: 3.5vh 2vw; color: #c7cde0; font-size: 0.95rem; line-height: 1.65;
+		overflow-y: auto; z-index: 50;
+	}
+	#notes.open { display: block; }
+	#notes h4 { color: var(--amber); font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 1.5vh; }
+	#notes ul { padding-left: 1.2em; }
+	#notes li { margin-bottom: 1vh; }
+	#notes .hint { margin-top: 3vh; color: #555f75; font-size: 0.78rem; }
+
+	.chip {
+		display: inline-block; padding: 0.25em 0.8em; border-radius: 999px;
+		border: 1px solid var(--border); color: var(--dim);
+		font-size: 0.85rem; margin-right: 0.5em; font-family: ui-monospace, Menlo, monospace;
+	}
+	.blink { animation: blink 1.1s steps(2) infinite; }
+	@keyframes blink { 50% { opacity: 0.15; } }
+
+	.split { display: grid; grid-template-columns: 1fr 1fr; gap: 3vw; flex: 1; align-items: stretch; }
+	.vs { display: flex; align-items: center; justify-content: center; color: var(--faint); font-weight: 800; font-size: 2rem; }
+
+	.tl { display: flex; gap: 0; flex: 1; align-items: center; }
+	.tl-item { flex: 1; padding: 0 1.4vw; border-left: 2px solid var(--border); position: relative; }
+	.tl-item::before {
+		content: ""; position: absolute; left: -7px; top: 0.6em; width: 12px; height: 12px;
+		border-radius: 50%; background: var(--bg); border: 2px solid var(--amber);
+	}
+	.tl-item .yr { color: var(--amber); font-weight: 800; font-size: 1.15rem; font-family: ui-monospace, Menlo, monospace; }
+	.tl-item .what { font-weight: 600; font-size: 1.2rem; margin: 0.6vh 0; }
+	.tl-item .det { color: var(--dim); font-size: 0.95rem; line-height: 1.45; }
+
+	@media (max-width: 1100px) {
+		h1 { font-size: 3.4rem; } h2 { font-size: 2.3rem; }
+		.split, .grid2, .grid3 { grid-template-columns: 1fr; }
+		.tl { flex-direction: column; align-items: stretch; gap: 2vh; }
+	}
+</style>
+</head>
+<body>
+
+<!-- ============ 1. TITLE ============ -->
+<section class="slide active" data-notes="
+	<ul>
+	<li>Introduce yourself: Eliott, developer at Hugging Face — the 'GitHub of AI'.</li>
+	<li>Frame the talk: not a hype talk, not a doom talk — a practitioner's account. ~15 years of writing software, and a clear before/after that happened for me in Q4 2025.</li>
+	</ul>">
+	<div class="kicker">A practitioner's account</div>
+	<h1>Development in<br />the <span class="accent">AI era</span></h1>
+	<div class="sub" style="display:flex; align-items:center; gap:0.7em; flex-wrap:wrap">
+		<strong>Eliott C.</strong> · Software Engineer @
+		<svg width="1.15em" height="1.15em" viewBox="0 0 1500 1500" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:-0.18em" role="img" aria-label="Hugging Face">
+			<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFD21E" d="M1348.72 1168.37C1360.03 1142.67 1361.13 1113.74 1351.94 1087.55C1361.08 1064.58 1362.52 1038.87 1356.33 1014.97C1353.1 1002.63 1347.95 991.175 1341.12 980.965C1342.52 976.029 1343.6 970.929 1344.36 965.659C1349.44 930.378 1337.38 896.408 1313.59 870.403C1302.83 858.64 1289.91 849.894 1275.97 844.105C1284.44 805.888 1288.9 766.185 1288.9 725.475C1288.9 425.12 1046.33 181.36 746.772 181.36C447.213 181.36 204.644 425.12 204.644 725.475C204.644 767.136 209.317 807.743 218.176 846.781C206.46 852.482 195.618 860.354 186.431 870.403C162.65 896.406 150.585 930.384 155.658 965.659C156.415 970.926 157.505 976.031 158.904 980.965C152.074 991.175 146.922 1002.63 143.692 1014.97C137.445 1038.82 138.958 1064.63 148.078 1087.54C138.888 1113.74 139.992 1142.68 151.301 1168.37C171.605 1214.49 218.813 1243.21 283.614 1269C355.654 1297.68 435.229 1318.64 516.715 1318.64C582.532 1318.64 639.737 1302.62 681.509 1265.68C702.919 1268.26 724.699 1269.59 746.772 1269.59C770.797 1269.59 794.475 1268.02 817.706 1264.97C859.527 1302.39 917.048 1318.64 983.305 1318.64C1065.11 1318.64 1144.1 1297.79 1216.41 1269C1281.21 1243.21 1328.42 1214.49 1348.72 1168.37ZM1201.48 1231.5C1265.52 1206.01 1298.5 1182.26 1311.77 1152.11C1321.11 1130.89 1319.46 1106.41 1307.02 1086.84C1323.52 1061.54 1320.36 1036.98 1317.28 1025.19C1313.34 1010.15 1305.2 997.644 1294.14 988.661C1299.38 979.912 1302.89 970.461 1304.41 959.918C1307.59 937.779 1300.28 915.653 1283.81 897.648C1278.56 891.903 1272.36 887.26 1265.59 883.763C1253.45 877.49 1239.44 874.904 1225.67 876.26C1229.83 862.94 1233.45 849.38 1236.51 835.609C1244.38 800.161 1248.53 763.306 1248.53 725.476C1248.53 447.262 1023.89 221.726 746.772 221.726C469.656 221.726 245.01 447.262 245.01 725.476C245.01 763.44 249.193 800.424 257.122 835.988C260.135 849.506 263.69 862.818 267.762 875.901C254.074 875.791 240.392 879.604 228.93 886.961C224.276 889.948 219.988 893.519 216.214 897.648C199.743 915.653 192.427 937.779 195.613 959.918C197.128 970.461 200.637 979.912 205.881 988.661C194.823 997.644 186.678 1010.15 182.742 1025.19C179.66 1036.98 176.501 1061.54 192.997 1086.84C180.564 1106.41 178.908 1130.89 188.245 1152.11C201.517 1182.26 234.498 1206.01 298.542 1231.5C367.636 1259 441.978 1278.27 516.715 1278.27C584.432 1278.27 634.963 1259.67 667.239 1222.93C693.142 1227.07 719.707 1229.23 746.772 1229.23C775.811 1229.23 804.275 1226.75 831.964 1221.99C864.201 1259.36 915.014 1278.28 983.305 1278.28C1058.36 1278.28 1132.11 1259.11 1201.48 1231.5Z"/>
+		</svg>
+		<span class="accent-c">Hugging Face</span>
+	</div>
+	<div class="footer"><span>← / → to navigate</span><span>N = speaker notes</span></div>
+</section>
+
+<!-- ============ 2. BEFORE AI ============ -->
+<section class="slide" data-notes="
+	<ul>
+	<li>Establish cred fast — don't linger, but show the receipts: I've been shipping software for ~15 years, since being a teenager.</li>
+	<li>2009–2014: I created Pokémon Online, a Qt/C++ battle simulator — 300+ stars, ~1k commits from me, main contributor, used by thousands of players. Written when I was a teen.</li>
+	<li>2017–2021: ODrive (Google Drive client, ~1.2k stars), boardgame platforms: Gaia Project engine &amp; boardgamers.space — ~1.5k commits on Gaia alone.</li>
+	<li>2022: joined Hugging Face — the 'GitHub of AI'. Founding contributor on chat-ui (the open-source codebase behind HuggingChat, 10.9k stars, 100+ contributors) and huggingface.js (the JS SDK, 2.5k stars).</li>
+	<li>Side note: also a private SaaS — Cap Financials (Capfi International), a fintech app started in 2021, solo, ~1.4k commits, ~57k lines. Proves I ship alone AND in teams.</li>
+	<li>Point: this isn't a talk from someone who discovered coding with ChatGPT. The 'before' baseline is real, so the 'after' comparison means something.</li>
+	<li>(Mongoku is deliberately NOT on this slide — it's a post-AI story, coming on slide 5.)</li>
+	</ul>">
+	<div class="kicker">First, the receipts</div>
+	<h2>Before AI — <span class="dim">15 years of shipping</span></h2>
+	<div class="grid3">
+		<div class="card">
+			<h3>🎮 Pokémon Online</h3>
+			<p class="mono accent-c">2009 – 2014 · Qt / C++</p>
+			<p>Online battle simulator, used by thousands of players. Main contributor.</p>
+			<p class="mono" style="margin-top:1vh">978 commits · ⭐ 302 · 171 forks</p>
+		</div>
+		<div class="card">
+			<h3>🕹️ Board games</h3>
+			<p class="mono accent-c">2018 – 2021 · TS</p>
+			<p>Gaia Project engine &amp; viewer; boardgamers.space platform. Mostly solo, obsessive rules-correctness.</p>
+			<p class="mono" style="margin-top:1vh">1,460 + 879 commits</p>
+		</div>
+		<div class="card">
+			<h3>🖥️ Desktop &amp; tools</h3>
+			<p class="mono accent-c">2017 – 2018 · JS</p>
+			<p>ODrive — Google Drive desktop client (1.2k ⭐).</p>
+		</div>
+		<div class="card">
+			<h3>🤗 Hugging Face</h3>
+			<p class="mono accent-c">2022 – now · TS / Svelte</p>
+			<p>Founding contributor of <strong>chat-ui</strong> (behind HuggingChat) and core maintainer of <strong>huggingface.js</strong>.</p>
+			<p class="mono" style="margin-top:1vh">10.9k ⭐ + 2.5k ⭐ · 100+ contributors</p>
+		</div>
+		<div class="card">
+			<h3>💼 Cap Financials</h3>
+			<p class="mono accent-c">2021 – now · SaaS</p>
+			<p>Private fintech SaaS (Capfi International) — full-stack, solo, in production.</p>
+			<p class="mono" style="margin-top:1vh">~1,400 commits · ~57k lines</p>
+		</div>
+		<div class="card">
+			<h3>🛠️ …and more</h3>
+			<p class="mono accent-c">ongoing</p>
+			<p>121 public repos since 2010. Portfolios, Flutter apps, open-source tooling.</p>
+			<p class="mono" style="margin-top:1vh">github.com/coyotte508</p>
+		</div>
+	</div>
+	<div class="footer"><span>Eliott C. — Development in the AI era</span><span>02</span></div>
+</section>
+
+<!-- ============ 3. THE OLD WAY ============ -->
+<section class="slide" data-notes="
+	<ul>
+	<li>Set the baseline: how this all used to feel day-to-day.</li>
+	<li>The stack knowledge was the moat: years to get fluent in a language/framework. Every new language or UI paradigm was months of ramp-up.</li>
+	<li>Translation/adaptation work was the worst: porting an app to another language or design system = weeks of mechanical grind, low value, high tedium.</li>
+	<li>Refactors of large codebases were risky and slow — you had to hold the whole thing in your head.</li>
+	<li>Internal tools usually just never got built — opportunity cost was too high.</li>
+	</ul>">
+	<div class="kicker">The baseline</div>
+	<h2>How it used to work</h2>
+	<div class="grid2">
+		<div class="card">
+			<h3>Knowledge = years</h3>
+			<p>Fluency in a stack came from years of grinding docs, source code and Stack Overflow. Domain gaps were expensive.</p>
+		</div>
+		<div class="card">
+			<h3>Cross-cutting work = grind</h3>
+			<p>Translating an app into several languages, adapting to a specific UI/UX: pure mechanical weeks nobody enjoyed.</p>
+		</div>
+		<div class="card">
+			<h3>Big refactors = risk</h3>
+			<p>Moving large pieces of code around was slow, scary, and gated on one person holding it all in their head.</p>
+		</div>
+		<div class="card">
+			<h3>Side tools = never</h3>
+			<p>Internal tools and one-off projects lost the prioritization fight every single time.</p>
+		</div>
+	</div>
+	<div class="footer"><span>Eliott C. — Development in the AI era</span><span>03</span></div>
+</section>
+
+<!-- ============ 4. THE SHIFT ============ -->
+<section class="slide" data-notes="
+	<ul>
+	<li>Be honest about the timeline: assistants helped before, but it was still 'autocomplete with extra steps'. The real shift for me was Q4 2025 — when agents could hold a whole project, use tools, and see.</li>
+	<li>Not a gradual slope — more like a step function. Within one quarter, 'vibe-coding' a whole real project went from impossible to routine.</li>
+	<li>Everything after this slide is what changed concretely, with my own projects as evidence.</li>
+	</ul>">
+	<div class="kicker">Q4 2025</div>
+	<h1 style="font-size:4.2rem">The shift<span class="blink accent">_</span></h1>
+	<div class="tl">
+		<div class="tl-item">
+			<div class="yr">2011 – 2022</div>
+			<div class="what">Craft era</div>
+			<div class="det">Stacks learned over years. Manual everything. Knowledge is the moat.</div>
+		</div>
+		<div class="tl-item">
+			<div class="yr">2023 – 2024</div>
+			<div class="what">Copilot era</div>
+			<div class="det">Autocomplete on steroids. Nice, but you still drive every line.</div>
+		</div>
+		<div class="tl-item">
+			<div class="yr">Q4 2025</div>
+			<div class="what accent">Agent era</div>
+			<div class="det">Vision · tool use · long context. Whole projects go from prompt to production.</div>
+		</div>
+		<div class="tl-item">
+			<div class="yr">Now</div>
+			<div class="what accent-g">New job description</div>
+			<div class="det">I review, steer and own. The model writes. Judgment is the moat.</div>
+		</div>
+	</div>
+	<div class="footer"><span>Eliott C. — Development in the AI era</span><span>04</span></div>
+</section>
+
+<!-- ============ 5. THE EVIDENCE ============ -->
+<section class="slide" data-notes="
+	<ul>
+	<li>Three concrete receipts, all post-Q4 2025:</li>
+	<li><b>Mongoku</b>: an open-source MongoDB GUI that's existed since 2017–2018. The current version was rewritten in Sept 2025 in modern Svelte 5/TS — my commits there are only from Sep 2025 onward, and the UI is largely from LLM. Old codebase: hand-written. New one: the model did the bulk, I reviewed. Both are 'mine', but the economics changed completely.</li>
+	<li><b>moon-bot</b>: a Slack bot that forwards to a coding agent via SDK, runs in a privileged pod with skills/tools, helps support the Hugging Face hub. A full agent platform for the company, ~50k lines — largely vibe-coded.</li>
+	<li><b>moon-ide</b>: the IDE I use every day — literally the one running this very presentation. Tauri/Rust core, Svelte 5 frontend, CodeMirror, in-process coding agent, containers as a first-class concept. Fully vibe-coded, ~700 commits, ~220k lines.</li>
+	<li>The punchline: I'm presenting from inside a product that an agent and I built together. Ask them to remember slide 3 — 'internal tools never get built'. This one did.</li>
+	</ul>">
+	<div class="kicker">Q4 2025 → receipts</div>
+	<h2>Projects that changed my mind</h2>
+	<div class="grid3">
+		<div class="card">
+			<h3>🔥 Mongoku <span class="dim">— rewritten</span></h3>
+			<p class="mono accent-c">Sep 2025 · Svelte 5 / TS</p>
+			<p>The MongoDB GUI (around since 2017), rebuilt in modern Svelte — UI largely generated by LLM, shaped by me.</p>
+			<p class="mono" style="margin-top:1vh">⭐ 1.4k · 16 contributors</p>
+		</div>
+		<div class="card">
+			<h3>🌙 moon-bot</h3>
+			<p class="mono accent-c">2026 · TS — agent platform</p>
+			<p>Slack → coding-agent bridge running in a privileged pod with skills &amp; tools. Supports the HF hub daily.</p>
+			<p class="mono" style="margin-top:1vh">~300 commits · ~50k lines</p>
+		</div>
+		<div class="card">
+			<h3>🛰️ moon-ide</h3>
+			<p class="mono accent-c">2026 · Rust + Svelte 5</p>
+			<p>The IDE I use <em>every day</em> — including <strong>right now</strong>, for this talk. Fully vibe-coded.</p>
+			<p class="mono" style="margin-top:1vh">~700 commits · ~220k lines</p>
+		</div>
+	</div>
+	<p class="sub">Same author, same standards. Radically different <span class="accent">economics</span>.</p>
+	<div class="footer"><span>Eliott C. — Development in the AI era</span><span>05</span></div>
+</section>
+
+<!-- ============ 6. WHAT AI IS GREAT AT ============ -->
+<section class="slide" data-notes="
+	<ul>
+	<li>Well-prompted AI is wonderful at: <b>filling gaps in your domain knowledge</b> — I can now write Rust, or work on Flutter, or navigate an unfamiliar codebase, because the model carries the parts I never had time to learn. You bring judgment; it brings breadth.</li>
+	<li><b>Translation &amp; adaptation</b>: porting an app to several (human) languages, adapting to a specific UI style or design system — the old 'weeks of grind' category is now hours, and the quality is fine.</li>
+	<li><b>Large refactors</b>: moving big pieces of code, migrations, rewrites — it holds the whole surface in context at once, which no human can.</li>
+	<li><b>One-off &amp; non-core projects</b>: internal tools, dashboards, scripts, prototypes. These used to lose the prioritization fight; now they're nearly free. moon-ide and moon-bot are exactly this category.</li>
+	<li>Key qualifier: 'well-prompted'. The examples work because the prompt came from an experienced dev who knew what 'good' looks like.</li>
+	</ul>">
+	<div class="kicker">Where it shines</div>
+	<h2>What well-prompted AI is <span class="accent-g">great</span> at</h2>
+	<ul class="clean" style="font-size:1.5rem">
+		<li><strong>Filling gaps in your domain knowledge</strong> — new languages, unfamiliar stacks, foreign codebases</li>
+		<li><strong>Translating &amp; adapting</strong> — i18n, porting apps, matching a specific UI style or design system</li>
+		<li><strong>Refactoring large chunks of code</strong> — context no human can hold</li>
+		<li><strong>One-off, non-core projects</strong> — internal tools, prototypes, glue</li>
+	</ul>
+	<div class="quote" style="margin-top:auto">
+		Well-prompted AI turns <span class="dim">weeks of grind</span> into <span class="accent-g">hours of review</span>.
+	</div>
+	<div class="footer"><span>Eliott C. — Development in the AI era</span><span>06</span></div>
+</section>
+
+<!-- ============ 7. THE NEW TOOLKIT ============ -->
+<section class="slide" data-notes="
+	<ul>
+	<li>Why did Q4 2025 change things? Model capabilities crossed a threshold:</li>
+	<li><b>Vision</b> — show it a screenshot of a broken UI or a design mock and it fixes/builds it. UI work was previously the 'hard to specify' part.</li>
+	<li><b>Tool use / agentic loops</b> — the model doesn't just suggest code; it runs shell commands, reads files, tests its work, self-corrects. Dev becomes a conversation with something that can act.</li>
+	<li><b>Basic concepts that got reliable</b>: long context, structured outputs, sub-agents, skills — small things that compound.</li>
+	<li>Exercise recommendation: <b>build your own harness</b>. Write your own thin layer that calls the model — your own mini coding-agent, your own tool loop. You learn 10× more about what these systems can and can't do than by using a polished product. And it keeps you honest about limits.</li>
+	</ul>">
+	<div class="kicker">What unlocked it</div>
+	<h2>The new toolkit <span class="dim">— and why now</span></h2>
+	<div class="grid3">
+		<div class="card">
+			<h3>👀 Vision</h3>
+			<p>Screenshot → fix. Mock → app. The UI, long the 'hard to specify' part, became directly addressable.</p>
+		</div>
+		<div class="card">
+			<h3>🔧 Tool use</h3>
+			<p>Agents that run commands, read &amp; write files, test their work, self-correct. Suggestion → action.</p>
+		</div>
+		<div class="card">
+			<h3>🧩 Compounding basics</h3>
+			<p>Long context, structured outputs, sub-agents, skills. Small capabilities that add up.</p>
+		</div>
+	</div>
+	<div class="card" style="border-color:var(--amber); margin-top:3vh">
+		<h3 class="accent">🏋️ Recommended exercise: build your own harness</h3>
+		<p style="font-size:1.15rem">A thin layer that calls the model — your own tool loop, your own mini coding-agent. You learn more about the real capabilities &amp; limits than from any polished product.</p>
+	</div>
+	<div class="footer"><span>Eliott C. — Development in the AI era</span><span>07</span></div>
+</section>
+
+<!-- ============ 8. WHERE JUDGMENT STILL MATTERS ============ -->
+<section class="slide" data-notes="
+	<ul>
+	<li>The other half of the talk: where humans stay essential.</li>
+	<li>Your main product — the one where you collaborate with others, that outlives your attention — needs to stay <b>tidy</b>: coherent architecture, tests, conventions, docs, CI. AI can generate code infinitely; it can't generate 'a codebase you still want to work in 6 months later' without you steering.</li>
+	<li>You must keep a real handle on it: review what goes in, keep the map in your head, own the architecture. 'Vibe' works for one-offs; it compounds into chaos for a shared product.</li>
+	<li>Even with perfect prompting, AI is <b>biased by your questions</b>. Ask 'how do I do X with Y' and it will never suggest 'you shouldn't do X'. Regularly zoom out: is this the right solution? Should we pivot?</li>
+	<li>And the strongest models today — the fables of the world — are powerful but still don't always have the best judgment. Raw intelligence ≠ good decisions. Taste, ownership and consequences remain yours.</li>
+	</ul>">
+	<div class="kicker">Where you stay essential</div>
+	<h2>For your <span class="accent-v">core</span>, keep the handle</h2>
+	<div class="split">
+		<div class="col">
+			<div class="card" style="flex:1">
+				<h3>🏢 Deep products ≠ one-offs</h3>
+				<p>The main project — where you collaborate, that outlives your attention — must stay <strong>tidy</strong>: architecture, tests, conventions, CI, docs.</p>
+				<p style="margin-top:1.2vh">AI can generate infinite code.<br />It can't generate a codebase you still love in 6 months — <strong>you</strong> steer that.</p>
+			</div>
+		</div>
+		<div class="col">
+			<div class="card" style="flex:1">
+				<h3>🧭 Judgment &gt; intelligence</h3>
+				<p>AI is <strong>biased by your questions</strong> — ask "how do I X with Y" and it will never say "you shouldn't X".</p>
+				<p style="margin-top:1.2vh">Zoom out regularly: other solutions? a pivot?</p>
+				<p style="margin-top:1.2vh">Even the most powerful AI (the <em>fables</em> of today) doesn't always have the best <strong>judgment</strong>.</p>
+			</div>
+		</div>
+	</div>
+	<div class="footer"><span>Eliott C. — Development in the AI era</span><span>08</span></div>
+</section>
+
+<!-- ============ 9. CLOSING ============ -->
+<section class="slide" data-notes="
+	<ul>
+	<li>Recap: AI didn't replace development for me — it changed the distribution of my time. Grind went away; judgment, ownership and direction took its place.</li>
+	<li>Suggested takeaways for the audience: (1) use it for the periphery — gaps, translations, one-offs; (2) build your own harness to understand it; (3) keep a strong handle on your core product; (4) trust your judgment over the model's confidence.</li>
+	<li>Offer: come talk to me after — happy to demo moon-ide live.</li>
+	</ul>">
+	<div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:4vh">
+		<div class="kicker">Takeaways</div>
+		<ul class="clean" style="font-size:1.45rem">
+			<li>The grind is gone — <strong>judgment is the new moat</strong></li>
+			<li>Vibe-code the <strong>periphery</strong>, own the <strong>core</strong></li>
+			<li>Build your own harness — <strong>learn the limits first-hand</strong></li>
+			<li>Your questions bias the answers — <strong>zoom out</strong></li>
+		</ul>
+		<div class="sub">
+			<span class="mono">@coyotte508</span> · Eliott @ <span class="accent-c">Hugging Face</span> — questions welcome
+		</div>
+	</div>
+	<div class="footer"><span>Eliott C. — Development in the AI era</span><span>09</span></div>
+</section>
+
+<!-- ============ NOTES PANEL ============ -->
+<aside id="notes">
+	<h4>Speaker notes</h4>
+	<div id="notes-body"></div>
+	<div class="hint">N to close · ← / → to navigate</div>
+</aside>
+
+<script>
+const slides = [...document.querySelectorAll(".slide")];
+let i = 0;
+const notes = document.getElementById("notes");
+const notesBody = document.getElementById("notes-body");
+
+function show(n) {
+	i = Math.max(0, Math.min(slides.length - 1, n));
+	slides.forEach((s, k) => s.classList.toggle("active", k === i));
+	notesBody.innerHTML = slides[i].dataset.notes || "<p><em>No notes for this slide.</em></p>";
+	document.location.hash = i + 1;
+}
+show(parseInt(document.location.hash.slice(1)) - 1 || 0);
+
+function toggleNotes() { notes.classList.toggle("open"); }
+
+addEventListener("keydown", (e) => {
+	if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown") { e.preventDefault(); show(i + 1); }
+	else if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); show(i - 1); }
+	else if (e.key === "Home") show(0);
+	else if (e.key === "End") show(slides.length - 1);
+	else if (e.key.toLowerCase() === "n") toggleNotes();
+});
+
+addEventListener("click", (e) => {
+	if (e.clientX > innerWidth - 90) show(i + 1);
+	else if (e.clientX < 90 && i > 0) show(i - 1);
+});
+</script>
+</body>
+</html>

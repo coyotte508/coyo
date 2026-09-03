@@ -10,9 +10,10 @@ const config = {
 		}),
 		prerender: {
 			handleHttpError: ({ path, referrer, message }) => {
-				// The Slidev deck lives in /static/talks/hooks-everywhere/ and links
-				// to its parent without a trailing slash — not a real 404.
-				if (path === "/talks/hooks-everywhere") {
+				// Slide decks in /static/talks/ are linked with a trailing slash
+				// (e.g. /talks/hooks-everywhere/), which the crawler normalizes
+				// to the parent path — not a real 404.
+				if (path === "/talks/hooks-everywhere" || path === "/talks/dev-in-ai-era") {
 					return;
 				}
 				throw new Error(`${message} (${path}${referrer ? ` (linked from ${referrer})` : ""})`);
