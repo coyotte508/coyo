@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Development in the AI Era — Eliott C.</title>
+<title>Développement en entreprise à l'ère de l'IA — Eliott C.</title>
 <style>
 	:root {
 		--bg: #0c0f14;
@@ -30,7 +30,6 @@
 	}
 	.slide.active { display: flex; }
 
-	/* subtle grid backdrop */
 	.slide::before {
 		content: "";
 		position: absolute; inset: 0;
@@ -43,9 +42,9 @@
 	}
 	.slide > * { position: relative; z-index: 1; }
 
-	h1 { font-size: 5.2rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; }
-	h2 { font-size: 3.2rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 4.5vh; }
-	.sub { color: var(--dim); font-size: 1.5rem; margin-top: 2vh; }
+	h1 { font-size: 4.6rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.08; }
+	h2 { font-size: 3rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 4vh; }
+	.sub { color: var(--dim); font-size: 1.45rem; margin-top: 2vh; }
 	.kicker {
 		font-size: 0.95rem; font-weight: 700; letter-spacing: 0.28em;
 		text-transform: uppercase; color: var(--amber); margin-bottom: 2.5vh;
@@ -58,7 +57,6 @@
 	.faint { color: var(--faint); }
 	.mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
 
-	/* layout helpers */
 	.cols { display: flex; gap: 3vw; flex: 1; align-items: stretch; min-height: 0; }
 	.col { flex: 1; display: flex; flex-direction: column; gap: 2vh; min-width: 0; }
 	.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5vh 2.5vw; flex: 1; align-content: center; }
@@ -68,26 +66,15 @@
 		background: var(--card);
 		border: 1px solid var(--border);
 		border-radius: 16px;
-		padding: 2.6vh 1.6vw;
+		padding: 2.4vh 1.6vw;
 	}
-	.card h3 { font-size: 1.35rem; margin-bottom: 1vh; font-weight: 700; }
+	.card h3 { font-size: 1.3rem; margin-bottom: 1vh; font-weight: 700; }
 	.card p, .card li { color: var(--dim); font-size: 1.02rem; line-height: 1.5; }
-
-	.big-num { font-size: 3.4rem; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
-	.big-num small { font-size: 1.1rem; font-weight: 600; color: var(--dim); margin-left: 0.4rem; letter-spacing: 0; }
+	.card p strong, .card li strong { color: var(--fg); font-weight: 600; }
 
 	ul.clean { list-style: none; }
-	ul.clean li { padding-left: 1.6em; position: relative; margin-bottom: 1.6vh; font-size: 1.35rem; line-height: 1.45; }
+	ul.clean li { padding-left: 1.6em; position: relative; margin-bottom: 1.5vh; font-size: 1.32rem; line-height: 1.45; }
 	ul.clean li::before { content: "▸"; position: absolute; left: 0; color: var(--amber); }
-	ul.clean li.dim-li { color: var(--dim); font-size: 1.2rem; }
-
-	table.stats { width: 100%; border-collapse: collapse; font-size: 1.12rem; }
-	table.stats th { text-align: left; color: var(--faint); font-weight: 600; text-transform: uppercase; font-size: 0.78rem; letter-spacing: 0.12em; padding: 0.7em 0.9em; border-bottom: 1px solid var(--border); }
-	table.stats td { padding: 0.75em 0.9em; border-bottom: 1px solid var(--border); }
-	table.stats tr:last-child td { border-bottom: none; }
-	table.stats td:first-child { font-weight: 600; }
-	table.stats td.n { font-variant-numeric: tabular-nums; color: var(--cyan); font-family: ui-monospace, Menlo, monospace; }
-	table.stats td.s { color: var(--dim); font-family: ui-monospace, Menlo, monospace; }
 
 	.footer {
 		position: absolute; bottom: 3.2vh; left: 8vw; right: 8vw;
@@ -98,12 +85,10 @@
 
 	.quote {
 		border-left: 4px solid var(--amber);
-		padding: 2.5vh 2vw;
-		font-size: 2rem; font-weight: 500; line-height: 1.4;
+		padding: 2vh 2vw;
+		font-size: 1.8rem; font-weight: 500; line-height: 1.4;
 	}
-	.quote .who { display: block; margin-top: 1.6vh; font-size: 1rem; color: var(--faint); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
 
-	/* speaker notes */
 	#notes {
 		display: none;
 		position: fixed; right: 0; top: 0; bottom: 0; width: 430px;
@@ -118,15 +103,14 @@
 	#notes .hint { margin-top: 3vh; color: #555f75; font-size: 0.78rem; }
 
 	.chip {
-		display: inline-block; padding: 0.25em 0.8em; border-radius: 999px;
+		display: inline-block; padding: 0.22em 0.75em; border-radius: 999px;
 		border: 1px solid var(--border); color: var(--dim);
-		font-size: 0.85rem; margin-right: 0.5em; font-family: ui-monospace, Menlo, monospace;
+		font-size: 0.82rem; margin-right: 0.5em; font-family: ui-monospace, Menlo, monospace;
 	}
 	.blink { animation: blink 1.1s steps(2) infinite; }
 	@keyframes blink { 50% { opacity: 0.15; } }
 
 	.split { display: grid; grid-template-columns: 1fr 1fr; gap: 3vw; flex: 1; align-items: stretch; }
-	.vs { display: flex; align-items: center; justify-content: center; color: var(--faint); font-weight: 800; font-size: 2rem; }
 
 	.tl { display: flex; gap: 0; flex: 1; align-items: center; }
 	.tl-item { flex: 1; padding: 0 1.4vw; border-left: 2px solid var(--border); position: relative; }
@@ -134,12 +118,14 @@
 		content: ""; position: absolute; left: -7px; top: 0.6em; width: 12px; height: 12px;
 		border-radius: 50%; background: var(--bg); border: 2px solid var(--amber);
 	}
-	.tl-item .yr { color: var(--amber); font-weight: 800; font-size: 1.15rem; font-family: ui-monospace, Menlo, monospace; }
-	.tl-item .what { font-weight: 600; font-size: 1.2rem; margin: 0.6vh 0; }
-	.tl-item .det { color: var(--dim); font-size: 0.95rem; line-height: 1.45; }
+	.tl-item .yr { color: var(--amber); font-weight: 800; font-size: 1.1rem; font-family: ui-monospace, Menlo, monospace; }
+	.tl-item .what { font-weight: 600; font-size: 1.15rem; margin: 0.6vh 0; }
+	.tl-item .det { color: var(--dim); font-size: 0.92rem; line-height: 1.45; }
+
+	a { color: var(--cyan); }
 
 	@media (max-width: 1100px) {
-		h1 { font-size: 3.4rem; } h2 { font-size: 2.3rem; }
+		h1 { font-size: 3.2rem; } h2 { font-size: 2.2rem; }
 		.split, .grid2, .grid3 { grid-template-columns: 1fr; }
 		.tl { flex-direction: column; align-items: stretch; gap: 2vh; }
 	}
@@ -147,325 +133,505 @@
 </head>
 <body>
 
-<!-- ============ 1. TITLE ============ -->
+<!-- ============ 1. TITRE ============ -->
 <section class="slide active" data-notes="
 	<ul>
-	<li>Introduce yourself: Eliott, developer at Hugging Face — the 'GitHub of AI'.</li>
-	<li>Frame the talk: not a hype talk, not a doom talk — a practitioner's account. ~15 years of writing software, and a clear before/after that happened for me in Q4 2025.</li>
+	<li>Se présenter : Eliott, ingénieur logiciel chez Hugging Face depuis 2022 — la plateforme de référence pour l'IA open source.</li>
+	<li>Cadrer : pas une présentation hype, pas une présentation alarmiste — un retour d'expérience de praticien. ~15 ans de développement, et une bascule concrète chez moi fin 2025.</li>
+	<li>La question du jour : qu'est-ce qui change, concrètement, dans le métier de développeur en entreprise ?</li>
 	</ul>">
-	<div class="kicker">A practitioner's account</div>
-	<h1>Development in<br />the <span class="accent">AI era</span></h1>
+	<div class="kicker">Retour d'expérience de terrain</div>
+	<h1>Développement en entreprise<br />à l'ère de l'<span class="accent">IA</span></h1>
 	<div class="sub" style="display:flex; align-items:center; gap:0.7em; flex-wrap:wrap">
-		<strong>Eliott C.</strong> · Software Engineer @
-		<svg width="1.15em" height="1.15em" viewBox="0 0 1500 1500" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:-0.18em" role="img" aria-label="Hugging Face">
-			<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFD21E" d="M1348.72 1168.37C1360.03 1142.67 1361.13 1113.74 1351.94 1087.55C1361.08 1064.58 1362.52 1038.87 1356.33 1014.97C1353.1 1002.63 1347.95 991.175 1341.12 980.965C1342.52 976.029 1343.6 970.929 1344.36 965.659C1349.44 930.378 1337.38 896.408 1313.59 870.403C1302.83 858.64 1289.91 849.894 1275.97 844.105C1284.44 805.888 1288.9 766.185 1288.9 725.475C1288.9 425.12 1046.33 181.36 746.772 181.36C447.213 181.36 204.644 425.12 204.644 725.475C204.644 767.136 209.317 807.743 218.176 846.781C206.46 852.482 195.618 860.354 186.431 870.403C162.65 896.406 150.585 930.384 155.658 965.659C156.415 970.926 157.505 976.031 158.904 980.965C152.074 991.175 146.922 1002.63 143.692 1014.97C137.445 1038.82 138.958 1064.63 148.078 1087.54C138.888 1113.74 139.992 1142.68 151.301 1168.37C171.605 1214.49 218.813 1243.21 283.614 1269C355.654 1297.68 435.229 1318.64 516.715 1318.64C582.532 1318.64 639.737 1302.62 681.509 1265.68C702.919 1268.26 724.699 1269.59 746.772 1269.59C770.797 1269.59 794.475 1268.02 817.706 1264.97C859.527 1302.39 917.048 1318.64 983.305 1318.64C1065.11 1318.64 1144.1 1297.79 1216.41 1269C1281.21 1243.21 1328.42 1214.49 1348.72 1168.37ZM1201.48 1231.5C1265.52 1206.01 1298.5 1182.26 1311.77 1152.11C1321.11 1130.89 1319.46 1106.41 1307.02 1086.84C1323.52 1061.54 1320.36 1036.98 1317.28 1025.19C1313.34 1010.15 1305.2 997.644 1294.14 988.661C1299.38 979.912 1302.89 970.461 1304.41 959.918C1307.59 937.779 1300.28 915.653 1283.81 897.648C1278.56 891.903 1272.36 887.26 1265.59 883.763C1253.45 877.49 1239.44 874.904 1225.67 876.26C1229.83 862.94 1233.45 849.38 1236.51 835.609C1244.38 800.161 1248.53 763.306 1248.53 725.476C1248.53 447.262 1023.89 221.726 746.772 221.726C469.656 221.726 245.01 447.262 245.01 725.476C245.01 763.44 249.193 800.424 257.122 835.988C260.135 849.506 263.69 862.818 267.762 875.901C254.074 875.791 240.392 879.604 228.93 886.961C224.276 889.948 219.988 893.519 216.214 897.648C199.743 915.653 192.427 937.779 195.613 959.918C197.128 970.461 200.637 979.912 205.881 988.661C194.823 997.644 186.678 1010.15 182.742 1025.19C179.66 1036.98 176.501 1061.54 192.997 1086.84C180.564 1106.41 178.908 1130.89 188.245 1152.11C201.517 1182.26 234.498 1206.01 298.542 1231.5C367.636 1259 441.978 1278.27 516.715 1278.27C584.432 1278.27 634.963 1259.67 667.239 1222.93C693.142 1227.07 719.707 1229.23 746.772 1229.23C775.811 1229.23 804.275 1226.75 831.964 1221.99C864.201 1259.36 915.014 1278.28 983.305 1278.28C1058.36 1278.28 1132.11 1259.11 1201.48 1231.5Z"/>
-		</svg>
+		<strong>Eliott C.</strong> · Ingénieur logiciel @
+		<svg width="1.15em" height="1.15em" viewBox="0 0 1500 1500" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:-0.18em" role="img" aria-label="Hugging Face"><path fill-rule="evenodd" clip-rule="evenodd" fill="#FFD21E" d="M1348.72 1168.37C1360.03 1142.67 1361.13 1113.74 1351.94 1087.55C1361.08 1064.58 1362.52 1038.87 1356.33 1014.97C1353.1 1002.63 1347.95 991.175 1341.12 980.965C1342.52 976.029 1343.6 970.929 1344.36 965.659C1349.44 930.378 1337.38 896.408 1313.59 870.403C1302.83 858.64 1289.91 849.894 1275.97 844.105C1284.44 805.888 1288.9 766.185 1288.9 725.475C1288.9 425.12 1046.33 181.36 746.772 181.36C447.213 181.36 204.644 425.12 204.644 725.475C204.644 767.136 209.317 807.743 218.176 846.781C206.46 852.482 195.618 860.354 186.431 870.403C162.65 896.406 150.585 930.384 155.658 965.659C156.415 970.926 157.505 976.031 158.904 980.965C152.074 991.175 146.922 1002.63 143.689 1014.97C137.499 1038.87 138.934 1064.58 148.08 1087.55C138.89 1113.74 139.988 1142.67 151.3 1168.37C161.823 1192.33 179.63 1210.82 201.892 1221.44L347.516 1291.32C347.516 1291.32 437.882 1334.75 536.934 1301.92L538.66 1301.32C542.738 1300.19 546.892 1300.28 550.932 1301.57C576.161 1309.3 594.9 1320.89 603.212 1332.04C611.524 1343.19 608.421 1354.85 596.269 1358.06C589.704 1359.79 582.826 1359.83 576.237 1358.2L546.107 1350.54C523.991 1345.03 500.438 1349.86 482.301 1364.07L464.873 1377.72C452.429 1387.45 437.228 1392.64 421.593 1392.64H299.017C277.587 1392.64 256.644 1386.36 238.923 1374.65L210.345 1355.52C208.298 1354.16 206.022 1353.15 203.65 1352.55L163.689 1342.73C140.971 1337.04 121.564 1323.08 109.558 1303.53C97.5522 1283.98 93.6728 1260.48 98.8992 1238.01L108.696 1199.02C109.733 1194.59 109.622 1189.97 108.367 1185.6L89.0373 1118.18C82.4037 1095.09 84.3736 1070.24 94.5301 1048.41L109.746 1016.64C111.129 1013.71 111.925 1010.51 112.096 1007.25L113.425 981.262C113.682 976.445 112.757 971.646 110.729 967.22L89.3561 920.309C79.791 899.28 77.9496 875.196 83.6619 852.467C87.2657 838.016 93.9119 824.464 103.037 812.773L142.645 763.805C144.238 761.768 145.573 759.536 146.618 757.156L165.333 713.69C172.067 698.18 182.31 684.517 195.388 674.194L220.585 654.031C224.494 650.983 227.839 647.311 230.483 643.184L254.075 603.962C265.216 585.662 281.966 571.229 301.815 562.967L332.92 550.05C339.462 547.315 345.504 543.548 350.813 538.922L390.896 502.633C405.298 489.322 423.639 480.728 443.103 477.622L483.628 471.158C488.568 470.419 493.261 468.265 497.359 464.927L548.093 422.737C557.271 415.319 567.762 409.814 579.022 406.524L621.102 395.061C624.851 394.053 628.396 392.399 631.585 390.191L687.93 349.817C698.209 342.263 710.097 337.289 722.611 335.246L756.511 329.727C759.859 329.175 763.274 329.135 766.635 329.609L826.791 337.944C828.942 338.245 830.99 338.999 832.824 340.151L893.876 379.819C898.947 382.848 904.511 384.966 910.316 386.056L975.43 398.376C992.326 401.569 1007.9 409.768 1020.13 422.117L1036.63 439.151C1040.1 442.792 1042.33 447.263 1043.07 452.078L1050.4 503.636C1052.64 520.64 1060.25 536.492 1072.24 548.611L1101.69 578.496C1104.52 581.385 1106.65 584.828 1107.91 588.56L1128.05 645.136C1132.87 659.261 1141.05 672.06 1151.84 682.646L1164.96 695.501C1166.52 697.023 1167.73 698.842 1168.51 700.845L1191.18 762.349C1197.47 779.771 1207.35 795.612 1220.13 808.508L1256.23 845.13C1260.86 849.836 1264.32 855.526 1266.35 861.712L1290.92 936.169C1295.27 949.338 1303.23 961.04 1313.74 970.02L1342.34 993.664C1353.54 1002.89 1362.3 1014.53 1368.12 1027.75L1381.43 1057.92C1389.81 1076.95 1392.63 1097.93 1389.61 1118.46L1386.63 1138.65C1385.71 1144.94 1386.03 1151.35 1387.56 1157.51L1405.46 1233.14C1408.22 1244.91 1406.52 1257.17 1400.64 1267.82L1390.58 1285.97C1387.98 1290.6 1384.42 1294.47 1380.1 1297.35L1330.27 1330.26C1313.06 1341.61 1292.67 1347.67 1271.74 1347.67H1206.16C1185.79 1347.67 1166.13 1354.01 1149.82 1365.37L1130.88 1378.57C1113.49 1390.79 1092.33 1397.34 1070.66 1397.34H990.91C967.945 1397.34 945.947 1388.72 930.023 1373.53L917.125 1361.1C915.025 1359.03 913.261 1356.65 911.902 1354.03L885.87 1304.05C880.442 1293.53 871.966 1284.94 861.531 1279.33L833.657 1264.31C829.835 1262.25 825.593 1261.12 821.261 1261.03L771.466 1260.05C752.993 1259.71 735.172 1253.3 720.799 1241.84L710.766 1233.82C703.887 1228.3 698.299 1221.35 694.379 1213.42L667.728 1161.52C665.946 1157.96 665.174 1153.99 665.516 1150.03L670.026 1098.3C671.07 1087.72 667.653 1077.24 660.583 1069.07L644.864 1050.92C636.452 1041.18 625.65 1034.1 613.692 1030.48L579.39 1020.11C575.772 1019.02 571.964 1018.66 568.193 1019.07L514.708 1024.71C496.728 1026.62 478.63 1021.83 463.96 1011.12L453.99 1003.84C443.483 996.267 434.867 986.18 428.819 974.528L409.747 936.317C407.943 932.854 405.398 929.882 402.31 927.594L352.943 889.833C341.973 881.578 333.05 870.819 326.802 858.383L314.583 833.823C312.567 829.793 309.64 826.28 306.023 823.516L260.243 788.282C244.738 776.351 234.834 759.047 232.366 740.111L231.008 729.487C230.421 724.656 228.348 720.12 225.072 716.459L190.158 675.409C182.578 666.753 173.784 659.277 164.076 653.324L109.795 620.694C94.216 611.128 76.4992 606.057 58.3775 606.057H45.1406C26.2711 606.057 8.01983 599.843 -6.97923 588.588L-32.3215 569.184C-49.4287 556.33 -60.9492 537.98 -65.0454 517.481L-71.1003 485.734C-72.3011 479.675 -71.1937 473.373 -68.0172 468.093L-50.9519 440.793C-47.5131 435.772 -45.5728 429.859 -45.3722 423.732L-42.1999 318.686C-41.7137 301.776 -47.4743 285.292 -58.3303 272.538L-101.268 224.019C-107.587 216.879 -111.718 208.095 -113.228 198.729L-116.522 177.932C-117.402 172.313 -116.125 166.6 -112.971 161.917L-80.4586 113.512C-75.165 105.661 -71.5682 96.7797 -69.9193 87.3642L-66.0857 65.2434C-63.2061 48.0033 -52.7196 33.1814 -37.5151 25.5992L-10.9171 12.2779C-1.21808 7.41246 9.70415 6.05837 20.3569 8.49204L53.6929 16.1255C67.4406 19.2306 79.8556 26.6262 89.2194 37.435L106.035 56.8841C108.338 59.5129 109.893 62.6233 110.562 65.9588L117.966 104.196C119.419 111.894 117.562 119.806 112.519 126.027L92.0313 150.775C85.6239 158.509 81.5298 167.932 80.1812 177.946L78.8416 187.923C77.8847 195.255 74.3159 202.011 68.6871 206.896L12.6448 256.633C8.09205 260.776 5.11566 266.502 4.14848 272.682L1.0524 292.905C-0.349557 301.544 0.419237 310.402 3.28234 318.675L16.0848 356.164C19.7832 366.786 26.4444 376.106 35.2115 382.904L60.0703 402.882C67.0463 408.298 75.3061 411.688 84.0048 412.771L114.153 416.522C124.189 417.794 133.659 422.187 140.907 429.142L151.943 439.73C160.277 437.887 168.963 436.959 177.766 436.959H1319.09C1339.14 436.959 1359.02 436.959 1379.07 436.959C1392.11 436.959 1402.02 447.695 1401.85 460.433L1400.98 531.008C1400.84 541.557 1395.94 551.403 1387.69 557.487L1331.89 597.85C1323.86 603.794 1317.48 611.979 1313.65 621.299L1298.44 657.721C1295.63 664.204 1294.44 671.3 1294.99 678.403L1298.3 719.755C1299.14 730.405 1305.31 739.906 1314.68 745.041L1363.27 771.795C1375.83 778.451 1385.73 789.733 1390.49 803.215L1399.47 829.589C1404.97 845.426 1402.71 862.742 1393.34 877.021L1368.58 914.868C1365.57 919.43 1363.69 924.655 1363.05 930.108L1358.16 970.012C1356.68 982.347 1360.13 994.701 1367.83 1004.53L1385.63 1027.2C1392.4 1035.69 1395.98 1046.22 1395.85 1057.07L1395.65 1072.95C1395.56 1080.59 1397.6 1088.12 1401.55 1094.75L1420.42 1126.31C1429.99 1142.31 1431.7 1161.61 1425.13 1179L1418.92 1195.41C1416.26 1202.47 1416.01 1210.18 1418.22 1217.36L1435.28 1272.48C1438.31 1282.24 1436.67 1292.78 1430.7 1301.37L1393.18 1354.05C1383.92 1367.19 1370.4 1376.91 1354.91 1381.47L1311.49 1394.28C1307.83 1395.36 1304 1395.93 1300.16 1395.97L1247.13 1396.46C1226.99 1396.66 1207.52 1402.43 1190.62 1413.13L1156.82 1434.54C1152.02 1437.57 1148.02 1441.7 1145.05 1446.63L1116.22 1494.79"/></svg>
 		<span class="accent-c">Hugging Face</span>
 	</div>
-	<div class="footer"><span>← / → to navigate</span><span>N = speaker notes</span></div>
+	<div class="footer"><span>← / → pour naviguer</span><span>N = notes de présentation</span></div>
 </section>
 
-<!-- ============ 2. BEFORE AI ============ -->
+<!-- ============ 2. AVANT ============ -->
 <section class="slide" data-notes="
 	<ul>
-	<li>Establish cred fast — don't linger, but show the receipts: I've been shipping software for ~15 years, since being a teenager.</li>
-	<li>2009–2014: I created Pokémon Online, a Qt/C++ battle simulator — 300+ stars, ~1k commits from me, main contributor, used by thousands of players. Written when I was a teen.</li>
-	<li>2017–2021: ODrive (Google Drive client, ~1.2k stars), boardgame platforms: Gaia Project engine &amp; boardgamers.space — ~1.5k commits on Gaia alone.</li>
-	<li>2022: joined Hugging Face — the 'GitHub of AI'. Founding contributor on chat-ui (the open-source codebase behind HuggingChat, 10.9k stars, 100+ contributors) and huggingface.js (the JS SDK, 2.5k stars).</li>
-	<li>Side note: also a private SaaS — Cap Financials (Capfi International), a fintech app started in 2021, solo, ~1.4k commits, ~57k lines. Proves I ship alone AND in teams.</li>
-	<li>Point: this isn't a talk from someone who discovered coding with ChatGPT. The 'before' baseline is real, so the 'after' comparison means something.</li>
-	<li>(Mongoku is deliberately NOT on this slide — it's a post-AI story, coming on slide 5.)</li>
+	<li>Donner le point de référence : à quoi ressemblait le quotidien d'un développeur il y a encore deux ans.</li>
+	<li>La maîtrise d'un stack prenait des années. Chaque nouveau langage ou framework = des mois de montée en compétence. La connaissance accumulée était le principal facteur de productivité.</li>
+	<li>Les travaux transverses étaient fastidieux : traduire une app en plusieurs langues, adapter une UI à une charte graphique, porter un composant — des semaines de travail mécanique, peu gratifiant.</li>
+	<li>Les gros refactors étaient lents et risqués : ils reposaient sur la capacité d'une seule personne à garder tout le code en tête.</li>
+	<li>Les outils internes n'étaient quasiment jamais développés : le coût d'opportunité par rapport au produit principal les tuait à chaque priorisation.</li>
+	<li>Transition : ce modèle n'a pas disparu — mais les curseurs ont bougé. Slide suivante : pourquoi maintenant.</li>
 	</ul>">
-	<div class="kicker">First, the receipts</div>
-	<h2>Before AI — <span class="dim">15 years of shipping</span></h2>
-	<div class="grid3">
-		<div class="card">
-			<h3>🎮 Pokémon Online</h3>
-			<p class="mono accent-c">2009 – 2014 · Qt / C++</p>
-			<p>Online battle simulator, used by thousands of players. Main contributor.</p>
-			<p class="mono" style="margin-top:1vh">978 commits · ⭐ 302 · 171 forks</p>
-		</div>
-		<div class="card">
-			<h3>🕹️ Board games</h3>
-			<p class="mono accent-c">2018 – 2021 · TS</p>
-			<p>Gaia Project engine &amp; viewer; boardgamers.space platform. Mostly solo, obsessive rules-correctness.</p>
-			<p class="mono" style="margin-top:1vh">1,460 + 879 commits</p>
-		</div>
-		<div class="card">
-			<h3>🖥️ Desktop &amp; tools</h3>
-			<p class="mono accent-c">2017 – 2018 · JS</p>
-			<p>ODrive — Google Drive desktop client (1.2k ⭐).</p>
-		</div>
-		<div class="card">
-			<h3>🤗 Hugging Face</h3>
-			<p class="mono accent-c">2022 – now · TS / Svelte</p>
-			<p>Founding contributor of <strong>chat-ui</strong> (behind HuggingChat) and core maintainer of <strong>huggingface.js</strong>.</p>
-			<p class="mono" style="margin-top:1vh">10.9k ⭐ + 2.5k ⭐ · 100+ contributors</p>
-		</div>
-		<div class="card">
-			<h3>💼 Cap Financials</h3>
-			<p class="mono accent-c">2021 – now · SaaS</p>
-			<p>Private fintech SaaS (Capfi International) — full-stack, solo, in production.</p>
-			<p class="mono" style="margin-top:1vh">~1,400 commits · ~57k lines</p>
-		</div>
-		<div class="card">
-			<h3>🛠️ …and more</h3>
-			<p class="mono accent-c">ongoing</p>
-			<p>121 public repos since 2010. Portfolios, Flutter apps, open-source tooling.</p>
-			<p class="mono" style="margin-top:1vh">github.com/coyotte508</p>
-		</div>
-	</div>
-	<div class="footer"><span>Eliott C. — Development in the AI era</span><span>02</span></div>
-</section>
-
-<!-- ============ 3. THE OLD WAY ============ -->
-<section class="slide" data-notes="
-	<ul>
-	<li>Set the baseline: how this all used to feel day-to-day.</li>
-	<li>The stack knowledge was the moat: years to get fluent in a language/framework. Every new language or UI paradigm was months of ramp-up.</li>
-	<li>Translation/adaptation work was the worst: porting an app to another language or design system = weeks of mechanical grind, low value, high tedium.</li>
-	<li>Refactors of large codebases were risky and slow — you had to hold the whole thing in your head.</li>
-	<li>Internal tools usually just never got built — opportunity cost was too high.</li>
-	</ul>">
-	<div class="kicker">The baseline</div>
-	<h2>How it used to work</h2>
+	<div class="kicker">Le point de départ</div>
+	<h2>Comment on travaillait <span class="dim">avant</span></h2>
 	<div class="grid2">
 		<div class="card">
-			<h3>Knowledge = years</h3>
-			<p>Fluency in a stack came from years of grinding docs, source code and Stack Overflow. Domain gaps were expensive.</p>
+			<h3>La compétence prenait des années</h3>
+			<p>La maîtrise d'un stack venait du temps passé sur la doc, le code source et les bugs. Chaque nouvelle technologie : des mois de montée en charge.</p>
 		</div>
 		<div class="card">
-			<h3>Cross-cutting work = grind</h3>
-			<p>Translating an app into several languages, adapting to a specific UI/UX: pure mechanical weeks nobody enjoyed.</p>
+			<h3>Les tâches transverses = corvée</h3>
+			<p>Traduire une app en plusieurs langues, adapter une UI à une charte : des semaines de travail mécanique à faible valeur ajoutée.</p>
 		</div>
 		<div class="card">
-			<h3>Big refactors = risk</h3>
-			<p>Moving large pieces of code around was slow, scary, and gated on one person holding it all in their head.</p>
+			<h3>Les gros refactors = risque</h3>
+			<p>Déplacer de gros pans de code : lent, risqué, et dépendant d'une seule personne capable d'en garder la vision complète.</p>
 		</div>
 		<div class="card">
-			<h3>Side tools = never</h3>
-			<p>Internal tools and one-off projects lost the prioritization fight every single time.</p>
+			<h3>Les outils internes = jamais prioritaires</h3>
+			<p>Outils internes, scripts, prototypes : systématiquement perdants face au produit principal dans la file des priorités.</p>
 		</div>
 	</div>
-	<div class="footer"><span>Eliott C. — Development in the AI era</span><span>03</span></div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>02</span></div>
 </section>
 
-<!-- ============ 4. THE SHIFT ============ -->
+<!-- ============ 3. POURQUOI MAINTENANT ============ -->
 <section class="slide" data-notes="
 	<ul>
-	<li>Be honest about the timeline: assistants helped before, but it was still 'autocomplete with extra steps'. The real shift for me was Q4 2025 — when agents could hold a whole project, use tools, and see.</li>
-	<li>Not a gradual slope — more like a step function. Within one quarter, 'vibe-coding' a whole real project went from impossible to routine.</li>
-	<li>Everything after this slide is what changed concretely, with my own projects as evidence.</li>
+	<li>Être honnête sur la chronologie : les assistants existaient avant (Copilot etc.), mais c'était encore 'de l'autocomplétion en mieux'. La vraie bascule pour moi : T4 2025.</li>
+	<li>Pas une pente progressive — plutôt un escalier. En un trimestre, construire un vrai projet entier avec un agent est passé d'impossible à banal.</li>
+	<li>Ce qui a franchi le seuil : la vision, l'usage d'outils (l'agent exécute des commandes, lit/écrit des fichiers, teste son propre travail), et les concepts de base devenus fiables (long contexte, sorties structurées, sous-agents, skills).</li>
+	<li>Détail pour les enseignants : la 'vision' veut dire qu'on montre une capture d'écran d'une UI cassée ou d'une maquette, et le modèle corrige/construit. L'UI était le morceau 'difficile à spécifier' — plus maintenant.</li>
 	</ul>">
-	<div class="kicker">Q4 2025</div>
-	<h1 style="font-size:4.2rem">The shift<span class="blink accent">_</span></h1>
+	<div class="kicker">T4 2025</div>
+	<h1 style="font-size:3.8rem">La bascule<span class="blink accent">_</span></h1>
 	<div class="tl">
 		<div class="tl-item">
-			<div class="yr">2011 – 2022</div>
-			<div class="what">Craft era</div>
-			<div class="det">Stacks learned over years. Manual everything. Knowledge is the moat.</div>
+			<div class="yr">2010 – 2022</div>
+			<div class="what">L'ère de la maîtrise</div>
+			<div class="det">Stacks appris en des années. Tout manuel. La connaissance accumulée fait la productivité.</div>
 		</div>
 		<div class="tl-item">
 			<div class="yr">2023 – 2024</div>
-			<div class="what">Copilot era</div>
-			<div class="det">Autocomplete on steroids. Nice, but you still drive every line.</div>
+			<div class="what">L'ère de l'assistant</div>
+			<div class="det">Autocomplétion dopée. Utile, mais on pilote encore chaque ligne.</div>
 		</div>
 		<div class="tl-item">
-			<div class="yr">Q4 2025</div>
-			<div class="what accent">Agent era</div>
-			<div class="det">Vision · tool use · long context. Whole projects go from prompt to production.</div>
+			<div class="yr">T4 2025</div>
+			<div class="what accent">L'ère des agents</div>
+			<div class="det">Vision · outils · long contexte. Des projets entiers passent du prompt à la prod.</div>
 		</div>
 		<div class="tl-item">
-			<div class="yr">Now</div>
-			<div class="what accent-g">New job description</div>
-			<div class="det">I review, steer and own. The model writes. Judgment is the moat.</div>
+			<div class="yr">Aujourd'hui</div>
+			<div class="what accent-g">Nouveau rôle</div>
+			<div class="det">Le dev pilote, relit, décide. Le modèle écrit. Le jugement fait la différence.</div>
 		</div>
 	</div>
-	<div class="footer"><span>Eliott C. — Development in the AI era</span><span>04</span></div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>03</span></div>
 </section>
 
-<!-- ============ 5. THE EVIDENCE ============ -->
+<!-- ============ 4. CE QUI A DÉBLOQUÉ ============ -->
 <section class="slide" data-notes="
 	<ul>
-	<li>Three concrete receipts, all post-Q4 2025:</li>
-	<li><b>Mongoku</b>: an open-source MongoDB GUI that's existed since 2017–2018. The current version was rewritten in Sept 2025 in modern Svelte 5/TS — my commits there are only from Sep 2025 onward, and the UI is largely from LLM. Old codebase: hand-written. New one: the model did the bulk, I reviewed. Both are 'mine', but the economics changed completely.</li>
-	<li><b>moon-bot</b>: a Slack bot that forwards to a coding agent via SDK, runs in a privileged pod with skills/tools, helps support the Hugging Face hub. A full agent platform for the company, ~50k lines — largely vibe-coded.</li>
-	<li><b>moon-ide</b>: the IDE I use every day — literally the one running this very presentation. Tauri/Rust core, Svelte 5 frontend, CodeMirror, in-process coding agent, containers as a first-class concept. Fully vibe-coded, ~700 commits, ~220k lines.</li>
-	<li>The punchline: I'm presenting from inside a product that an agent and I built together. Ask them to remember slide 3 — 'internal tools never get built'. This one did.</li>
+	<li>Détailler les capacités qui ont changé la donne :</li>
+	<li><b>Vision</b> — capture d'écran d'une UI cassée ou maquette → le modèle répare/construit. L'UI était le morceau 'difficile à spécifier' : réglé.</li>
+	<li><b>Usage d'outils / boucles agentiques</b> — le modèle ne suggère plus : il exécute des commandes shell, lit et écrit des fichiers, teste son propre travail, s'auto-corrige. Le développement devient une conversation avec quelque chose qui agit.</li>
+	<li><b>Concepts de base devenus fiables</b> : long contexte (des millions de tokens), sorties structurées (JSON garanti), sous-agents (délégation de sous-tâches), skills (fiches de procédures réutilisables). Des petites choses qui se combinent.</li>
+	<li><b>Exercice recommandé : construire son propre harnais</b>. Écrire sa propre couche fine qui appelle le modèle — sa propre boucle d'outils, son mini agent de coding. On apprend 10× plus sur ce que ces systèmes peuvent et ne peuvent pas faire qu'en utilisant un produit packagé. Excellent sujet de projet d'étudiants, d'ailleurs.</li>
 	</ul>">
-	<div class="kicker">Q4 2025 → receipts</div>
-	<h2>Projects that changed my mind</h2>
-	<div class="grid3">
-		<div class="card">
-			<h3>🔥 Mongoku <span class="dim">— rewritten</span></h3>
-			<p class="mono accent-c">Sep 2025 · Svelte 5 / TS</p>
-			<p>The MongoDB GUI (around since 2017), rebuilt in modern Svelte — UI largely generated by LLM, shaped by me.</p>
-			<p class="mono" style="margin-top:1vh">⭐ 1.4k · 16 contributors</p>
-		</div>
-		<div class="card">
-			<h3>🌙 moon-bot</h3>
-			<p class="mono accent-c">2026 · TS — agent platform</p>
-			<p>Slack → coding-agent bridge running in a privileged pod with skills &amp; tools. Supports the HF hub daily.</p>
-			<p class="mono" style="margin-top:1vh">~300 commits · ~50k lines</p>
-		</div>
-		<div class="card">
-			<h3>🛰️ moon-ide</h3>
-			<p class="mono accent-c">2026 · Rust + Svelte 5</p>
-			<p>The IDE I use <em>every day</em> — including <strong>right now</strong>, for this talk. Fully vibe-coded.</p>
-			<p class="mono" style="margin-top:1vh">~700 commits · ~220k lines</p>
-		</div>
-	</div>
-	<p class="sub">Same author, same standards. Radically different <span class="accent">economics</span>.</p>
-	<div class="footer"><span>Eliott C. — Development in the AI era</span><span>05</span></div>
-</section>
-
-<!-- ============ 6. WHAT AI IS GREAT AT ============ -->
-<section class="slide" data-notes="
-	<ul>
-	<li>Well-prompted AI is wonderful at: <b>filling gaps in your domain knowledge</b> — I can now write Rust, or work on Flutter, or navigate an unfamiliar codebase, because the model carries the parts I never had time to learn. You bring judgment; it brings breadth.</li>
-	<li><b>Translation &amp; adaptation</b>: porting an app to several (human) languages, adapting to a specific UI style or design system — the old 'weeks of grind' category is now hours, and the quality is fine.</li>
-	<li><b>Large refactors</b>: moving big pieces of code, migrations, rewrites — it holds the whole surface in context at once, which no human can.</li>
-	<li><b>One-off &amp; non-core projects</b>: internal tools, dashboards, scripts, prototypes. These used to lose the prioritization fight; now they're nearly free. moon-ide and moon-bot are exactly this category.</li>
-	<li>Key qualifier: 'well-prompted'. The examples work because the prompt came from an experienced dev who knew what 'good' looks like.</li>
-	</ul>">
-	<div class="kicker">Where it shines</div>
-	<h2>What well-prompted AI is <span class="accent-g">great</span> at</h2>
-	<ul class="clean" style="font-size:1.5rem">
-		<li><strong>Filling gaps in your domain knowledge</strong> — new languages, unfamiliar stacks, foreign codebases</li>
-		<li><strong>Translating &amp; adapting</strong> — i18n, porting apps, matching a specific UI style or design system</li>
-		<li><strong>Refactoring large chunks of code</strong> — context no human can hold</li>
-		<li><strong>One-off, non-core projects</strong> — internal tools, prototypes, glue</li>
-	</ul>
-	<div class="quote" style="margin-top:auto">
-		Well-prompted AI turns <span class="dim">weeks of grind</span> into <span class="accent-g">hours of review</span>.
-	</div>
-	<div class="footer"><span>Eliott C. — Development in the AI era</span><span>06</span></div>
-</section>
-
-<!-- ============ 7. THE NEW TOOLKIT ============ -->
-<section class="slide" data-notes="
-	<ul>
-	<li>Why did Q4 2025 change things? Model capabilities crossed a threshold:</li>
-	<li><b>Vision</b> — show it a screenshot of a broken UI or a design mock and it fixes/builds it. UI work was previously the 'hard to specify' part.</li>
-	<li><b>Tool use / agentic loops</b> — the model doesn't just suggest code; it runs shell commands, reads files, tests its work, self-corrects. Dev becomes a conversation with something that can act.</li>
-	<li><b>Basic concepts that got reliable</b>: long context, structured outputs, sub-agents, skills — small things that compound.</li>
-	<li>Exercise recommendation: <b>build your own harness</b>. Write your own thin layer that calls the model — your own mini coding-agent, your own tool loop. You learn 10× more about what these systems can and can't do than by using a polished product. And it keeps you honest about limits.</li>
-	</ul>">
-	<div class="kicker">What unlocked it</div>
-	<h2>The new toolkit <span class="dim">— and why now</span></h2>
+	<div class="kicker">Ce qui a débloqué</div>
+	<h2>Les capacités qui ont tout changé</h2>
 	<div class="grid3">
 		<div class="card">
 			<h3>👀 Vision</h3>
-			<p>Screenshot → fix. Mock → app. The UI, long the 'hard to specify' part, became directly addressable.</p>
+			<p>Capture d'écran → correction. Maquette → application. L'UI, longtemps « difficile à spécifier », devient directement adressable.</p>
 		</div>
 		<div class="card">
-			<h3>🔧 Tool use</h3>
-			<p>Agents that run commands, read &amp; write files, test their work, self-correct. Suggestion → action.</p>
+			<h3>🔧 Usage d'outils</h3>
+			<p>L'agent exécute des commandes, lit et écrit des fichiers, teste son travail, s'auto-corrige. De la suggestion à l'<strong>action</strong>.</p>
 		</div>
 		<div class="card">
-			<h3>🧩 Compounding basics</h3>
-			<p>Long context, structured outputs, sub-agents, skills. Small capabilities that add up.</p>
+			<h3>🧩 Bases qui se combinent</h3>
+			<p>Long contexte, sorties structurées, sous-agents, skills. De petites capacités qui s'additionnent.</p>
 		</div>
 	</div>
 	<div class="card" style="border-color:var(--amber); margin-top:3vh">
-		<h3 class="accent">🏋️ Recommended exercise: build your own harness</h3>
-		<p style="font-size:1.15rem">A thin layer that calls the model — your own tool loop, your own mini coding-agent. You learn more about the real capabilities &amp; limits than from any polished product.</p>
+		<h3 class="accent">🏋️ Exercice recommandé : construire son propre harnais</h3>
+		<p style="font-size:1.12rem">Une couche fine qui appelle le modèle — sa propre boucle d'outils, son propre mini agent. On comprend les capacités et limites réelles bien mieux qu'avec un produit packagé.</p>
 	</div>
-	<div class="footer"><span>Eliott C. — Development in the AI era</span><span>07</span></div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>04</span></div>
 </section>
 
-<!-- ============ 8. WHERE JUDGMENT STILL MATTERS ============ -->
+<!-- ============ 5. OPEN SOURCE VS MODÈLES FERMÉS ============ -->
 <section class="slide" data-notes="
 	<ul>
-	<li>The other half of the talk: where humans stay essential.</li>
-	<li>Your main product — the one where you collaborate with others, that outlives your attention — needs to stay <b>tidy</b>: coherent architecture, tests, conventions, docs, CI. AI can generate code infinitely; it can't generate 'a codebase you still want to work in 6 months later' without you steering.</li>
-	<li>You must keep a real handle on it: review what goes in, keep the map in your head, own the architecture. 'Vibe' works for one-offs; it compounds into chaos for a shared product.</li>
-	<li>Even with perfect prompting, AI is <b>biased by your questions</b>. Ask 'how do I do X with Y' and it will never suggest 'you shouldn't do X'. Regularly zoom out: is this the right solution? Should we pivot?</li>
-	<li>And the strongest models today — the fables of the world — are powerful but still don't always have the best judgment. Raw intelligence ≠ good decisions. Taste, ownership and consequences remain yours.</li>
+	<li>Un point que je peux aborder de l'intérieur, en travaillant chez Hugging Face : <b>l'open source vs les modèles fermés</b>.</li>
+	<li>Il y a encore 18 mois, 'open' voulait dire 'deuxième classe'. Ce n'est plus vrai : les modèles open-weights (DeepSeek, Qwen, GLM, Kimi, gpt-oss...) sont à quelques points des frontières fermées sur la plupart des tâches — et parfois devant (SWE-bench Pro : GLM-5.2 open sous licence MIT au-dessus de GPT-5.5, mi-2026).</li>
+	<li>L'écart se réduit vite : Stanford AI Index 2026 — le meilleur modèle fermé ne menait le meilleur open que de ~3,4 % en mars 2026, contre un fossé deux ans plus tôt.</li>
+	<li>Ce que l'open change concrètement : <b>souveraineté</b> (les données ne partent pas chez un fournisseur), <b>coût</b> (souvent 10-15× moins cher en inférence), <b>pérennité</b> (les poids restent, pas de dépréciation d'API), et <b>pédagogie</b> — on peut regarder dedans, fine-tuner, auditer. Pour l'enseignement, c'est énorme : vos étudiants peuvent étudier un vrai modèle d'état de l'art.</li>
+	<li>Nuance honnête : les modèles fermés gardent une avance sur le raisonnement multi-étapes le plus difficile et l'outillage intégré. En pratique, beaucoup de stacks de production mélangent : open pour le volume, frontière fermée pour les cas durs.</li>
 	</ul>">
-	<div class="kicker">Where you stay essential</div>
-	<h2>For your <span class="accent-v">core</span>, keep the handle</h2>
+	<div class="kicker">Vu de Hugging Face</div>
+	<h2>Open source <span class="dim">vs</span> modèles fermés</h2>
+	<div class="grid2">
+		<div class="card">
+			<h3>📉 L'écart s'est effondré</h3>
+			<p>Il y a 2 ans, « open » voulait dire « deuxième classe ». Aujourd'hui, les modèles open-weights (DeepSeek, Qwen, GLM, Kimi…) sont à <strong>quelques points</strong> de la frontière — parfois devant.</p>
+			<p class="mono" style="margin-top:1vh; font-size:0.9rem">Stanford AI Index 2026 : ~3,4&nbsp;% d'écart open/fermé (mars 2026)</p>
+		</div>
+		<div class="card">
+			<h3>🔓 Ce que l'open change</h3>
+			<p><strong>Souveraineté</strong> des données · <strong>coût</strong> 10-15× moindre · <strong>pérennité</strong> (les poids restent) · <strong>pédagogie</strong> : on peut regarder dedans, fine-tuner, auditer.</p>
+		</div>
+		<div class="card">
+			<h3>🔒 Ce que le fermé garde</h3>
+			<p>Avance sur le raisonnement multi-étapes le plus dur, outillage intégré, sécurité clé en main.</p>
+		</div>
+		<div class="card">
+			<h3>🧩 En pratique : on mélange</h3>
+			<p>Stacks de production typiques : <strong>open pour le volume</strong>, frontière fermée réservée aux cas difficiles.</p>
+		</div>
+	</div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>05</span></div>
+</section>
+
+<!-- ============ 6. PERFS & SELF-HOSTING ============ -->
+<section class="slide" data-notes="
+	<ul>
+	<li>Sur les perfs et leur évolution — chiffres pour ancrer le propos :</li>
+	<li>SWE-bench Verified ('résoudre une vraie issue GitHub') : ~49&nbsp;% pour le meilleur modèle en oct. 2024, ~77&nbsp;% en sept. 2025, 95&nbsp;%+ à l'été 2026. Et le coût s'est effondré dans le même temps — la courbe capacité/prix a chuté d'un facteur ~5,8× par an.</li>
+	<li>Conséquence directe : <b>on peut déployer ses propres modèles sur ses propres clusters</b>. Ce qui relevait d'un labo de recherche il y a deux ans tient sur quelques GPU aujourd'hui — avec des outils open comme vLLM, SGLang ou TGI.</li>
+	<li>Ce que ça change en entreprise : inférence interne pour les données sensibles, coûts prévisibles à l'échelle, pas de dépendance totale à un fournisseur, latence maîtrisée. Chez HF on sert nous-mêmes des modèles open pour des usages internes.</li>
+	<li>Honneteté : ça demande une vraie compétence MLOps — c'est un investissement, pas un gratuité. Mais la barre à l'entrée a baissé d'un ordre de grandeur.</li>
+	<li>Lien pédagogique : c'est un excellent sujet de TP/projet — déployer un modèle open sur un cluster, c'est toucher à l'infra, au réseau, au GPU, à l'observabilité, d'un coup.</li>
+	</ul>">
+	<div class="kicker">Perfs &amp; souveraineté</div>
+	<h2>Déployer <span class="accent-c">ses propres modèles</span></h2>
+	<div class="grid2">
+		<div class="card">
+			<h3>📈 La courbe des perfs</h3>
+			<p>SWE-bench Verified (« résoudre une vraie issue GitHub ») : <strong>~49&nbsp;%</strong> (oct. 2024) → <strong>~77&nbsp;%</strong> (sept. 2025) → <strong>95&nbsp;%+</strong> (été 2026). Et le coût s'effondre en même temps.</p>
+		</div>
+		<div class="card">
+			<h3>🖥️ Self-hosting : la barre a baissé</h3>
+			<p>Ce qui demandait un labo il y a 2 ans tient sur <strong>quelques GPU</strong> — vLLM, SGLang, TGI. Un modèle open-weights récent rivalise avec les frontières fermées d'hier.</p>
+		</div>
+		<div class="card">
+			<h3>🏢 Ce que ça change en entreprise</h3>
+			<p>Inférence interne pour les données sensibles, coûts prévisibles, pas de dépendance totale à un fournisseur, latence maîtrisée.</p>
+		</div>
+		<div class="card">
+			<h3>⚖️ Honnêteté</h3>
+			<p>Ça reste un investissement : compétence MLOps, infra GPU, observabilité. Mais la barre à l'entrée a baissé d'un <strong>ordre de grandeur</strong>.</p>
+		</div>
+	</div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>06</span></div>
+</section>
+
+<!-- ============ 7. CE QUE L'IA FAIT BIEN ============ -->
+<section class="slide" data-notes="
+	<ul>
+	<li>Concrètement, une IA bien promptée excelle à :</li>
+	<li><b>Combler des trous dans sa connaissance d'un domaine</b> — je peux maintenant écrire du Rust, travailler sur du Flutter, naviguer une codebase inconnue : le modèle porte les parties que je n'ai jamais eu le temps d'apprendre. On apporte le jugement, il apporte l'étendue.</li>
+	<li><b>Traduction et adaptation</b> : passer une app dans plusieurs langues, adapter une UI à une charte précise — l'ancienne catégorie 'semaines de corvée' devient des heures, et la qualité est correcte.</li>
+	<li><b>Refactor de gros morceaux</b> : il garde toute la surface en contexte d'un coup, ce qu'aucun humain ne peut faire.</li>
+	<li><b>Projets ponctuels et hors cœur de produit</b> : outils internes, tableaux de bord, scripts, prototypes. Ils perdaient toujours la bataille des priorités ; maintenant ils sont quasiment gratuits.</li>
+	<li><b>Debug, benchmarks, tests</b> : générer des suites de tests, écrire des benches, diagnostiquer un bug à partir d'une stack trace + contexte — tâches où l'IA est remarquablement fiable, et où elle force en plus une bonne pratique (tester !).</li>
+	<li>Qualificatif clé : 'bien promptée'. Les exemples marchent parce que le prompt vient d'un dev expérimenté qui sait à quoi ressemble 'bien'.</li>
+	</ul>">
+	<div class="kicker">Où ça brille</div>
+	<h2>Ce qu'une IA bien promptée fait <span class="accent-g">très bien</span></h2>
+	<ul class="clean" style="font-size:1.42rem">
+		<li><strong>Combler les trous de connaissance</strong> — nouveaux langages, stacks inconnus, codebases étrangères</li>
+		<li><strong>Traduire et adapter</strong> — i18n, portage, chartes graphiques spécifiques</li>
+		<li><strong>Refactorer de gros pans de code</strong> — un contexte qu'aucun humain ne peut tenir</li>
+		<li><strong>Projets ponctuels hors cœur de produit</strong> — outils internes, prototypes, glue</li>
+		<li><strong>Refactor, benchmark, debug, tests</strong> — générer des tests, diagnostiquer, mesurer</li>
+	</ul>
+	<div class="quote" style="margin-top:auto">
+		Bien promptée, l'IA transforme <span class="dim">des semaines de corvée</span> en <span class="accent-g">heures de relecture</span>.
+	</div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>07</span></div>
+</section>
+
+<!-- ============ 8. OUTILS INTERNES ============ -->
+<section class="slide" data-notes="
+	<ul>
+	<li>La conséquence la plus visible en entreprise : <b>l'explosion de l'outillage interne</b>.</li>
+	<li>Ce qui était 'jamais prioritaire' (slide 2) devient faisable : un dashboard d'observabilité maison, un outil de provisioning, un bot de veille, un script de migration ponctuel. Chaque équipe peut maintenant se construire ses propres outils.</li>
+	<li>Exemples vécus chez nous : bots Slack, outils de monitoring internes, provisionnement automatisé — des choses qu'on n'aurait jamais pris le temps de faire à la main.</li>
+	<li>L'agent peut être <b>commun à toute l'équipe</b> : chez nous c'est moon-bot, mais ça peut être Cursor, Claude Code ou Copilot intégrés dans Slack — n'importe qui ouvre une PR en parlant à l'agent, puis review et approuve selon le niveau de risque.</li>
+	<li>Attention quand même : un outil interne devient vite 'cœur' si des gens commencent à en dépendre. La frontière entre 'jetable' et 'à maintenir' doit être explicite (voir slide suivante).</li>
+	</ul>">
+	<div class="kicker">Conséquence n°1</div>
+	<h2>L'outillage interne <span class="accent">explose</span></h2>
+	<div class="grid3">
+		<div class="card">
+			<h3>📊 Dashboards &amp; monitoring</h3>
+			<p>Tableaux de bord maison, outils d'observabilité sur-mesure, agrégateurs de logs — construits en quelques heures.</p>
+		</div>
+		<div class="card">
+			<h3>🤖 Bots &amp; automatisation</h3>
+			<p>Bots Slack, notifications intelligentes, tri de tickets, provisionnement automatisé des comptes.</p>
+		</div>
+		<div class="card">
+			<h3>⚙️ Scripts &amp; migrations</h3>
+			<p>Scripts one-shot, migrations de données, exports ponctuels — du 'jetable' assumé et rapide.</p>
+		</div>
+	</div>
+	<p class="sub">Ce qui n'était <span class="dim">jamais prioritaire</span> devient <span class="accent">quasiment gratuit</span>.</p>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>08</span></div>
+</section>
+
+<!-- ============ 9. EXEMPLE : MOON-BOT ============ -->
+<section class="slide" data-notes="
+	<ul>
+	<li>Un exemple concret, en production chez Hugging Face : <b>moon-bot</b>.</li>
+	<li>Un agent de coding natif Slack : il reçoit des commandes dans Slack, les transmet à un agent de coding via son SDK, tourne dans un pod réseau privilégié avec accès à des skills et des outils — pour aider à supporter le hub Hugging Face au quotidien.</li>
+	<li>Point technique pour les enseignants : on peut <b>le mentionner dans GitHub</b> — il modifie une PR existante, ou crée une autre PR, ou ouvre une issue. Les revues de code assistées par IA sont devenues une pratique réelle, pas une démo.</li>
+	<li>Architecture : agent + mémoire persistante (des buckets Hugging Face) + outils exposés en sandbox. Détail qui compte : l'agent a accès à des outils internes sensibles — d'où la slide suivante sur la sécurité.</li>
+	<li>Référence : article de blog officiel, public — <a href='https://huggingface.co/blog/huggingface/moon-bot'>huggingface.co/blog/huggingface/moon-bot</a>. Les slides restent en ligne, le lien est cliquable dans le HTML.</li>
+	<li>~300 commits, ~50 000 lignes — entièrement construit en mode agentique, relu et dirigé par un humain.</li>
+	</ul>">
+	<div class="kicker">Exemple concret, en production</div>
+	<h2>🌙 moon-bot <span class="dim">— un agent au quotidien</span></h2>
+	<div class="grid2">
+		<div class="card">
+			<h3>Slack → agent de coding</h3>
+			<p>Un bot qui reçoit des commandes dans Slack, les transmet à un agent de coding via SDK, dans un pod privilégié avec skills et outils. Il aide à supporter le hub Hugging Face tous les jours.</p>
+			<p class="mono" style="margin-top:1.2vh; font-size:0.9rem">~300 commits · ~50 000 lignes · 100 % agentique</p>
+		</div>
+		<div class="card">
+			<h3>Revue de code assistée par IA</h3>
+			<p>On le <strong>mentionne dans GitHub</strong> : il modifie la PR en cours, en crée une autre, ou ouvre une issue.</p>
+			<p style="margin-top:1vh">Et selon la PR, <strong>une review faite par soi-même suffit</strong> : on ouvre, on relit, on approuve — un vrai gain de temps sur les changements à faible risque.</p>
+		</div>
+		<div class="card">
+			<h3>Mémoire &amp; outils</h3>
+			<p>Mémoire persistante sur buckets HF, accès outillé à l'infra interne, sandbox réseau. Un agent 'employé', pas un chatbot.</p>
+		</div>
+		<div class="card" style="border-color:var(--cyan)">
+			<h3 class="accent-c">📖 Référence</h3>
+			<p>Article de blog officiel (public) :<br /><a href="https://huggingface.co/blog/huggingface/moon-bot" class="mono" style="font-size:0.95rem">huggingface.co/blog/huggingface/moon-bot</a></p>
+		</div>
+	</div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>09</span></div>
+</section>
+
+<!-- ============ 10. OÙ LA FRICTION RESTE ============ -->
+<section class="slide" data-notes="
+	<ul>
+	<li>L'autre moitié du tableau : là où l'IA n'enlève (presque) rien.</li>
+	<li>Les projets <b>cœur de métier, en production</b> : la friction reste. On ne 'vibe' pas un système de paiement ou un service critique. Les <b>revues de code humaines</b> restent la norme — et elles deviennent d'autant plus importantes que le volume de code généré augmente.</li>
+	<li><b>Sécurité</b> : un agent qui a accès à des outils internes est une surface d'attaque. Sandboxing, permissions minimales, secrets gérés hors du contexte du modèle, audit des actions — des problématiques d'ingénierie classiques, amplifiées.</li>
+	<li><b>CI/CD &amp; infra as code</b> : la discipline n'a pas changé — tests, pipelines, infra déclarative, reproductibilité. Au contraire : plus le code est produit vite, plus les garde-fous automatisés sont indispensables. L'IA se branche <i>dans</i> ces process, elle ne les remplace pas.</li>
+	<li>À dire clairement : la revue de code IA aide (moon-bot le fait), mais la responsabilité finale reste humaine. On review l'IA comme on review un junior très rapide et très confiant.</li>
+	</ul>">
+	<div class="kicker">Où la friction reste</div>
+	<h2>Le cœur de métier reste <span class="accent-v">exigeant</span></h2>
+	<div class="grid2">
+		<div class="card">
+			<h3>🔍 Revues de code humaines</h3>
+			<p>Sur les projets en production, la <strong>review reste la norme</strong> — et son importance augmente avec le volume de code généré. On review l'IA comme un junior très rapide et très confiant.</p>
+		</div>
+		<div class="card">
+			<h3>🔐 Sécurité</h3>
+			<p>Un agent avec accès aux outils internes = une surface d'attaque. Sandboxing, permissions minimales, secrets hors du contexte, audit des actions.</p>
+		</div>
+		<div class="card">
+			<h3>🏗️ CI/CD &amp; infra as code</h3>
+			<p>Tests, pipelines, infra déclarative : la discipline n'a <strong>pas changé</strong>. Plus le code arrive vite, plus les garde-fous automatisés sont indispensables.</p>
+		</div>
+		<div class="card">
+			<h3>🧭 Propriété &amp; cohérence</h3>
+			<p>L'IA génère du code à l'infini. Elle ne génère pas « une codebase qu'on aime encore dans 6 mois » — ça, c'est le rôle de l'équipe.</p>
+		</div>
+	</div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>10</span></div>
+</section>
+
+<!-- ============ 11. INFRA AS CODE & BOOTSTRAP ============ -->
+<section class="slide" data-notes="
+	<ul>
+	<li>L'infra as code et Kubernetes, c'est le cas d'école parfait de 'l'IA qui comble les trous'.</li>
+	<li>Personne ne retient la syntaxe d'un chart Helm, d'un manifeste k8s ou d'un module Terraform par cœur — et ce n'était de toute façon pas une compétence fondatrice, c'était de la connaissance de surface.</li>
+	<li>L'IA est <b>très forte</b> là-dessus : elle connaît toutes les APIs, toutes les ressources, les bonnes pratiques par défaut. Elle permet de <b>se bootstraper</b> en quelques minutes au lieu de quelques jours de doc — et de <b>se concentrer sur ce qu'on veut vraiment faire</b> : l'architecture, le choix des services, la logique métier.</li>
+	<li>Exemple vécu : moon-bot tourne dans un pod k8s privilégié, avec son chart, sa config réseau, son provisionnement — la quasi-totalité de cette couche a été écrite par l'agent, relue par moi. Sans ça, le projet n'aurait probablement jamais existé : le coût d'entrée 'infra' était trop élevé par rapport à la valeur incertaine.</li>
+	<li>Point pédagogique : c'est un cas où 'déléguer' est raisonnable parce que la compétence déléguée est mécanique — contrairement aux fondamentaux (algorithmes, conception), qui doivent rester appris. Savoir faire la différence entre les deux, c'est exactement le jugement dont on parle.</li>
+	</ul>">
+	<div class="kicker">Cas d'école</div>
+	<h2>Infra as code : se <span class="accent-g">bootstraper</span>, pas stagner</h2>
+	<div class="grid3">
+		<div class="card">
+			<h3>☸️ Kubernetes, Terraform, Helm</h3>
+			<p>Syntaxe verbeuse, connaissance de surface : personne ne la retient. L'IA connaît toutes les APIs et les bonnes pratiques par défaut.</p>
+		</div>
+		<div class="card">
+			<h3>🚀 Jours de doc → minutes</h3>
+			<p>Se bootstraper presque instantanément — et se concentrer sur ce qu'on veut vraiment faire : l'architecture, le métier.</p>
+		</div>
+		<div class="card">
+			<h3>🌙 Exemple vécu : moon-bot</h3>
+			<p>Pod k8s, chart, réseau, provisionnement : couche infra écrite par l'agent, relue par moi. Sans ça, le projet ne serait jamais né.</p>
+		</div>
+	</div>
+	<p class="sub">Déléguer le <span class="dim">mécanique</span>, garder le <span class="accent">conceptuel</span> — c'est exactement ça, le jugement.</p>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>11</span></div>
+</section>
+
+<!-- ============ 12. OFFSHOOT VS MONOREPO ============ -->
+<section class="slide" data-notes="
+	<ul>
+	<li>Un arbitrage d'architecture qui change avec l'IA : <b>offshoot plutôt que grossir le monorepo</b>.</li>
+	<li>Avant, extraire un bout d'un monorepo coûtait cher : il fallait réécrire, recâbler, reprovisionner. Du coup tout grossissait dans le même repo, avec le poids des process du projet principal.</li>
+	<li>Maintenant : les IA sont <b>très fortes pour réécrire un bout from scratch</b> — et avec leurs compétences en infra as code (slide précédente), ça <b>glue bien</b> : nouveau service, nouveau chart, nouveau pipeline, tout se câble vite.</li>
+	<li>Et surtout : <b>l'offshoot se modifie ensuite avec moins de frictions et de protocoles que le projet principal</b>. Moins de parties prenantes, cycle de release propre, on itère à son rythme — et si ça marche, on peut toujours réintégrer plus tard, proprement.</li>
+	<li>Exemple vécu : c'est exactement le pattern moon-bot / moon-ide — des projets nés à côté, itérés vite, sans imposer le rythme du repo principal.</li>
+	</ul>">
+	<div class="kicker">Arbitrage d'architecture</div>
+	<h2>Plutôt que grossir le monorepo : <span class="accent">l'offshoot</span></h2>
+	<div class="grid3">
+		<div class="card">
+			<h3>✂️ Réécrire un bout from scratch</h3>
+			<p>Extraire une partie du monorepo en service à part : les IA sont très fortes pour ça.</p>
+		</div>
+		<div class="card">
+			<h3>🔗 L'infra as code fait la glue</h3>
+			<p>Nouveau service, nouveau chart, nouveau pipeline : le câblage qui coûtait cher devient rapide.</p>
+		</div>
+		<div class="card">
+			<h3>🏃 Moins de frictions ensuite</h3>
+			<p>L'offshoot se modifie avec moins de protocoles que le projet principal : cycle propre, itération rapide. Réintégration possible plus tard.</p>
+		</div>
+	</div>
+	<p class="sub">Exemple vécu : <span class="accent-c">moon-bot</span> et <span class="accent-c">moon-ide</span> — nés à côté, itérés vite.</p>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>12</span></div>
+</section>
+
+<!-- ============ 13. NE PAS SLOPPER LES AUTRES ============ -->
+<section class="slide" data-notes="
+	<ul>
+	<li>Point important, et directement lié à la collaboration : <b>ne pas slopper les autres</b>.</li>
+	<li>« Slopper » = déverser la sortie brute de l'IA sur quelqu'un d'autre. Copier-coller la réponse d'un modèle dans une description de PR, un commentaire de review, un ticket — ça ne fait pas de vous un dev augmenté, ça fait de vous un <b>intermédiaire inutile</b>. Si tu ne fais que relayer ce que dit l'IA, tu ne sers à rien : l'autre pourrait interroger l'IA directement.</li>
+	<li>Concrètement : quand on collabore, on <b>écrit ses descriptions de PR et ses commentaires soi-même</b>. L'IA peut produire le code ; le sens, le contexte, le pourquoi — c'est toi. Ta valeur est dans ce que tu ajoutes à la sortie brute.</li>
+	<li>C'est aussi une question de respect du temps des autres : relire un pavé générique d'IA coûte plus cher au reviewer que lire trois phrases précises écrites par l'auteur.</li>
+	<li>Lien avec l'enseignement : même règle pour les étudiants — un rendu copié-collé d'un LLM sans rien ajouté n'a aucune valeur pédagogique, ni pour celui qui rend, ni pour celui qui corrige.</li>
+	</ul>">
+	<div class="kicker">En collaboration</div>
+	<h2>Ne pas <span class="accent-v">slopper</span> les autres</h2>
 	<div class="split">
 		<div class="col">
 			<div class="card" style="flex:1">
-				<h3>🏢 Deep products ≠ one-offs</h3>
-				<p>The main project — where you collaborate, that outlives your attention — must stay <strong>tidy</strong>: architecture, tests, conventions, CI, docs.</p>
-				<p style="margin-top:1.2vh">AI can generate infinite code.<br />It can't generate a codebase you still love in 6 months — <strong>you</strong> steer that.</p>
-			</div>
-		</div>
-		<div class="col">
-			<div class="card" style="flex:1">
-				<h3>🧭 Judgment &gt; intelligence</h3>
-				<p>AI is <strong>biased by your questions</strong> — ask "how do I X with Y" and it will never say "you shouldn't X".</p>
-				<p style="margin-top:1.2vh">Zoom out regularly: other solutions? a pivot?</p>
-				<p style="margin-top:1.2vh">Even the most powerful AI (the <em>fables</em> of today) doesn't always have the best <strong>judgment</strong>.</p>
-			</div>
-		</div>
-	</div>
-	<div class="footer"><span>Eliott C. — Development in the AI era</span><span>08</span></div>
-</section>
-
-<!-- ============ 9. KEEP LEARNING ============ -->
-<section class="slide" data-notes="
-	<ul>
-	<li>The real challenge of the AI era: <b>continuing to learn</b>.</li>
-	<li>Before: the path to mastery was learning by doing — you could be mostly self-taught. Struggling through problems WAS the curriculum. Me: I learned C++/Qt, JS, Svelte by grinding on real projects.</li>
-	<li>Now: the friction that taught you is exactly what AI removes. Every time you outsource a problem, you ship faster — but you also skip the lesson. If you're not rigorous, you can 'work' for years without ever building the mental models underneath.</li>
-	<li>Unless you're rigorous enough to force yourself through the hard parts, higher education is very valuable in the AI era: it teaches you concepts, algorithms, foundations — <b>without just giving it to AI</b>. Structured learning forces depth that self-directed prompting doesn't.</li>
-	<li>Personal stance: I use AI to fill gaps in my knowledge, but I keep enough handle on fundamentals to know when it's wrong. The people who thrive are those who treat AI as a tutor, not an oracle — ask it to explain, not just produce.</li>
-	</ul>">
-	<div class="kicker">The real challenge</div>
-	<h2>Keep <span class="accent">learning</span> — on purpose</h2>
-	<div class="split">
-		<div class="col">
-			<div class="card" style="flex:1">
-				<h3>🎓 Then: self-taught worked</h3>
-				<p>Struggling through problems <strong>was</strong> the curriculum. You could be mostly self-taught — the friction itself taught you.</p>
-			</div>
-			<div class="card" style="flex:1">
-				<h3>⚠️ Now: the friction is gone</h3>
-				<p>AI removes exactly the struggle that used to teach you. Without rigor, you ship for years without ever building the mental models underneath.</p>
+				<h3>🗑️ Le slop</h3>
+				<p>Déverser la sortie brute de l'IA sur quelqu'un d'autre — copier-coller un pavé générique dans une PR, un commentaire, un ticket.</p>
+				<p style="margin-top:1.2vh">Si tu ne fais que relayer ce que dit l'IA, tu es juste un <strong>intermédiaire inutile</strong> : l'autre pourrait l'interroger directement.</p>
 			</div>
 		</div>
 		<div class="col">
 			<div class="card" style="flex:1; border-color:var(--amber)">
-				<h3 class="accent">📚 Higher education is very valuable</h3>
-				<p style="font-size:1.15rem">Concepts, algorithms, foundations — learned <strong>without just giving it to AI</strong>.</p>
-				<p style="margin-top:1.2vh">Rigor beats convenience:<br />treat AI as a <strong>tutor</strong>, not an oracle.</p>
+				<h3 class="accent">✍️ Écris tes propres mots</h3>
+				<p>Descriptions de PR et commentaires de review : <strong>écrits par toi</strong>. L'IA peut produire le code ; le sens, le contexte, le pourquoi — c'est toi.</p>
+				<p style="margin-top:1.2vh">Ta valeur est dans ce que tu <strong>ajoutes</strong> à la sortie brute. Trois phrases précises valent mieux qu'un pavé générique.</p>
 			</div>
 		</div>
 	</div>
-	<div class="footer"><span>Eliott C. — Development in the AI era</span><span>09</span></div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>13</span></div>
 </section>
 
-<!-- ============ 10. CLOSING ============ -->
+<!-- ============ 14. JUGEMENT ============ -->
 <section class="slide" data-notes="
 	<ul>
-	<li>Recap: AI didn't replace development for me — it changed the distribution of my time. Grind went away; judgment, ownership and direction took its place.</li>
-	<li>Suggested takeaways for the audience: (1) use it for the periphery — gaps, translations, one-offs; (2) build your own harness to understand it; (3) keep a strong handle on your core product; (4) trust your judgment over the model's confidence.</li>
-	<li>Offer: come talk to me after — happy to demo moon-ide live.</li>
+	<li>Même avec un prompt parfait, l'IA est <b>biaisée par vos questions</b>. Demandez 'comment faire X avec Y' : elle ne suggérera jamais 'vous ne devriez pas faire X'. Reculer régulièrement : est-ce la bonne solution ? Faut-il pivoter ?</li>
+	<li>Et les modèles les plus puissants aujourd'hui — les 'fables' du moment — sont impressionnants mais n'ont pas toujours le meilleur jugement. L'intelligence brute ≠ les bonnes décisions. Le goût, la propriété et les conséquences restent les vôtres.</li>
+	<li>En entreprise, ça veut dire : quelqu'un doit pouvoir répondre 'pourquoi cette architecture ?' sans dire 'parce que l'IA l'a fait'.</li>
 	</ul>">
-	<div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:4vh">
-		<div class="kicker">Takeaways</div>
-		<ul class="clean" style="font-size:1.45rem">
-			<li>The grind is gone — <strong>judgment is the new moat</strong></li>
-			<li>Vibe-code the <strong>periphery</strong>, own the <strong>core</strong></li>
-			<li>Build your own harness — <strong>learn the limits first-hand</strong></li>
-			<li>Your questions bias the answers — <strong>zoom out</strong></li>
-			<li>The AI era rewards those who <strong>keep learning</strong></li>
-		</ul>
-		<div class="sub">
-			<span class="mono">@coyotte508</span> · Eliott @ <span class="accent-c">Hugging Face</span> — questions welcome
+	<div class="kicker">Le piège</div>
+	<h2>Vos questions <span class="accent">biaisent</span> les réponses</h2>
+	<div class="split">
+		<div class="col">
+			<div class="card" style="flex:1">
+				<h3>❓ Le cadre que vous donnez</h3>
+				<p>Demandez « comment faire X avec Y » — l'IA ne dira jamais « vous ne devriez pas faire X ». Prenez du recul régulièrement : autre solution ? pivot ?</p>
+			</div>
+		</div>
+		<div class="col">
+			<div class="card" style="flex:1">
+				<h3>⚖️ Jugement &gt; intelligence</h3>
+				<p>Même les modèles les plus puissants (les <em>fables</em> du moment) n'ont pas toujours le meilleur <strong>jugement</strong>.</p>
+				<p style="margin-top:1.2vh">Quelqu'un doit pouvoir expliquer « pourquoi cette architecture ? » sans répondre « parce que l'IA l'a fait ».</p>
+			</div>
 		</div>
 	</div>
-	<div class="footer"><span>Eliott C. — Development in the AI era</span><span>10</span></div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>14</span></div>
 </section>
 
-<!-- ============ NOTES PANEL ============ -->
+<!-- ============ 15. CONTINUER À APPRENDRE ============ -->
+<section class="slide" data-notes="
+	<ul>
+	<li>Le vrai défi de l'ère IA : <b>continuer à apprendre</b>. C'est là que la salle (des enseignants !) est directement concernée.</li>
+	<li>Avant : le chemin vers la maîtrise passait par l'apprentissage par la pratique — on pouvait être majoritairement autodidacte. La difficulté elle-même faisait le programme.</li>
+	<li>Maintenant : l'IA supprime exactement la friction qui enseignait. Chaque problème externalisé = livraison plus rapide, mais leçon sautée. Sans rigueur, on peut 'travailler' des années sans jamais construire les modèles mentaux en dessous.</li>
+	<li>Conséquence : <b>l'enseignement supérieur reprend de la valeur</b> — concepts, algorithmes, fondamentaux, appris <b>sans tout donner à l'IA</b>. L'apprentissage structuré impose une profondeur que le prompting autodirigé n'impose pas.</li>
+	<li>Référence solide : étude contrôlée randomisée d'Anthropic (Shen &amp; Tamkin, 2026, arXiv:2601.20245) — 52 devs apprennent une nouvelle lib. Ceux avec assistance IA : ~17% de moins en maîtrise au quiz, surtout sur le <b>debug</b>. MAIS : ceux qui utilisaient l'IA pour <b>comprendre</b> (questions de suivi, explications, requêtes conceptuelles) gardaient une maîtrise comparable aux codeurs à la main. Ceux qui déléguaient tout : les pires scores.</li>
+	<li>Et bonne nouvelle : <b>les compétences info se transposent</b>. Les gens en info ont un avantage net pour vibe-coder / diriger l'IA — on sait ce qu'on demande, on sait lire le résultat, on sait détecter quand c'est faux. Tout n'est pas perdu, au contraire : la formation reste le meilleur investissement.</li>
+	<li>Message aux enseignants : les étudiants qui réussiront sont ceux qui traitent l'IA comme un tuteur (demander des explications, pas juste du code) et qui gardent assez de fondamentaux pour détecter quand elle se trompe.</li>
+	</ul>">
+	<div class="kicker">Le vrai défi</div>
+	<h2>Continuer à <span class="accent">apprendre</span> — délibérément</h2>
+	<div class="split">
+		<div class="col">
+			<div class="card" style="flex:1">
+				<h3>🎓 Avant : l'autodidactie marchait</h3>
+				<p>Se confronter aux problèmes <strong>était</strong> le programme. On pouvait être autodidacte — la friction elle-même enseignait.</p>
+			</div>
+			<div class="card" style="flex:1">
+				<h3>⚠️ Maintenant : la friction a disparu</h3>
+				<p>L'IA supprime exactement l'effort qui formait. Sans rigueur, on livre pendant des années sans construire les modèles mentaux en dessous.</p>
+			</div>
+			<div class="card" style="flex:1; border-color:var(--green)">
+				<h3 class="accent-g">✅ Tout n'est pas perdu</h3>
+				<p>Les compétences info <strong>se transposent bien</strong> : les gens en info ont un avantage net pour vibe-coder / diriger l'IA — on sait ce qu'on demande, lire le résultat, et détecter quand c'est faux.</p>
+			</div>
+		</div>
+		<div class="col">
+			<div class="card" style="flex:1; border-color:var(--amber)">
+				<h3 class="accent">📚 L'enseignement supérieur reprend de la valeur</h3>
+				<p style="font-size:1.08rem">Concepts, algorithmes, fondamentaux — appris <strong>sans tout donner à l'IA</strong>. L'apprentissage structuré impose une profondeur que le prompting seul n'impose pas.</p>
+				<p style="margin-top:1.2vh">Traiter l'IA comme un <strong>tuteur</strong>, pas un oracle.</p>
+			</div>
+			<div class="card" style="flex:1; border-color:var(--cyan)">
+				<h3 class="accent-c">📖 Étude (Anthropic, 2026)</h3>
+				<p style="font-size:1rem">Essai contrôlé randomisé : assistance IA → <strong>−17&nbsp;% de maîtrise</strong> au quiz (surtout le debug). <strong>Mais</strong> ceux qui l'utilisaient pour comprendre (explications, questions conceptuelles) gardaient le niveau des codeurs à la main.</p>
+				<p class="mono" style="margin-top:1vh; font-size:0.85rem"><a href="https://arxiv.org/abs/2601.20245">arxiv.org/abs/2601.20245</a> · anthropic.com/research/AI-assistance-coding-skills</p>
+			</div>
+		</div>
+	</div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>15</span></div>
+</section>
+
+<!-- ============ 16. CONCLUSION ============ -->
+<section class="slide" data-notes="
+	<ul>
+	<li>Récap : l'IA n'a pas remplacé le développement — elle a changé la répartition de mon temps. La corvée a disparu ; le jugement, la relecture et la direction ont pris la place.</li>
+	<li>Messages à retenir : (1) l'IA pour la périphérie — trous de connaissance, traductions, outils internes ; (2) construire son propre harnais pour comprendre ; (3) garder une vraie prise sur le cœur de métier — reviews, CI/CD, sécurité, infra as code ; (4) faire confiance à son jugement plutôt qu'à la confiance du modèle ; (5) continuer à apprendre — l'enseignement supérieur compte plus que jamais.</li>
+	<li>En recherche : l'IA fait déjà avancer beaucoup plus vite — voir ce qui se passe en maths (résolution de problèmes olympiade-level, assistants de preuve type Lean, exploration de conjectures). Le pattern est le même : l'IA accélère l'exploration, le chercheur garde le jugement.</li>
+	<li>Et honnêteté : qui sait comment les choses évoluent dans deux ans. D'où l'importance des fondamentaux — c'est la seule chose qui survit aux changements d'outils.</li>
+	<li>Référence à laisser : l'article moon-bot (huggingface.co/blog/huggingface/moon-bot) — bon exemple documenté et public. Et l'étude Anthropic sur la formation des compétences (arxiv.org/abs/2601.20245).</li>
+	<li>Proposer : questions, et démo de moon-bot en live si le temps le permet.</li>
+	</ul>">
+	<div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:3vh">
+		<div class="kicker">À retenir</div>
+		<ul class="clean" style="font-size:1.28rem">
+			<li>La corvée a disparu — <strong>le jugement fait la différence</strong></li>
+			<li>Agentique pour la <strong>périphérie</strong>, exigence pour le <strong>cœur</strong></li>
+			<li>Reviews, CI/CD, sécurité, infra as code : <strong>la discipline reste</strong></li>
+			<li>Construisez votre propre harnais — <strong>apprenez les limites vous-même</strong></li>
+			<li>Écrivez vos propres mots — <strong>ne sloppez pas vos collègues</strong></li>
+			<li>Continuez à <strong>apprendre</strong> — les fondamentaux comptent plus que jamais</li>
+			<li>En recherche, l'IA accélère déjà énormément — <strong>regardez ce qui se passe en maths</strong></li>
+		</ul>
+		<div class="sub" style="font-size:1.25rem">
+			Et dans deux ans ? <span class="dim">Personne ne sait vraiment — d'où l'importance des fondamentaux.</span><br />
+			Référence : <a href="https://huggingface.co/blog/huggingface/moon-bot" class="mono" style="font-size:0.98rem">huggingface.co/blog/huggingface/moon-bot</a><br />
+			<span class="mono">@coyotte508</span> · Eliott @ <span class="accent-c">Hugging Face</span> — questions bienvenues
+		</div>
+	</div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>16</span></div>
+</section>
+
+<!-- ============ PANNEAU DE NOTES ============ -->
 <aside id="notes">
-	<h4>Speaker notes</h4>
+	<h4>Notes de présentation</h4>
 	<div id="notes-body"></div>
-	<div class="hint">N to close · ← / → to navigate</div>
+	<div class="hint">N pour fermer · ← / → pour naviguer</div>
 </aside>
 
 <script>
@@ -477,7 +643,7 @@ const notesBody = document.getElementById("notes-body");
 function show(n) {
 	i = Math.max(0, Math.min(slides.length - 1, n));
 	slides.forEach((s, k) => s.classList.toggle("active", k === i));
-	notesBody.innerHTML = slides[i].dataset.notes || "<p><em>No notes for this slide.</em></p>";
+	notesBody.innerHTML = slides[i].dataset.notes || "<p><em>Pas de notes pour cette slide.</em></p>";
 	document.location.hash = i + 1;
 }
 show(parseInt(document.location.hash.slice(1)) - 1 || 0);
@@ -493,6 +659,7 @@ addEventListener("keydown", (e) => {
 });
 
 addEventListener("click", (e) => {
+	if (e.target.closest("a")) return;
 	if (e.clientX > innerWidth - 90) show(i + 1);
 	else if (e.clientX < 90 && i > 0) show(i - 1);
 });
