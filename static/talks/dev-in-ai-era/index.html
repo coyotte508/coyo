@@ -747,29 +747,29 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <div class="number">25 / 27</div>
 </section>
 <section class="slide  " id="lean" aria-label="Diapositive 26">
-<p class="part">De la recherche à l’informatique</p>
-<h2>Du raisonnement mathématique au logiciel</h2>
+<p class="part">L’IA en recherche</p>
+<h2>Explorer vite, avec un vérificateur</h2>
 <div class="body">
-<p class="intro">Avec Lean : l’IA propose une preuve, le noyau la vérifie.</p>
+<p class="intro">L’IA explore les pistes. Un assistant de preuve contrôle les étapes formalisées.</p>
 <div class="rows">
 <div class="row">
-<h3>En entreprise</h3>
-<p>Une piste pour établir des propriétés précises d’un algorithme ou d’un composant.</p>
+<h3>Proposer</h3>
+<p>Chercher une démonstration, décomposer le problème, essayer des lemmes.</p>
 </div>
 <div class="row">
-<h3>En cours d’informatique</h3>
-<p>Relier logique, types, invariants et correction des programmes.</p>
+<h3>Vérifier</h3>
+<p>Soumettre la preuve à un outil formel, comme Lean dans les exemples précédents.</p>
 </div>
 <div class="row">
-<h3>Un exemple à enseigner</h3>
-<p>Un tri doit produire une liste ordonnée et conserver tous les éléments, avec leurs multiplicités.</p>
+<h3>Recommencer</h3>
+<p>Exploiter les erreurs, corriger et explorer d’autres pistes.</p>
 </div>
 </div>
-<p class="take">L’IA aide à construire. Comprendre ce qu’il faut garantir reste essentiel.</p>
+<p class="take">Un retour vérifiable pour « galoper » dans la recherche.</p>
 </div>
 <div class="sources">
-<a href="https://lean-lang.org/theorem_proving_in_lean4/Introduction/" target="_blank" rel="noopener noreferrer">Lean · Theorem Proving in Lean 4</a>
-<a href="https://lean-lang.org/theorem_proving_in_lean4/Axioms-and-Computation/" target="_blank" rel="noopener noreferrer">Lean · axiomes et calcul</a>
+<a href="https://lean-lang.org/theorem_proving_in_lean4/Introduction/" target="_blank" rel="noopener noreferrer">Lean · principes de vérification</a>
+<a href="https://github.com/openai/NavierStokesAndEuler" target="_blank" rel="noopener noreferrer">Exemple · recherche et preuves Lean</a>
 </div>
 <div class="number">26 / 27</div>
 </section>
@@ -1088,16 +1088,16 @@ const data=[
     ]
   },
   {
-    "title": "Du raisonnement mathématique au logiciel",
-    "notes": "Après cette ouverture sur l’IA en recherche, revenir au public enseignant en informatique. Les preuves assistées constituent un pont vers les algorithmes, les méthodes formelles et la correction des programmes, sans résumer toute la recherche à Lean. Le même outil peut servir à explorer un résultat scientifique ou à établir une propriété logicielle. Lean est un assistant de preuve et un langage de programmation. Les tactiques élaborent des objets de preuve que le noyau vérifie. Examiner les axiomes et les éventuelles admissions : un fichier qui compile avec des « sorry » ne constitue pas une preuve complète. Les tests contrôlent des cas exécutés ; une preuve établit une propriété sous les hypothèses formalisées. Cela ne certifie pas automatiquement toute une application ni son déploiement. Proposition pédagogique : demander aux étudiants de spécifier un tri, puis montrer qu’une fonction retournant toujours la liste vide satisfait « la sortie est ordonnée ». Il manque la conservation des éléments et de leurs multiplicités. Faire corriger la spécification, examiner une preuve assistée par IA et expliquer ses hypothèses. Adapter cet exercice au niveau : raisonnement et contre-exemples d’abord, formalisation Lean ensuite. Les avancées en mathématiques motivent cette piste ; elles ne démontrent pas à elles seules un gain pédagogique ou une adoption généralisée en entreprise.",
+    "title": "Explorer vite, avec un vérificateur",
+    "notes": "Le message de cette ouverture est que l’IA peut aider la recherche. Les mathématiques illustrent une boucle particulièrement intéressante : proposer une preuve, la soumettre à un vérificateur, exploiter ses retours, puis recommencer. Lean, Coq et d’autres assistants de preuve peuvent fournir ce cadre, à condition de disposer d’une intégration adaptée ; les exemples précédents concernent Lean. Le vérificateur ne juge pas la plausibilité d’un texte : son noyau contrôle des objets de preuve dans un cadre logique précis. Ce retour permet de multiplier les tentatives tout en contrôlant les étapes formalisées. Il reste à choisir un problème pertinent, vérifier que l’énoncé formalisé est le bon, examiner les hypothèses et exclure les admissions telles que « sorry ». Une preuve vérifiée ne garantit pas la nouveauté scientifique du résultat. Cette boucle ne résume pas toute la recherche : les critères de validation dépendent du domaine. Ne pas détourner ce passage vers les usages industriels ; les mathématiques sont ici un exemple concret de ce que l’IA et ses outils peuvent apporter à la recherche.",
     "refs": [
       [
-        "Lean · Theorem Proving in Lean 4",
+        "Lean · principes de vérification",
         "https://lean-lang.org/theorem_proving_in_lean4/Introduction/"
       ],
       [
-        "Lean · axiomes et calcul",
-        "https://lean-lang.org/theorem_proving_in_lean4/Axioms-and-Computation/"
+        "Exemple · recherche et preuves Lean",
+        "https://github.com/openai/NavierStokesAndEuler"
       ]
     ]
   },
