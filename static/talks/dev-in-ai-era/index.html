@@ -371,7 +371,39 @@
 	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>08</span></div>
 </section>
 
-<!-- ============ 9. EXEMPLE : MOON-BOT ============ -->
+<!-- ============ 9. PARALLÉLISME ============ -->
+<section class="slide" data-notes="
+	<ul>
+	<li>Un changement de workflow très concret : <b>les agents permettent de travailler sur plusieurs choses à la fois</b>.</li>
+	<li>Entre projets : tu lances une tâche sur un projet (souvent depuis Slack ou GitHub — moon-bot fait exactement ça : on ouvre des PRs sans quitter sa conversation), et tu te remets sur ton projet principal. L'agent tourne pendant que tu fais autre chose ; tu reviens pour relire.</li>
+	<li>Sur le même projet aussi : on peut faire tourner <b>plusieurs tâches en parallèle</b> — chacune dans sa branche. Ça a directement contribué à l'amélioration des <b>worktrees dans git</b>, notamment les worktrees à chemin relatif : chaque agent travaille dans son worktree isolé, sans se marcher dessus.</li>
+	<li>Le modèle mental change : au lieu d'un pipeline séquentiel (je code → je teste → je pousse), on devient <b>orchestrateur</b> — on lance, on surveille, on relit, on merge. Le goulot d'étranglement n'est plus l'écriture, c'est la revue et l'attention.</li>
+	<li>Limite honnête : le parallélisme ne marche que si chaque tâche est bien cadrée et que le contexte est clair. Trois agents lancés sur des specs floues = trois PRs à jeter.</li>
+	</ul>">
+	<div class="kicker">Changement de workflow</div>
+	<h2>Travailler sur <span class="accent">plusieurs choses à la fois</span></h2>
+	<div class="grid2">
+		<div class="card">
+			<h3>🔀 Entre projets</h3>
+			<p>Tu lances une tâche sur un projet — souvent depuis Slack ou GitHub (moon-bot ouvre des PRs sans quitter la conversation) — et tu te remets sur <strong>ton projet principal</strong>. Tu reviens pour relire.</p>
+		</div>
+		<div class="card">
+			<h3>🌳 Sur le même projet</h3>
+			<p>Plusieurs tâches en parallèle, chacune dans sa branche. Ça a contribué à l'amélioration des <strong>worktrees git</strong> — notamment les worktrees à chemin relatif : chaque agent dans son worktree isolé.</p>
+		</div>
+		<div class="card">
+			<h3>🎛️ Nouveau rôle : orchestrateur</h3>
+			<p>On lance, on surveille, on relit, on merge. Le goulot n'est plus l'écriture — c'est la <strong>revue et l'attention</strong>.</p>
+		</div>
+		<div class="card">
+			<h3>⚠️ Limite honnête</h3>
+			<p>Le parallélisme ne marche que si chaque tâche est <strong>bien cadrée</strong>. Trois agents sur des specs floues = trois PRs à jeter.</p>
+		</div>
+	</div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>09</span></div>
+</section>
+
+<!-- ============ 10. EXEMPLE : MOON-BOT ============ -->
 <section class="slide" data-notes="
 	<ul>
 	<li>Un exemple concret, en production chez Hugging Face : <b>moon-bot</b>.</li>
@@ -403,10 +435,10 @@
 			<p>Article de blog officiel (public) :<br /><a href="https://huggingface.co/blog/huggingface/moon-bot" class="mono" style="font-size:0.95rem">huggingface.co/blog/huggingface/moon-bot</a></p>
 		</div>
 	</div>
-	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>09</span></div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>10</span></div>
 </section>
 
-<!-- ============ 10. OÙ LA FRICTION RESTE ============ -->
+<!-- ============ 11. OÙ LA FRICTION RESTE ============ -->
 <section class="slide" data-notes="
 	<ul>
 	<li>L'autre moitié du tableau : là où l'IA n'enlève (presque) rien.</li>
@@ -435,10 +467,10 @@
 			<p>L'IA génère du code à l'infini. Elle ne génère pas « une codebase qu'on aime encore dans 6 mois » — ça, c'est le rôle de l'équipe.</p>
 		</div>
 	</div>
-	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>10</span></div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>11</span></div>
 </section>
 
-<!-- ============ 11. INFRA AS CODE & BOOTSTRAP ============ -->
+<!-- ============ 12. INFRA AS CODE & BOOTSTRAP ============ -->
 <section class="slide" data-notes="
 	<ul>
 	<li>L'infra as code et Kubernetes, c'est le cas d'école parfait de 'l'IA qui comble les trous'.</li>
@@ -464,10 +496,10 @@
 		</div>
 	</div>
 	<p class="sub">Déléguer le <span class="dim">mécanique</span>, garder le <span class="accent">conceptuel</span> — c'est exactement ça, le jugement.</p>
-	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>11</span></div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>12</span></div>
 </section>
 
-<!-- ============ 12. OFFSHOOT VS MONOREPO ============ -->
+<!-- ============ 13. OFFSHOOT VS MONOREPO ============ -->
 <section class="slide" data-notes="
 	<ul>
 	<li>Un arbitrage d'architecture qui change avec l'IA : <b>offshoot plutôt que grossir le monorepo</b>.</li>
@@ -493,10 +525,10 @@
 		</div>
 	</div>
 	<p class="sub">Exemple vécu : <span class="accent-c">moon-bot</span> et <span class="accent-c">moon-ide</span> — nés à côté, itérés vite.</p>
-	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>12</span></div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>13</span></div>
 </section>
 
-<!-- ============ 13. NE PAS SLOPPER LES AUTRES ============ -->
+<!-- ============ 14. NE PAS SLOPPER LES AUTRES ============ -->
 <section class="slide" data-notes="
 	<ul>
 	<li>Point important, et directement lié à la collaboration : <b>ne pas slopper les autres</b>.</li>
@@ -523,10 +555,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>13</span></div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>14</span></div>
 </section>
 
-<!-- ============ 14. JUGEMENT ============ -->
+<!-- ============ 15. JUGEMENT ============ -->
 <section class="slide" data-notes="
 	<ul>
 	<li>Même avec un prompt parfait, l'IA est <b>biaisée par vos questions</b>. Demandez 'comment faire X avec Y' : elle ne suggérera jamais 'vous ne devriez pas faire X'. Reculer régulièrement : est-ce la bonne solution ? Faut-il pivoter ?</li>
@@ -550,10 +582,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>14</span></div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>15</span></div>
 </section>
 
-<!-- ============ 15. CONTINUER À APPRENDRE ============ -->
+<!-- ============ 16. CONTINUER À APPRENDRE ============ -->
 <section class="slide" data-notes="
 	<ul>
 	<li>Le vrai défi de l'ère IA : <b>continuer à apprendre</b>. C'est là que la salle (des enseignants !) est directement concernée.</li>
@@ -594,10 +626,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>15</span></div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>16</span></div>
 </section>
 
-<!-- ============ 16. CONCLUSION ============ -->
+<!-- ============ 17. CONCLUSION ============ -->
 <section class="slide" data-notes="
 	<ul>
 	<li>Récap : l'IA n'a pas remplacé le développement — elle a changé la répartition de mon temps. La corvée a disparu ; le jugement, la relecture et la direction ont pris la place.</li>
@@ -624,7 +656,7 @@
 			<span class="mono">@coyotte508</span> · Eliott @ <span class="accent-c">Hugging Face</span> — questions bienvenues
 		</div>
 	</div>
-	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>16</span></div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>17</span></div>
 </section>
 
 <!-- ============ PANNEAU DE NOTES ============ -->
