@@ -342,7 +342,41 @@
 	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>07</span></div>
 </section>
 
-<!-- ============ 8. OUTILS INTERNES ============ -->
+<!-- ============ 8. RÉFÉRENCE : ASANA / ENZYME ============ -->
+<section class="slide" data-notes="
+	<ul>
+	<li>Une référence solide et chiffrée pour la catégorie 'gros refactors / migrations' : <b>Asana</b>, raconté dans The Pragmatic Engineer.</li>
+	<li>Le cas : migrer toute la suite de tests frontend d'Enzyme vers React Testing Library. Lancée en 2022, estimée à encore <b>~5 ans de travail</b> au rythme constaté (~6 M$ d'effort ingénieur chargé au total). Avec l'IA : <b>terminée en ~2 semaines</b> (~1,5 semaine de temps ingénieur), pour <b>~12 k$</b> — 11 k$ de tokens + 1 k$ d'infra.</li>
+	<li>Le détail le plus intéressant pédagogiquement : <b>le prompt entier tenait en 5 phrases</b> ('migre les fichiers de ce dossier d'Enzyme vers RTL, suis les conventions du repo, teste avec telle commande'). Jusqu'à 4 agents en parallèle, chacun sur un dossier.</li>
+	<li>Pourquoi ça a marché : un <b>harnais propre</b> — conventions claires, helpers de test bien conçus, CI rapide, définition de 'fini' vérifiable (plus d'Enzyme). Les tentatives de setups plus compliqués (tickets, sous-agents, méga-prompt) ont <b>empiré</b> les résultats. La simplicité a gagné.</li>
+	<li>Leur conclusion rejoint la nôtre : l'IA ne supprime pas le besoin de goût en ingénierie — elle l'<b>amplifie</b>. La doc obsolète est devenue un piège actif (elle orientait l'agent vers Enzyme !), et l'infra lente était le vrai goulot, pas le modèle.</li>
+	<li>Liens : asana.com/inside-asana/migrating-off-enzyme-2-weeks · newsletter.pragmaticengineer.com/p/the-pulse-we-need-to-talk-about-migrations</li>
+	</ul>">
+	<div class="kicker">Référence chiffrée — migrations</div>
+	<h2>Asana : <span class="accent-g">5 ans</span> de migration en <span class="accent">2 semaines</span></h2>
+	<div class="grid2">
+		<div class="card">
+			<h3>📉 Les chiffres</h3>
+			<p>Migration Enzyme → React Testing Library : estimée à <strong>~5 ans</strong> restants (~6&nbsp;M$ d'effort). Terminée en <strong>~2 semaines</strong> avec l'IA, pour <strong>~12&nbsp;k$</strong> (tokens + infra).</p>
+			<p class="mono" style="margin-top:1vh; font-size:0.88rem">The Pragmatic Engineer · asana.com/inside-asana</p>
+		</div>
+		<div class="card">
+			<h3>📝 Un prompt de 5 phrases</h3>
+			<p>« Migre les fichiers de ce dossier vers RTL, suis les conventions du repo, teste. » Jusqu'à <strong>4 agents en parallèle</strong>, un par dossier. Les setups plus compliqués ont <strong>empiré</strong> le résultat.</p>
+		</div>
+		<div class="card">
+			<h3>🏗️ Ce qui a fait la différence</h3>
+			<p>Un <strong>harnais propre</strong> : conventions claires, CI rapide, définition de « fini » vérifiable. Le vrai goulot : la doc obsolète et l'outillage lent — pas le modèle.</p>
+		</div>
+		<div class="card" style="border-color:var(--amber)">
+			<h3 class="accent">🎯 Leur conclusion</h3>
+			<p style="font-size:1.08rem">L'IA ne supprime pas le goût en ingénierie — elle l'<strong>amplifie</strong>. Investir dans le harnais (docs, conventions, boucles de feedback) paie sur chaque migration future.</p>
+		</div>
+	</div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>08</span></div>
+</section>
+
+<!-- ============ 9. OUTILS INTERNES ============ -->
 <section class="slide" data-notes="
 	<ul>
 	<li>La conséquence la plus visible en entreprise : <b>l'explosion de l'outillage interne</b>.</li>
@@ -368,10 +402,10 @@
 		</div>
 	</div>
 	<p class="sub">Ce qui n'était <span class="dim">jamais prioritaire</span> devient <span class="accent">quasiment gratuit</span>.</p>
-	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>08</span></div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>09</span></div>
 </section>
 
-<!-- ============ 9. PARALLÉLISME ============ -->
+<!-- ============ 10. PARALLÉLISME ============ -->
 <section class="slide" data-notes="
 	<ul>
 	<li>Un changement de workflow très concret : <b>les agents permettent de travailler sur plusieurs choses à la fois</b>.</li>
@@ -400,10 +434,10 @@
 			<p>Le parallélisme ne marche que si chaque tâche est <strong>bien cadrée</strong>. Trois agents sur des specs floues = trois PRs à jeter.</p>
 		</div>
 	</div>
-	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>09</span></div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>10</span></div>
 </section>
 
-<!-- ============ 10. EXEMPLE : MOON-BOT ============ -->
+<!-- ============ 11. EXEMPLE : MOON-BOT ============ -->
 <section class="slide" data-notes="
 	<ul>
 	<li>Un exemple concret, en production chez Hugging Face : <b>moon-bot</b>.</li>
@@ -435,10 +469,10 @@
 			<p>Article de blog officiel (public) :<br /><a href="https://huggingface.co/blog/huggingface/moon-bot" class="mono" style="font-size:0.95rem">huggingface.co/blog/huggingface/moon-bot</a></p>
 		</div>
 	</div>
-	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>10</span></div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>11</span></div>
 </section>
 
-<!-- ============ 11. OÙ LA FRICTION RESTE ============ -->
+<!-- ============ 12. OÙ LA FRICTION RESTE ============ -->
 <section class="slide" data-notes="
 	<ul>
 	<li>L'autre moitié du tableau : là où l'IA n'enlève (presque) rien.</li>
@@ -467,10 +501,10 @@
 			<p>L'IA génère du code à l'infini. Elle ne génère pas « une codebase qu'on aime encore dans 6 mois » — ça, c'est le rôle de l'équipe.</p>
 		</div>
 	</div>
-	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>11</span></div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>12</span></div>
 </section>
 
-<!-- ============ 12. INFRA AS CODE & BOOTSTRAP ============ -->
+<!-- ============ 13. INFRA AS CODE & BOOTSTRAP ============ -->
 <section class="slide" data-notes="
 	<ul>
 	<li>L'infra as code et Kubernetes, c'est le cas d'école parfait de 'l'IA qui comble les trous'.</li>
@@ -496,10 +530,10 @@
 		</div>
 	</div>
 	<p class="sub">Déléguer le <span class="dim">mécanique</span>, garder le <span class="accent">conceptuel</span> — c'est exactement ça, le jugement.</p>
-	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>12</span></div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>13</span></div>
 </section>
 
-<!-- ============ 13. OFFSHOOT VS MONOREPO ============ -->
+<!-- ============ 14. OFFSHOOT VS MONOREPO ============ -->
 <section class="slide" data-notes="
 	<ul>
 	<li>Un arbitrage d'architecture qui change avec l'IA : <b>offshoot plutôt que grossir le monorepo</b>.</li>
@@ -525,10 +559,10 @@
 		</div>
 	</div>
 	<p class="sub">Exemple vécu : <span class="accent-c">moon-bot</span> et <span class="accent-c">moon-ide</span> — nés à côté, itérés vite.</p>
-	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>13</span></div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>14</span></div>
 </section>
 
-<!-- ============ 14. NE PAS SLOPPER LES AUTRES ============ -->
+<!-- ============ 15. NE PAS SLOPPER LES AUTRES ============ -->
 <section class="slide" data-notes="
 	<ul>
 	<li>Point important, et directement lié à la collaboration : <b>ne pas slopper les autres</b>.</li>
@@ -555,10 +589,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>14</span></div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>15</span></div>
 </section>
 
-<!-- ============ 15. JUGEMENT ============ -->
+<!-- ============ 16. JUGEMENT ============ -->
 <section class="slide" data-notes="
 	<ul>
 	<li>Même avec un prompt parfait, l'IA est <b>biaisée par vos questions</b>. Demandez 'comment faire X avec Y' : elle ne suggérera jamais 'vous ne devriez pas faire X'. Reculer régulièrement : est-ce la bonne solution ? Faut-il pivoter ?</li>
@@ -582,10 +616,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>15</span></div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>16</span></div>
 </section>
 
-<!-- ============ 16. CONTINUER À APPRENDRE ============ -->
+<!-- ============ 17. CONTINUER À APPRENDRE ============ -->
 <section class="slide" data-notes="
 	<ul>
 	<li>Le vrai défi de l'ère IA : <b>continuer à apprendre</b>. C'est là que la salle (des enseignants !) est directement concernée.</li>
@@ -626,10 +660,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>16</span></div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>17</span></div>
 </section>
 
-<!-- ============ 17. CONCLUSION ============ -->
+<!-- ============ 18. CONCLUSION ============ -->
 <section class="slide" data-notes="
 	<ul>
 	<li>Récap : l'IA n'a pas remplacé le développement — elle a changé la répartition de mon temps. La corvée a disparu ; le jugement, la relecture et la direction ont pris la place.</li>
@@ -656,7 +690,7 @@
 			<span class="mono">@coyotte508</span> · Eliott @ <span class="accent-c">Hugging Face</span> — questions bienvenues
 		</div>
 	</div>
-	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>17</span></div>
+	<div class="footer"><span>Eliott C. — Développement à l'ère de l'IA</span><span>18</span></div>
 </section>
 
 <!-- ============ PANNEAU DE NOTES ============ -->
