@@ -91,6 +91,41 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 .controls,#notes,#presenter{display:none!important}
 }
 
+
+.origin-note{font-size:20px;line-height:1.4;color:var(--muted)}
+
+.case-quote{font-size:49px;line-height:1.32;color:var(--fg);letter-spacing:-.02em}
+
+.milestones{display:grid;grid-template-columns:repeat(3,1fr);gap:44px;border-top:1px solid var(--line);padding-top:25px}
+
+.milestones strong{display:block;color:var(--accent);font-size:30px;margin-bottom:12px}
+
+.milestones p{font-size:25px}
+
+.mode-flow{border-top:2px solid var(--blue);padding-top:24px}
+
+.mode-flow .path{color:var(--fg);font-size:34px;line-height:1.4;margin:15px 0 20px}
+
+.mode-flow .path em{color:var(--blue)}
+
+.loop{font-size:33px;color:var(--accent);line-height:1.4;margin-bottom:5px}
+
+.case-table th,.case-table td{padding:19px 16px;font-size:27px}
+
+.case-table tbody th{width:37%;font-weight:650}
+
+.case-table td{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+.case-table .gain{color:var(--accent);font-weight:650}
+
+.case-table small{display:block;font-size:20px;color:var(--muted);font-weight:400;margin-top:5px}
+
+.case-kpis{margin:0}
+.case-kpis strong{font-size:88px}
+.case-kpis span{font-size:26px}
+
+.case-kpis .absolute{color:var(--fg);font-size:26px;margin-top:15px}
+
 </style>
 </head>
 <body>
@@ -112,7 +147,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <div class="sources">
 <a href="https://huggingface.co/brand" target="_blank" rel="noopener noreferrer">Logo officiel · Hugging Face</a>
 </div>
-<div class="number">01 / 27</div>
+<div class="number">01 / 31</div>
 </section>
 <section class="slide  " id="terrain" aria-label="Diapositive 2">
 <p class="part">Le contexte</p>
@@ -140,13 +175,13 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <div class="sources">
 <a href="https://www.slideshare.net/slideshow/ieee-xtreme-50-results/11819078" target="_blank" rel="noopener noreferrer">IEEEXtreme 5.0 · classement 2011</a>
 </div>
-<div class="number">02 / 27</div>
+<div class="number">02 / 31</div>
 </section>
 <section class="slide  " id="parcours" aria-label="Diapositive 3">
 <p class="part">Le travail en entreprise</p>
 <h2>Une modification, de la demande à la production</h2>
 <div class="body">
-<p class="intro">Exemple fil rouge : « L’export CSV échoue sur un gros compte. »</p>
+<p class="intro">Exemple fictif : « L’export CSV échoue sur un gros compte. »</p>
 <div class="rows">
 <div class="row">
 <h3>01 · Cadrer</h3>
@@ -169,7 +204,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <div class="sources">
 <a href="https://docs.github.com/en/get-started/using-github/github-flow" target="_blank" rel="noopener noreferrer">GitHub Docs · GitHub flow</a>
 </div>
-<div class="number">03 / 27</div>
+<div class="number">03 / 31</div>
 </section>
 <section class="slide  " id="pr" aria-label="Diapositive 4">
 <p class="part">Le travail en entreprise</p>
@@ -196,7 +231,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <div class="sources">
 <a href="https://docs.github.com/en/get-started/using-github/github-flow" target="_blank" rel="noopener noreferrer">GitHub Docs · GitHub flow</a>
 </div>
-<div class="number">04 / 27</div>
+<div class="number">04 / 31</div>
 </section>
 <section class="slide  " id="cicd" aria-label="Diapositive 5">
 <p class="part">Le travail en entreprise</p>
@@ -221,33 +256,33 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <a href="https://docs.github.com/en/actions/get-started/understand-github-actions" target="_blank" rel="noopener noreferrer">GitHub Docs · GitHub Actions</a>
 <a href="https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments" target="_blank" rel="noopener noreferrer">GitHub Docs · Environnements de déploiement</a>
 </div>
-<div class="number">05 / 27</div>
+<div class="number">05 / 31</div>
 </section>
 <section class="slide  " id="bascule" aria-label="Diapositive 6">
 <p class="part">Ce qui change avec les agents</p>
-<h2>Ma bascule fin 2025</h2>
+<h2>Depuis fin 2025, je construis avec les agents</h2>
 <div class="body">
 <div class="rows">
-<div class="row">
-<h3>Mongoku</h3>
-<p>Réécriture en Svelte / TypeScript dès septembre 2025, avec une interface largement produite par LLM.</p>
-</div>
 <div class="row">
 <h3>moon-bot</h3>
 <p>Une plateforme d’agents pour les usages internes de l’équipe.</p>
 </div>
 <div class="row">
 <h3>moon-ide</h3>
-<p>Un IDE développé avec les agents, que j’utilise au quotidien.</p>
+<p>L’IDE développé avec les agents, que j’utilise au quotidien.</p>
+</div>
+<div class="row">
+<h3>moon-git</h3>
+<p>Un service Rust pour soulager l’infrastructure Git du Hub.</p>
 </div>
 </div>
-<p class="take">Des projets que je peux construire et faire évoluer autrement.</p>
+<p class="take">L’IA produit le code. Ma manière de piloter dépend du projet.</p>
 </div>
 <div class="sources">
-<a href="https://github.com/huggingface/Mongoku" target="_blank" rel="noopener noreferrer">Mongoku · dépôt</a>
+<a href="https://huggingface.co/blog/huggingface/moon-bot" target="_blank" rel="noopener noreferrer">Hugging Face · Moon Bot, juin 2026</a>
 <a href="https://github.com/huggingface/moon-ide" target="_blank" rel="noopener noreferrer">moon-ide · dépôt</a>
 </div>
-<div class="number">06 / 27</div>
+<div class="number">06 / 31</div>
 </section>
 <section class="slide  " id="agent" aria-label="Diapositive 7">
 <p class="part">Ce qui change avec les agents</p>
@@ -271,7 +306,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 </div>
 <div class="sources">
 </div>
-<div class="number">07 / 27</div>
+<div class="number">07 / 31</div>
 </section>
 <section class="slide  " id="usages" aria-label="Diapositive 8">
 <p class="part">Ce qui change avec les agents</p>
@@ -298,7 +333,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 </div>
 <div class="sources">
 </div>
-<div class="number">08 / 27</div>
+<div class="number">08 / 31</div>
 </section>
 <section class="slide  " id="asana" aria-label="Diapositive 9">
 <p class="part">Un cas documenté</p>
@@ -325,7 +360,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <a href="https://asana.com/inside-asana/migrating-off-enzyme-2-weeks" target="_blank" rel="noopener noreferrer">Asana · Migration Enzyme, août 2026</a>
 <a href="https://newsletter.pragmaticengineer.com/p/the-pulse-we-need-to-talk-about-migrations" target="_blank" rel="noopener noreferrer">The Pragmatic Engineer · Migrations</a>
 </div>
-<div class="number">09 / 27</div>
+<div class="number">09 / 31</div>
 </section>
 <section class="slide  " id="outils" aria-label="Diapositive 10">
 <p class="part">Ce qui devient réalisable</p>
@@ -354,7 +389,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 </div>
 <div class="sources">
 </div>
-<div class="number">10 / 27</div>
+<div class="number">10 / 31</div>
 </section>
 <section class="slide  " id="moon" aria-label="Diapositive 11">
 <p class="part">Chez Hugging Face</p>
@@ -380,9 +415,205 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <div class="sources">
 <a href="https://huggingface.co/blog/huggingface/moon-bot" target="_blank" rel="noopener noreferrer">Hugging Face · Moon Bot, juin 2026</a>
 </div>
-<div class="number">11 / 27</div>
+<div class="number">11 / 31</div>
 </section>
-<section class="slide  " id="parallele" aria-label="Diapositive 12">
+<section class="slide  " id="moongit-depart" aria-label="Diapositive 12">
+<p class="part">Cas concret · 9–22 septembre 2026</p>
+<h2>moon-git : du prompt au service en production</h2>
+<div class="body">
+<p class="case-quote">Un service Rust <em>entièrement produit par l’IA</em>.<br>Je ne maîtrise pas Rust et je ne relis pas ce code.</p>
+<div class="milestones">
+<div>
+<strong>9 septembre</strong>
+<p>Une idée, nos besoins et des références techniques.</p>
+</div>
+<div>
+<strong>10 septembre</strong>
+<p>Un périmètre ciblé : un sidecar pour Gitaly.</p>
+</div>
+<div>
+<strong>22 septembre</strong>
+<p>Le service répond au trafic réel du Hub.</p>
+</div>
+</div>
+</div>
+<div class="sources">
+<a href="https://cursor.com/blog/git-at-any-scale" target="_blank" rel="noopener noreferrer">Cursor · Git at any scale</a>
+<a href="https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/scaling-git/" target="_blank" rel="noopener noreferrer">GitLab · Scaling Git, référence de départ</a>
+</div>
+<div class="number">12 / 31</div>
+</section>
+<section class="slide  " id="moongit-perimetre" aria-label="Diapositive 13">
+<p class="part">moon-git · le cadrage</p>
+<h2>Un sidecar adapté aux lectures du Hub</h2>
+<div class="body">
+<div class="rows">
+<div class="row">
+<h3>L’idée initiale</h3>
+<p>Construire une alternative à Gitaly.</p>
+</div>
+<div class="row">
+<h3>Le périmètre déployé</h3>
+<p>Ajouter un service d’indexation à côté de Gitaly, qui reste la source Git.</p>
+</div>
+<div class="row">
+<h3>Nos besoins précis</h3>
+<p>Lister les fichiers, retrouver leur dernier commit, connaître les tailles et les pointeurs LFS.</p>
+</div>
+</div>
+<p class="take">Pré-calculer les réponses fréquentes pour éviter des parcours Git répétés.</p>
+</div>
+<div class="sources">
+</div>
+<div class="number">13 / 31</div>
+</section>
+<section class="slide  " id="moongit-shadow" aria-label="Diapositive 14">
+<p class="part">moon-git · le déploiement</p>
+<h2>Comparer en shadow, puis passer à on</h2>
+<div class="body">
+<div class="columns">
+<div>
+<div class="mode-flow">
+<p class="label">Shadow · phase d’observation</p>
+<p class="path">Hub → <em>Gitaly</em> → utilisateur</p>
+<p>moon-git reçoit aussi la requête.<br>On compare les réponses en arrière-plan.</p>
+</div>
+</div>
+<div>
+<div class="mode-flow">
+<p class="label">On · mise en service</p>
+<p class="path">Hub → <em>moon-git</em> → utilisateur</p>
+<p>Gitaly prend le relais si l’index ne peut pas répondre.</p>
+</div>
+</div>
+</div>
+<p class="take">Les incidents de mise au point sont apparus pendant la phase shadow.</p>
+</div>
+<div class="sources">
+</div>
+<div class="number">14 / 31</div>
+</section>
+<section class="slide  " id="moongit-iterations" aria-label="Diapositive 15">
+<p class="part">moon-git · la méthode</p>
+<h2>Les métriques donnent la prochaine tâche</h2>
+<div class="body">
+<p class="loop">Observer → demander à l’agent de creuser → corriger → mesurer</p>
+<div class="rows">
+<div class="row">
+<h3>Mémoire · 18–19 sept.</h3>
+<p>OOM, puis fragmentation : mesurer les octets réellement utilisés et borner les allocations.</p>
+</div>
+<div class="row">
+<h3>Travail en attente · 21 sept.</h3>
+<p>Les tâches s’accumulent : limiter aussi la file d’attente, pas seulement la concurrence.</p>
+</div>
+<div class="row">
+<h3>Instances et déploiements</h3>
+<p>Corriger le choix du pod, les délais d’attente et l’arrêt propre du service.</p>
+</div>
+<div class="row">
+<h3>Stockage · 21–22 sept.</h3>
+<p>Découper les transactions redb et réduire la durée des lectures qui retiennent les pages.</p>
+</div>
+</div>
+</div>
+<div class="sources">
+</div>
+<div class="number">15 / 31</div>
+</section>
+<section class="slide  case-results" id="moongit-resultats" aria-label="Diapositive 16">
+<p class="part">moon-git · bilan du 23 septembre</p>
+<h2>Moins d’appels, beaucoup moins de saturation</h2>
+<div class="body">
+<p class="intro">Deux fenêtres de 12 h, aux mêmes horaires, à une semaine d’intervalle.</p>
+<div class="metrics case-kpis">
+<div>
+<strong>−94 %</strong>
+<span>erreurs Gitaly<br>ResourceExhausted</span>
+<p class="absolute">1 553 622 → 99 918</p>
+</div>
+<div>
+<strong>−24 %</strong>
+<span>appels à Gitaly</span>
+<p class="absolute">1,98 → 1,50 milliard</p>
+</div>
+<div>
+<strong>+7 %</strong>
+<span>requêtes du Hub</span>
+<p class="absolute">821 → 880 millions</p>
+</div>
+</div>
+<p class="take">Le service soulage l’existant à l’échelle du trafic réel.</p>
+</div>
+<div class="sources">
+</div>
+<div class="number">16 / 31</div>
+</section>
+<section class="slide  " id="moongit-latences" aria-label="Diapositive 17">
+<p class="part">moon-git · temps de réponse observés</p>
+<h2>Les requêtes les plus lentes s’améliorent</h2>
+<div class="body">
+<p class="intro">p99 : 99 % des requêtes terminent en dessous de ce temps.</p>
+<table class="case-table">
+<thead>
+<tr>
+<th>Route du Hub</th>
+<th>Semaine précédente</th>
+<th>Après bascule</th>
+<th>Variation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Page des fichiers<small>tree · page web</small>
+</th>
+<td>3 098 ms</td>
+<td>1 099 ms</td>
+<td class="gain">−65 %</td>
+</tr>
+<tr>
+<th>Page du dépôt</th>
+<td>1 008 ms</td>
+<td>324 ms</td>
+<td class="gain">−68 %</td>
+</tr>
+<tr>
+<th>API datasets</th>
+<td>1 122 ms</td>
+<td>421 ms</td>
+<td class="gain">−62 %</td>
+</tr>
+</tbody>
+</table>
+<p class="take">Les médianes changent peu. Les gains varient selon les routes et les quantiles.</p>
+</div>
+<div class="sources">
+</div>
+<div class="number">17 / 31</div>
+</section>
+<section class="slide  " id="moongit-pilotage" aria-label="Diapositive 18">
+<p class="part">moon-git · mon mode de travail</p>
+<h2>Je pilote le service par son comportement</h2>
+<div class="body">
+<p class="case-quote">Je regarde les métriques.<br>Quand il y a un problème,<br>
+<em>je demande à l’agent de creuser.</em>
+</p>
+<div class="columns">
+<div>
+<h3>Le code peut être imparfait</h3>
+<p>Un expert aurait peut-être mieux optimisé la première version.</p>
+</div>
+<div>
+<h3>L’itération devient facile</h3>
+<p>L’agent enquête, modifie et teste. Je regarde l’effet et je réoriente.</p>
+</div>
+</div>
+</div>
+<div class="sources">
+</div>
+<div class="number">18 / 31</div>
+</section>
+<section class="slide  " id="parallele" aria-label="Diapositive 19">
 <p class="part">Une autre organisation du temps</p>
 <h2>Plusieurs tâches peuvent avancer en parallèle</h2>
 <div class="body">
@@ -406,65 +637,16 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <a href="https://git-scm.com/docs/git-worktree" target="_blank" rel="noopener noreferrer">Git · worktree</a>
 <a href="https://github.com/git/git/blob/master/Documentation/RelNotes/2.48.0.adoc" target="_blank" rel="noopener noreferrer">Git 2.48 · chemins relatifs</a>
 </div>
-<div class="number">12 / 27</div>
+<div class="number">19 / 31</div>
 </section>
-<section class="slide  " id="infra" aria-label="Diapositive 13">
-<p class="part">Démarrer un projet</p>
-<h2>L’IA facilite aussi l’infrastructure</h2>
-<div class="body">
-<div class="rows">
-<div class="row">
-<h3>Terraform</h3>
-<p>Décrire et provisionner les ressources nécessaires.</p>
-</div>
-<div class="row">
-<h3>Kubernetes et Helm</h3>
-<p>Décrire les applications à exécuter et leur configuration.</p>
-</div>
-<div class="row">
-<h3>Pipelines</h3>
-<p>Automatiser les vérifications et les déploiements.</p>
-</div>
-</div>
-<p class="take">L’agent prépare la configuration. Je me concentre sur le service et ses contraintes.</p>
-</div>
-<div class="sources">
-<a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/" target="_blank" rel="noopener noreferrer">Kubernetes · Deployments</a>
-<a href="https://developer.hashicorp.com/terraform/intro" target="_blank" rel="noopener noreferrer">Terraform · Introduction</a>
-</div>
-<div class="number">13 / 27</div>
-</section>
-<section class="slide  " id="extraction" aria-label="Diapositive 14">
-<p class="part">Choix d’architecture</p>
-<h2>Extraire un outil pour itérer indépendamment</h2>
-<div class="body">
-<div class="columns">
-<div>
-<h3>Une option plus accessible</h3>
-<p>Réécrire une partie bien délimitée et lui donner son propre déploiement.</p>
-<h3>Ce que l’IA accélère</h3>
-<p>Implémentation, tests et configuration de l’infrastructure.</p>
-</div>
-<div>
-<h3>Ce qu’on peut gagner</h3>
-<p>Un cycle de livraison autonome, avec moins de coordination sur chaque modification.</p>
-<h3>Ce qu’on ajoute</h3>
-<p>Une interface à stabiliser, un service à exploiter et un responsable à identifier.</p>
-</div>
-</div>
-</div>
-<div class="sources">
-</div>
-<div class="number">14 / 27</div>
-</section>
-<section class="slide  " id="responsabilite" aria-label="Diapositive 15">
+<section class="slide  " id="responsabilite" aria-label="Diapositive 20">
 <p class="part">Les contraintes de production</p>
 <h2>Le cœur du produit reste exigeant</h2>
 <div class="body">
 <div class="rows">
 <div class="row">
 <h3>Revue et cohérence</h3>
-<p>Comprendre le changement, ses conséquences et les conventions du projet.</p>
+<p>Dans le Hub : relire l’intégration et respecter les conventions de l’équipe.</p>
 </div>
 <div class="row">
 <h3>Sécurité</h3>
@@ -483,9 +665,9 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <div class="sources">
 <a href="https://huggingface.co/blog/huggingface/moon-bot" target="_blank" rel="noopener noreferrer">Hugging Face · Moon Bot, juin 2026</a>
 </div>
-<div class="number">15 / 27</div>
+<div class="number">20 / 31</div>
 </section>
-<section class="slide  " id="communication" aria-label="Diapositive 16">
+<section class="slide  " id="communication" aria-label="Diapositive 21">
 <p class="part">Le travail avec les autres</p>
 <h2>Ne pas <em>slopper</em> les autres</h2>
 <div class="body">
@@ -504,29 +686,9 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 </div>
 <div class="sources">
 </div>
-<div class="number">16 / 27</div>
+<div class="number">21 / 31</div>
 </section>
-<section class="slide  " id="jugement" aria-label="Diapositive 17">
-<p class="part">Le travail de conception</p>
-<h2>Le cadrage influence la réponse</h2>
-<div class="body">
-<div class="columns">
-<div>
-<p class="label">Une question qui enferme</p>
-<p class="question">« Comment réécrire ce service avec une file de messages ? »</p>
-</div>
-<div>
-<p class="label">Une question qui ouvre l’examen</p>
-<p class="question">« Quel problème mesure-t-on ? Quelles solutions peut-on comparer ? »</p>
-</div>
-</div>
-<p class="take">Même un modèle très performant peut suivre trop vite une mauvaise piste.</p>
-</div>
-<div class="sources">
-</div>
-<div class="number">17 / 27</div>
-</section>
-<section class="slide  " id="ouverture" aria-label="Diapositive 18">
+<section class="slide  " id="ouverture" aria-label="Diapositive 22">
 <p class="part">Choisir ses modèles</p>
 <h2>Ouverture et hébergement : deux choix distincts</h2>
 <div class="body">
@@ -557,9 +719,9 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <div class="sources">
 <a href="https://opensource.org/ai/open-source-ai-definition" target="_blank" rel="noopener noreferrer">OSI · Open Source AI Definition 1.0</a>
 </div>
-<div class="number">18 / 27</div>
+<div class="number">22 / 31</div>
 </section>
-<section class="slide  " id="performance" aria-label="Diapositive 19">
+<section class="slide  " id="performance" aria-label="Diapositive 23">
 <p class="part">Choisir ses modèles</p>
 <h2>Les performances progressent, les mesures comptent</h2>
 <div class="body">
@@ -584,9 +746,9 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <a href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener noreferrer">Stanford · AI Index 2026</a>
 <a href="https://www.swebench.com/" target="_blank" rel="noopener noreferrer">SWE-bench · Protocole et résultats</a>
 </div>
-<div class="number">19 / 27</div>
+<div class="number">23 / 31</div>
 </section>
-<section class="slide  " id="hebergement" aria-label="Diapositive 20">
+<section class="slide  " id="hebergement" aria-label="Diapositive 24">
 <p class="part">Choisir ses modèles</p>
 <h2>Servir un modèle sur son propre cluster</h2>
 <div class="body">
@@ -610,9 +772,9 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <a href="https://docs.vllm.ai/" target="_blank" rel="noopener noreferrer">vLLM · Documentation</a>
 <a href="https://docs.sglang.ai/" target="_blank" rel="noopener noreferrer">SGLang · Documentation</a>
 </div>
-<div class="number">20 / 27</div>
+<div class="number">24 / 31</div>
 </section>
-<section class="slide  " id="competences" aria-label="Diapositive 21">
+<section class="slide  " id="competences" aria-label="Diapositive 25">
 <p class="part">Ce que cela implique pour la formation</p>
 <h2>Les compétences informatiques se transfèrent</h2>
 <div class="body">
@@ -623,7 +785,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 </div>
 <div class="row">
 <h3>Vérifier</h3>
-<p>Lire le code, chercher un contre-exemple et diagnostiquer une erreur.</p>
+<p>Comparer des comportements, chercher un contre-exemple et interpréter des mesures.</p>
 </div>
 <div class="row">
 <h3>Concevoir</h3>
@@ -635,9 +797,9 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <div class="sources">
 <a href="https://www.anthropic.com/research/claude-code-expertise" target="_blank" rel="noopener noreferrer">Anthropic · Expertise et Claude Code, 2026</a>
 </div>
-<div class="number">21 / 27</div>
+<div class="number">25 / 31</div>
 </section>
-<section class="slide  " id="apprendre" aria-label="Diapositive 22">
+<section class="slide  " id="apprendre" aria-label="Diapositive 26">
 <p class="part">Ce que cela implique pour la formation</p>
 <h2>Continuer à apprendre devient un choix explicite</h2>
 <div class="body">
@@ -662,37 +824,42 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <div class="sources">
 <a href="https://arxiv.org/abs/2601.20245" target="_blank" rel="noopener noreferrer">Shen &amp; Tamkin · How AI Impacts Skill Formation, 2026</a>
 </div>
-<div class="number">22 / 27</div>
+<div class="number">26 / 31</div>
 </section>
-<section class="slide  " id="enseignement" aria-label="Diapositive 23">
+<section class="slide  " id="enseignement" aria-label="Diapositive 27">
 <p class="part">Ce que cela implique pour la formation</p>
-<h2>Un projet pédagogique proche du travail réel</h2>
+<h2>Construire son propre harnais d’agent</h2>
 <div class="body">
-<p class="intro">Proposition : corriger l’export CSV avec un petit agent construit par les étudiants.</p>
+<p class="intro">S’inspirer d’OpenCode, de Codex ou de Mistral Vibe.</p>
 <div class="rows">
 <div class="row">
-<h3>Les fondamentaux</h3>
-<p>Comprendre les données, l’algorithme et le coût en mémoire.</p>
+<h3>Suivre la boucle</h3>
+<p>Appel au modèle, appel d’outil, résultat, puis contexte du tour suivant.</p>
 </div>
 <div class="row">
-<h3>Le harnais</h3>
-<p>Donner au modèle quelques outils, inspecter leurs appels et leurs limites.</p>
+<h3>Explorer les capacités</h3>
+<p>Fichiers, commandes, navigateur intégré, images…</p>
 </div>
 <div class="row">
-<h3>La collaboration</h3>
-<p>Ouvrir une PR, relire celle d’un autre groupe et répondre aux commentaires.</p>
+<h3>Faire interagir les agents</h3>
+<p>Déléguer une tâche, échanger du contexte et réunir les résultats.</p>
 </div>
 <div class="row">
-<h3>La justification</h3>
-<p>Expliquer le choix et diagnostiquer une variante du problème sans assistance.</p>
+<h3>Utiliser le harnais</h3>
+<p>Demander à l’IA d’expliquer le code, d’afficher les fichiers et de créer des diagrammes HTML.</p>
 </div>
 </div>
+<p class="take">Faire générer le harnais, puis l’utiliser pour se familiariser avec son code.</p>
 </div>
 <div class="sources">
+<a href="https://github.com/anomalyco/opencode" target="_blank" rel="noopener noreferrer">OpenCode · code source</a>
+<a href="https://github.com/openai/codex" target="_blank" rel="noopener noreferrer">Codex · code source</a>
+<a href="https://github.com/mistralai/mistral-vibe" target="_blank" rel="noopener noreferrer">Mistral Vibe · code source</a>
+<a href="https://github.com/huggingface/moon-ide" target="_blank" rel="noopener noreferrer">Mon expérience · moon-ide</a>
 </div>
-<div class="number">23 / 27</div>
+<div class="number">27 / 31</div>
 </section>
-<section class="slide  " id="navier-stokes" aria-label="Diapositive 24">
+<section class="slide  " id="navier-stokes" aria-label="Diapositive 28">
 <p class="part">L’IA en recherche · un exemple en mathématiques</p>
 <h2>Navier–Stokes : une résolution annoncée</h2>
 <div class="body">
@@ -718,9 +885,9 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <a href="https://github.com/openai/NavierStokesAndEuler" target="_blank" rel="noopener noreferrer">Preuves Lean · dépôt public</a>
 <a href="https://www.claymath.org/millennium/Navier-Stokes-Equation/" target="_blank" rel="noopener noreferrer">Clay · énoncé et statut</a>
 </div>
-<div class="number">24 / 27</div>
+<div class="number">28 / 31</div>
 </section>
-<section class="slide  " id="resultats-maths" aria-label="Diapositive 25">
+<section class="slide  " id="resultats-maths" aria-label="Diapositive 29">
 <p class="part">L’IA en recherche · résultats mathématiques</p>
 <h2>Découvrir, progresser, formaliser</h2>
 <div class="body">
@@ -744,9 +911,9 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <a href="https://www.anthropic.com/research/riemann-zeta" target="_blank" rel="noopener noreferrer">Anthropic · zêta, 10 août</a>
 <a href="https://www.anthropic.com/research/formalizing-fermats-last-theorem" target="_blank" rel="noopener noreferrer">Anthropic · Fermat, 4 septembre</a>
 </div>
-<div class="number">25 / 27</div>
+<div class="number">29 / 31</div>
 </section>
-<section class="slide  " id="lean" aria-label="Diapositive 26">
+<section class="slide  " id="lean" aria-label="Diapositive 30">
 <p class="part">L’IA en recherche</p>
 <h2>Explorer vite, avec un vérificateur</h2>
 <div class="body">
@@ -771,9 +938,9 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <a href="https://lean-lang.org/theorem_proving_in_lean4/Introduction/" target="_blank" rel="noopener noreferrer">Lean · principes de vérification</a>
 <a href="https://github.com/openai/NavierStokesAndEuler" target="_blank" rel="noopener noreferrer">Exemple · recherche et preuves Lean</a>
 </div>
-<div class="number">26 / 27</div>
+<div class="number">30 / 31</div>
 </section>
-<section class="slide  " id="conclusion" aria-label="Diapositive 27">
+<section class="slide  " id="conclusion" aria-label="Diapositive 31">
 <p class="part">Pour la discussion</p>
 <h2>Ce que je retiens aujourd’hui</h2>
 <div class="body">
@@ -787,7 +954,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 </div>
 <div class="sources">
 </div>
-<div class="number">27 / 27</div>
+<div class="number">31 / 31</div>
 </section>
 </main>
 <nav class="controls" aria-label="Commandes de présentation">
@@ -830,7 +997,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 const data=[
   {
     "title": "Développement en entreprise<br>à l’ère de <em>l’IA<\/em>",
-    "notes": "Présentation à des enseignants en informatique. Je pars du quotidien en entreprise, puis je montre où les agents interviennent. Mon point de vue est celui d’un praticien, pas une description de toutes les entreprises. Chez Hugging Face, plateforme de collaboration autour des modèles et des jeux de données, je travaille depuis début 2022. Le logo provient du fichier officiel hf-logo.svg, conservé sans modification.",
+    "notes": "Format prévu : 45 à 60 minutes hors questions. Repères pour 45 minutes : contexte et pratiques de travail 8 min ; agents, outils et Asana 8 min ; moon-git 12 min ; collaboration, modèles et hébergement 7 min ; formation 5 min ; recherche et conclusion 5 min. Avec une heure, développer les échanges sur les incidents moon-git et les enjeux pédagogiques. Présentation à des enseignants en informatique. Je pars du quotidien en entreprise, puis je montre où les agents interviennent. Mon point de vue est celui d’un praticien, pas une description de toutes les entreprises. Chez Hugging Face, plateforme de collaboration autour des modèles et des jeux de données, je travaille depuis début 2022. Le logo provient du fichier officiel hf-logo.svg, conservé sans modification.",
     "refs": [
       [
         "Logo officiel · Hugging Face",
@@ -850,7 +1017,7 @@ const data=[
   },
   {
     "title": "Une modification, de la demande à la production",
-    "notes": "Exemple pédagogique fictif, repris dans les slides suivantes. Ce déroulé illustre une organisation possible : GitHub et Slack sont les outils du récit, pas des prérequis universels. Une issue rend une demande retrouvable. La PR rassemble le changement et la discussion. La fusion intègre le code à la branche principale. Mise en production et fusion peuvent être deux événements distincts. La boucle repart du terrain quand on observe une régression.",
+    "notes": "Exemple pédagogique fictif pour introduire les étapes de travail. Le cas réel moon-git prendra ensuite le relais. Ce déroulé illustre une organisation possible : GitHub et Slack sont les outils du récit, pas des prérequis universels. Une issue rend une demande retrouvable. La PR rassemble le changement et la discussion. La fusion intègre le code à la branche principale. Mise en production et fusion peuvent être deux événements distincts. La boucle repart du terrain quand on observe une régression.",
     "refs": [
       [
         "GitHub Docs · GitHub flow",
@@ -883,12 +1050,12 @@ const data=[
     ]
   },
   {
-    "title": "Ma bascule fin 2025",
-    "notes": "Mongoku existait déjà vers 2017–2018. Mes contributions y commencent en septembre 2025 : il s’agit de la réécriture avec l’IA, pas de mon parcours avant l’IA. Le changement s’affirme pour moi au quatrième trimestre 2025. Moon-bot et moon-ide sont mes exemples de projets entièrement ou majoritairement développés avec les agents. À l’oral, expliquer ce que je leur ai confié et ce que j’ai dû reprendre.",
+    "title": "Depuis fin 2025, je construis avec les agents",
+    "notes": "Ma bascule commence avec la réécriture de Mongoku en septembre 2025 et se confirme au quatrième trimestre. Nous utilisons aujourd’hui moins Mongoku, notamment avec moon-bot ; je le garde comme repère historique. Moon-bot et moon-ide installent les agents dans mon quotidien. Moon-git, démarré le 9 septembre 2026, est le cas que je vais détailler : je ne maîtrise pas Rust et je ne relis pas son implémentation ; je pilote à partir du besoin et du comportement mesuré. Cela coexiste avec les pratiques de revue de l’équipe sur les changements dans le Hub.",
     "refs": [
       [
-        "Mongoku · dépôt",
-        "https://github.com/huggingface/Mongoku"
+        "Hugging Face · Moon Bot, juin 2026",
+        "https://huggingface.co/blog/huggingface/moon-bot"
       ],
       [
         "moon-ide · dépôt",
@@ -936,8 +1103,52 @@ const data=[
     ]
   },
   {
+    "title": "moon-git : du prompt au service en production",
+    "notes": "Gitaly est le service Git issu de GitLab sur lequel repose le Hub. Mon objectif est de réduire ses lectures coûteuses et ses erreurs de saturation ResourceExhausted. Je pars de l’article de Cursor sur Origin et des travaux Scaling Git de GitLab, puis je demande une solution adaptée à nos usages. Le dépôt commence le 9 septembre ; le sidecar est conçu dès le 10 ; la bascule finale et les resolvers sont activés le 22. Moins de deux semaines calendaires ne signifie pas deux semaines de travail à plein temps ni un budget mesuré. « Entièrement produit par l’IA » et l’absence de relecture personnelle du Rust décrivent ma pratique. Ce projet implique aussi des échanges avec l’équipe infrastructure et des PRs d’intégration dans le Hub. Le moteur Git complet exploré au départ et le sidecar effectivement déployé sont deux périmètres distincts. Sources internes : moon-git 22a2e78, 7f7b2d9 ; session initiale du 9 septembre ; moon-landing 1bf597f61f et b4af076f8d.",
+    "refs": [
+      [
+        "Cursor · Git at any scale",
+        "https://cursor.com/blog/git-at-any-scale"
+      ],
+      [
+        "GitLab · Scaling Git, référence de départ",
+        "https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/scaling-git/"
+      ]
+    ]
+  },
+  {
+    "title": "Un sidecar adapté aux lectures du Hub",
+    "notes": "La discussion avec l’équipe infrastructure me conduit à choisir une première étape plus ciblée. Le sidecar est un service séparé, pas un remplacement complet de Gitaly. Il indexe les lectures coûteuses du Hub, surtout sur main. Les gros fichiers de modèles et de datasets sont représentés dans Git par de petits pointeurs LFS contenant notamment leur empreinte et leur taille ; traiter ces pointeurs directement évite une partie des appels. Le cache local redb est reconstruisible ; un stockage partagé S3 permet aussi de réutiliser les index entre instances. Si la réponse manque ou si le service échoue, le client revient à Gitaly. L’IA produit également les tests, les images, les configurations Kubernetes/Helm, les métriques et les tableaux de bord. La séparation permet d’itérer sur le sidecar, tandis que l’intégration dans moon-landing suit les règles du Hub. Sources : moon-git docs/INDEX_SIDECAR.md, commits a0ac3e1, 7f7b2d9, d153368 ; moon-landing 1bf597f61f et b4af076f8d.",
+    "refs": []
+  },
+  {
+    "title": "Comparer en shadow, puis passer à on",
+    "notes": "Le shadow met le nouveau service au contact de vraies requêtes sans utiliser sa réponse pour servir l’utilisateur. Le client renvoie la réponse Gitaly dès qu’elle est prête ; la comparaison avec le sidecar est asynchrone. Cela ne rend pas l’expérience gratuite : le sidecar consomme de la mémoire, du disque et peut lui-même appeler Gitaly. On augmente progressivement le trafic, et on surveille aussi que les comparaisons sont réellement exécutées. Un bug de deadline avec tous les pods indisponibles avait bloqué les appels et épuisé les slots de comparaison ; il a fallu corriger le client. J’ai aussi remis des essais en shadow pendant les corrections : la séquence n’a pas été une montée parfaitement linéaire. La bascule finale du 22 n’a pas déclenché d’incident observé dans le bilan transmis le 23, mais certaines latences restent à améliorer. Sources : moon-landing c4e4211bb2, 97804b007e ; sessions client-hang-fix et redb-page-reuse. Le témoignage « tous les cassages en shadow » concerne cette phase de mise au point, pas une garantie d’absence d’effet sur les ressources partagées.",
+    "refs": []
+  },
+  {
+    "title": "Les métriques donnent la prochaine tâche",
+    "notes": "J’avais demandé des métriques dès le début. L’IA a instrumenté les temps de réponse, les erreurs, la mémoire, les tâches, les transactions, le disque et les comparaisons shadow. Ensuite je pointe le symptôme : pourquoi les tâches montent-elles ? Pourquoi le fichier grossit-il alors que les données utiles restent stables ? L’agent examine logs et métriques, construit des reproductions et des tests, puis corrige. Premier OOM : le cache comptait la petite ligne d’index sans compter tous les blocs retenus. Deuxième OOM : fragmentation de l’allocateur et mémoire temporaire des constructions. Les files grossissent même quand le nombre de tâches simultanées est limité : des chemins contournaient le contrôle d’admission. Pour redb, les longues transactions d’écriture bloquent les suivantes ; les lectures trop longues empêchent de réutiliser les pages. Les rollouts révèlent des problèmes de fermeture et de réparation au redémarrage. Ce sont les constats et corrections consignés dans les commits, pas une liste de détails Rust que j’aurais révisés moi-même. Sources : moon-git a166472, 94acd1a, 3899dd1, 738b35e, 471820e, 9c80abd, d0a5b0b, 4c419a3, 5a3200e ; moon-landing 97804b007e, 0ff44d08c3.",
+    "refs": []
+  },
+  {
+    "title": "Moins d’appels, beaucoup moins de saturation",
+    "notes": "Bilan d’observabilité partagé le 23 septembre 2026 : du 22 à 23 h au 23 à 11 h UTC, comparé au 15 à 23 h au 16 à 11 h UTC. La première fenêtre est entièrement après la bascule finale et le déploiement des resolvers du 22 à 15 h 37. Les volumes sont ceux du rapport, avec les arrondis indiqués. ResourceExhausted désigne le refus d’un appel faute de capacité disponible, pas forcément un épuisement global du cluster. C’est la comparaison des nombres absolus d’erreurs et d’appels, pas une expérience A/B ni une normalisation à trafic identique. Le trafic est supérieur de 7 %, sans que cela isole l’effet causal de moon-git : le mélange des requêtes et d’autres déploiements peuvent varier. Les données sont issues de la synthèse de logs et métriques fournie pour ce retour d’expérience. Le code et les commits documentent le mécanisme, pas un audit indépendant de ces agrégats. La forte baisse ResourceExhausted n’est pas à attribuer au seul dernier déploiement des resolvers : elle porte sur la comparaison de la semaine complète de changements.",
+    "refs": []
+  },
+  {
+    "title": "Les requêtes les plus lentes s’améliorent",
+    "notes": "Mêmes fenêtres de 12 heures que la slide précédente. Ces trois routes illustrent les gains les plus parlants, pas toutes les routes. Les variations calculées sont arrondies. Le p95 de la page des fichiers passe aussi de 909 à 621 ms, celui de la page du dépôt de 270 à 204 ms et celui de l’API datasets de 227 à 138 ms. Le p50 est respectivement 251 à 245 ms, 38,5 à 34,1 ms et 11 à 12 ms. Les autres améliorations p99 du rapport : paths-info 369 à 185 ms ; blob 1000 à 513 ms ; raw 309 à 149 ms ; resolve 87 à 68 ms. Pour l’oral : resolve a un p95 dégradé (22,9 à 32,4 ms), mais un p99 amélioré (87 à 68 ms). Les petits fichiers ordinaires passent encore par Gitaly : les mettre en cache, notamment config.json, est la piste identifiée pour éviter ce détour, à tester si le besoin le justifie. Ne pas la présenter comme un gain déjà mesuré. API tree régresse : p95 43 à 69 ms et p99 369 à 584 ms ; le rapport évoque une hausse des requêtes sur des chemins absents. Le temps Gitaly ne baisse pas sur cette route (p95 32 à 52 ms). Parmi les 99 918 ResourceExhausted restants, 90 884 concernent ListCommitsByOid, soit 91 % : autre cible possible. Ma décision pour le moment : laisser tourner et observer. Autres nuances du bilan : FindChangedPaths passe de 0,96 à 48 millions d’appels, ListCommits de 1,3 à 8,5 millions ; leur attribution exige une segmentation par appelant, car le sidecar utilise aussi ces RPCs. La baisse brute des 5xx est trompeuse à cause d’un incident la semaine précédente : je ne la compte pas comme un gain. Zéro log de repli ne garantit pas zéro repli, certains sont seulement comptés en métriques. Source : bilan d’observabilité du 23 septembre fourni par Eliott et IndexSidecar.ts.",
+    "refs": []
+  },
+  {
+    "title": "Je pilote le service par son comportement",
+    "notes": "C’est ce que j’appelle un projet « 100 % sloppé » : je ne passe pas mon temps à lire le Rust généré. Cela change mon critère de pilotage. Je regarde si le service répond juste, si sa mémoire reste stable, si les files se résorbent, si les déploiements se passent bien et si Gitaly est réellement soulagé. Un expert humain aurait peut-être évité certaines erreurs dès la première version ; je ne prétends pas mesurer ce scénario. Avec les agents, il devient facile de transformer chaque symptôme en une nouvelle investigation. L’agent lit le code et écrit des tests ; moi, je fournis les besoins du Hub, je corrige les hypothèses et je décide des priorités et de l’activation. Le sidecar se prête à cette méthode : ses réponses peuvent être comparées à celles de Gitaly et son index peut être reconstruit. Le message pour les enseignants est la valeur des concepts : concurrence et files, mémoire, caches, quantiles, cohérence, expérimentation. Ce sont eux qui m’aident à orienter le travail sans maîtriser le langage du service. Cela ne change pas mon exigence de communication avec les collègues : les descriptions de PR et les décisions que je leur transmets restent à assumer.",
+    "refs": []
+  },
+  {
     "title": "Plusieurs tâches peuvent avancer en parallèle",
-    "notes": "Les worktrees permettent plusieurs répertoires de travail liés au même dépôt. Les chemins relatifs, introduits dans Git 2.48, facilitent certains déplacements. Je ne dispose pas de source établissant que les agents sont la cause de cette évolution de Git. Les tâches parallèles marchent mieux si elles sont bien délimitées, avec des critères de réussite. Deux branches peuvent toujours modifier la même interface et produire des conflits au moment de les réunir.",
+    "notes": "Les sessions moon-git illustrent aussi cette organisation : index, API, observabilité et corrections avancent dans des tâches séparées, puis sont intégrés. Les worktrees permettent plusieurs répertoires de travail liés au même dépôt. Les chemins relatifs, introduits dans Git 2.48, facilitent certains déplacements. Je ne dispose pas de source établissant que les agents sont la cause de cette évolution de Git. Les tâches parallèles marchent mieux si elles sont bien délimitées, avec des critères de réussite. Deux branches peuvent toujours modifier la même interface et produire des conflits au moment de les réunir.",
     "refs": [
       [
         "Git · worktree",
@@ -950,27 +1161,8 @@ const data=[
     ]
   },
   {
-    "title": "L’IA facilite aussi l’infrastructure",
-    "notes": "Infrastructure as code : des fichiers versionnés décrivent l’état souhaité de l’infrastructure. Cela rend les changements relisibles et reproductibles. L’IA m’aide à démarrer sans retenir toute la syntaxe, afin de me concentrer sur le service à construire. Elle peut se tromper de version d’API ou proposer trop de permissions. Comprendre le réseau, les données persistantes et les ressources reste indispensable. Exemple concret : préparer un déploiement, vérifier son état et savoir le mettre à jour.",
-    "refs": [
-      [
-        "Kubernetes · Deployments",
-        "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/"
-      ],
-      [
-        "Terraform · Introduction",
-        "https://developer.hashicorp.com/terraform/intro"
-      ]
-    ]
-  },
-  {
-    "title": "Extraire un outil pour itérer indépendamment",
-    "notes": "Parfois, mieux vaut créer un projet à côté plutôt que continuer à grossir le monorepo. L’IA rend l’extraction ou la réécriture moins coûteuse. Ce n’est pas une règle générale : choisir selon le couplage aux données, les responsabilités et le rythme des évolutions. La facilité d’écrire un service ne rend pas automatiquement sa séparation souhaitable. Moon-bot et moon-ide illustrent des projets autonomes, sans affirmer qu’ils proviennent d’une extraction de monorepo.",
-    "refs": []
-  },
-  {
     "title": "Le cœur du produit reste exigeant",
-    "notes": "La distinction utile est le risque du changement : périmètre, réversibilité, utilisateurs touchés, sensibilité des données. Une revue IA peut aider à repérer un problème. Elle ne transfère pas la responsabilité à l’outil. Chez moon-bot, le billet documente des niveaux d’accès, des secrets gérés côté service et des outils dédiés aux écritures GitHub. Revenir à l’export : un test vert ne prouve pas que toutes les autorisations de lecture sont correctes.",
+    "notes": "Dans moon-git, je ne relis pas personnellement le Rust. L’intégration au Hub passe en revanche par ses PRs et ses règles de collaboration. La distinction utile est le risque du changement : périmètre, réversibilité, utilisateurs touchés, sensibilité des données. Une revue IA peut aider à repérer un problème. Elle ne transfère pas la responsabilité à l’outil. Chez moon-bot, le billet documente des niveaux d’accès, des secrets gérés côté service et des outils dédiés aux écritures GitHub. Revenir à l’export : un test vert ne prouve pas que toutes les autorisations de lecture sont correctes.",
     "refs": [
       [
         "Hugging Face · Moon Bot, juin 2026",
@@ -981,11 +1173,6 @@ const data=[
   {
     "title": "Ne pas <em>slopper<\/em> les autres",
     "notes": "Garder ma formulation orale : si je me contente de relayer la sortie du modèle, je suis un intermédiaire inutile. Quand on collabore, les descriptions de PR et commentaires doivent être écrits et assumés par leur auteur. L’agent peut produire du code ou un brouillon, mais je dois apporter le contexte et le jugement. Même enjeu dans les rendus étudiants : savoir expliquer ce que l’on remet. Reprendre l’exemple de description de PR vu au début.",
-    "refs": []
-  },
-  {
-    "title": "Le cadrage influence la réponse",
-    "notes": "Exemple pédagogique, pas un incident réel. Le modèle peut contester une prémisse, mais on ne peut pas compter systématiquement dessus. Demander plusieurs solutions, leurs coûts et ce qui les départage. Parfois, on doit abandonner une approche, voire pivoter. La connaissance du produit et l’examen des conséquences sont essentiels, même avec les modèles les plus capables.",
     "refs": []
   },
   {
@@ -1047,9 +1234,26 @@ const data=[
     ]
   },
   {
-    "title": "Un projet pédagogique proche du travail réel",
-    "notes": "Proposition pédagogique personnelle, pas un protocole validé par une étude. Construire un mini-agent permet de comprendre la boucle d’outils, les permissions et les conditions d’arrêt. La CI et une démonstration rendent le résultat vérifiable. Mon point sur l’enseignement supérieur : un cadre structuré peut réserver du temps aux concepts et aux algorithmes que l’on pourrait sinon esquiver. Alterner travail sans IA et usage explicite de l’IA, selon les objectifs du cours.",
-    "refs": []
+    "title": "Construire son propre harnais d’agent",
+    "notes": "Proposition pédagogique : partir d’un besoin choisi par les étudiants et faire générer un petit harnais par l’IA. OpenCode, Codex et Mistral Vibe sont des sources d’inspiration dont on peut explorer le code. Mon expérience personnelle : j’ai moi aussi construit un harnais en partant de zéro, moon-ide, avec des choix un peu différents. Son lien est donné comme référence à ce retour d’expérience. La compréhension peut venir après cette première réalisation, en explorant un système qui fonctionne déjà. Le harnais est le programme autour du modèle : il prépare les messages et les outils disponibles, appelle le modèle, exécute les appels d’outils demandés, lui renvoie leurs résultats et gère la suite de la session. Faire suivre une exécution réelle : quelle requête part au modèle, quel outil est demandé avec quels arguments, qui exécute cet outil, et que reçoit le modèle ensuite ? Observer aussi une erreur et une condition d’arrêt. Chaque groupe peut choisir une capacité : lecture de fichiers, commande dans un environnement de test, navigateur intégré, capture d’écran ou image transmise à un modèle compatible. Une autre extension possible consiste à faire interagir plusieurs agents : un agent délègue une tâche à un autre, lui transmet un contexte, échange des messages puis récupère son résultat. Suivre la trace de ces échanges pour comprendre ce que chaque agent sait et comment le harnais coordonne le travail. Ce sont des pistes pour le projet étudiant, pas une liste de fonctions communes aux trois outils cités. Faire distinguer ce qui relève du modèle de ce que le harnais lui donne comme moyens d’action. Après la génération, utiliser ce même harnais sur son propre dépôt pour interroger l’IA et se familiariser avec le code. Par exemple : « Explique-moi comment tu appelles le modèle et affiche les fichiers et les passages de code correspondants. » Puis : « Montre-moi comment un appel d’outil est exécuté et comment son résultat revient au modèle. » Ou encore : « Génère un fichier HTML avec un diagramme des échanges entre les agents, puis affiche-le. » Le harnais devient ainsi un outil pour explorer sa propre implémentation : demander des explications, naviguer dans les fichiers, visualiser les interactions et poser des questions sur les parties encore floues. Les explications et les diagrammes prennent appui sur le code réel du projet. L’idée est de construire avec l’IA, puis de se servir du système obtenu pour apprendre comment il fonctionne. C’est une proposition personnelle, à adapter au niveau du cours, pas un protocole pédagogique validé.",
+    "refs": [
+      [
+        "OpenCode · code source",
+        "https://github.com/anomalyco/opencode"
+      ],
+      [
+        "Codex · code source",
+        "https://github.com/openai/codex"
+      ],
+      [
+        "Mistral Vibe · code source",
+        "https://github.com/mistralai/mistral-vibe"
+      ],
+      [
+        "Mon expérience · moon-ide",
+        "https://github.com/huggingface/moon-ide"
+      ]
+    ]
   },
   {
     "title": "Navier–Stokes : une résolution annoncée",
@@ -1103,7 +1307,7 @@ const data=[
   },
   {
     "title": "Ce que je retiens aujourd’hui",
-    "notes": "Conclure sur le métier, puis ouvrir la discussion. Ce qui change le plus pour moi : les outils internes, les refactorings et la possibilité de lancer plusieurs tâches. Ce que je dois encore assumer : les décisions, la revue, les échanges avec mes collègues et les conséquences en production. Pour les enseignants : quels acquis doivent être exercés sans assistance, et quels usages de l’IA permettent réellement de mieux comprendre ? Démo de moon-bot possible si le temps le permet.",
+    "notes": "Revenir à moon-git : en moins de deux semaines, du code Rust entièrement produit par IA sert en production. Je ne relis pas le Rust ; je définis le besoin, observe le comportement, oriente les investigations et décide de la mise en service. Ce cas rend concret le changement de méthode. Les outils internes, les refactorings et les tâches parallèles restent d’autres exemples. Ce que je dois encore assumer : les décisions, la revue, les échanges avec mes collègues et les conséquences en production. Pour les enseignants : quels acquis doivent être exercés sans assistance, et quels usages de l’IA permettent réellement de mieux comprendre ? Démo de moon-bot possible si le temps le permet.",
     "refs": []
   }
 ], slides=[...document.querySelectorAll('.slide')];
