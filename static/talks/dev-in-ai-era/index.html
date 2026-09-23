@@ -126,6 +126,46 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 
 .case-kpis .absolute{color:var(--fg);font-size:26px;margin-top:15px}
 
+#moon .body{gap:28px}
+
+.moon-map{display:grid;grid-template-columns:245px 75px 480px 75px 1fr;align-items:center;min-height:340px}
+
+.moon-entry h3{font-size:37px;line-height:1.3;margin:0 0 18px}
+
+.moon-entry p:not(.label){font-size:25px;line-height:1.45}
+
+.moon-entry .label{margin-bottom:16px}
+
+.moon-arrow{font-size:47px;color:var(--blue);text-align:center;padding-bottom:10px}
+
+.moon-core{border-top:2px solid var(--accent);border-bottom:1px solid var(--line);padding:28px 18px 30px;text-align:center}
+
+.moon-core h3{font-size:43px;color:var(--accent);margin:0 0 21px}
+
+.moon-core .moon-loop{font-size:28px;color:var(--fg);margin-bottom:18px;white-space:nowrap}
+
+.moon-core p:last-child{font-size:23px;line-height:1.5}
+
+.moon-tools{padding-left:15px}
+
+.moon-tools>div+div{border-top:1px solid var(--line);padding-top:17px;margin-top:17px}
+
+.moon-tools h3{font-size:28px;margin:0 0 4px}
+
+.moon-tools p{font-size:24px;line-height:1.4}
+
+.moon-scenario{display:block;font-size:20px;line-height:1.4;color:var(--blue);margin-bottom:12px}
+
+.moon-credit{font-size:18px;line-height:1.4}
+
+.event-footer{position:absolute;left:112px;bottom:25px;right:180px;color:var(--muted);font-size:18px;line-height:1.5}
+
+.deck-link{font-size:26px;line-height:1.5}
+
+.deck-link a{color:var(--blue);text-decoration:none;border-bottom:1px solid currentColor}
+
+.deck-link a:hover{color:var(--accent)}
+
 </style>
 </head>
 <body>
@@ -143,10 +183,13 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <span>Ingénieur logiciel chez Hugging Face depuis 2022</span>
 </div>
 </div>
+<p class="deck-link">Slides disponibles sur <a href="https://coyo.dev/#talks" target="_blank" rel="noopener noreferrer">coyo.dev/#talks</a>
+</p>
 </div>
 <div class="sources">
 <a href="https://huggingface.co/brand" target="_blank" rel="noopener noreferrer">Logo officiel · Hugging Face</a>
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">01 / 31</div>
 </section>
 <section class="slide  " id="terrain" aria-label="Diapositive 2">
@@ -175,6 +218,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <div class="sources">
 <a href="https://www.slideshare.net/slideshow/ieee-xtreme-50-results/11819078" target="_blank" rel="noopener noreferrer">IEEEXtreme 5.0 · classement 2011</a>
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">02 / 31</div>
 </section>
 <section class="slide  " id="parcours" aria-label="Diapositive 3">
@@ -204,6 +248,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <div class="sources">
 <a href="https://docs.github.com/en/get-started/using-github/github-flow" target="_blank" rel="noopener noreferrer">GitHub Docs · GitHub flow</a>
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">03 / 31</div>
 </section>
 <section class="slide  " id="pr" aria-label="Diapositive 4">
@@ -231,6 +276,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <div class="sources">
 <a href="https://docs.github.com/en/get-started/using-github/github-flow" target="_blank" rel="noopener noreferrer">GitHub Docs · GitHub flow</a>
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">04 / 31</div>
 </section>
 <section class="slide  " id="cicd" aria-label="Diapositive 5">
@@ -256,6 +302,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <a href="https://docs.github.com/en/actions/get-started/understand-github-actions" target="_blank" rel="noopener noreferrer">GitHub Docs · GitHub Actions</a>
 <a href="https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments" target="_blank" rel="noopener noreferrer">GitHub Docs · Environnements de déploiement</a>
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">05 / 31</div>
 </section>
 <section class="slide  " id="bascule" aria-label="Diapositive 6">
@@ -282,6 +329,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <a href="https://huggingface.co/blog/huggingface/moon-bot" target="_blank" rel="noopener noreferrer">Hugging Face · Moon Bot, juin 2026</a>
 <a href="https://github.com/huggingface/moon-ide" target="_blank" rel="noopener noreferrer">moon-ide · dépôt</a>
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">06 / 31</div>
 </section>
 <section class="slide  " id="agent" aria-label="Diapositive 7">
@@ -306,6 +354,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 </div>
 <div class="sources">
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">07 / 31</div>
 </section>
 <section class="slide  " id="usages" aria-label="Diapositive 8">
@@ -333,6 +382,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 </div>
 <div class="sources">
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">08 / 31</div>
 </section>
 <section class="slide  " id="asana" aria-label="Diapositive 9">
@@ -360,6 +410,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <a href="https://asana.com/inside-asana/migrating-off-enzyme-2-weeks" target="_blank" rel="noopener noreferrer">Asana · Migration Enzyme, août 2026</a>
 <a href="https://newsletter.pragmaticengineer.com/p/the-pulse-we-need-to-talk-about-migrations" target="_blank" rel="noopener noreferrer">The Pragmatic Engineer · Migrations</a>
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">09 / 31</div>
 </section>
 <section class="slide  " id="outils" aria-label="Diapositive 10">
@@ -389,32 +440,50 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 </div>
 <div class="sources">
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">10 / 31</div>
 </section>
 <section class="slide  " id="moon" aria-label="Diapositive 11">
 <p class="part">Chez Hugging Face</p>
 <h2>moon-bot dans le travail de l’équipe</h2>
 <div class="body">
-<p class="intro">La conversation devient un point d’entrée vers les outils internes.</p>
-<div class="rows">
-<div class="row">
-<h3>Depuis Slack</h3>
-<p>Interroger le code et les logs, enquêter sur un problème, préparer une PR.</p>
+<div class="moon-map" role="group" aria-label="Slack et GitHub échangent avec moon-bot, qui appelle les outils autorisés pour consulter le code, les logs et les données.">
+<div class="moon-entry">
+<p class="label">La conversation</p>
+<h3>Slack<br>GitHub</h3>
+<p>Une demande,<br>des échanges,<br>une réponse.</p>
 </div>
-<div class="row">
-<h3>Depuis GitHub</h3>
-<p>Mentionner l’agent pour une revue, modifier une PR ou créer une issue.</p>
+<div class="moon-arrow" aria-hidden="true">↔</div>
+<div class="moon-core">
+<h3>moon-bot</h3>
+<p class="moon-loop">Modèle ↔ outils autorisés</p>
+<p>Le harnais organise la session :<br>contexte, skills et droits d’accès.</p>
 </div>
-<div class="row">
-<h3>Après un déploiement</h3>
-<p>Pour une PR risquée, examiner les logs Elasticsearch et les autres signaux accessibles au bot.</p>
+<div class="moon-arrow" aria-hidden="true">↔</div>
+<div class="moon-tools">
+<div>
+<h3>Code</h3>
+<p>GitHub · recherche et PR</p>
+</div>
+<div>
+<h3>Logs</h3>
+<p>Elasticsearch</p>
+</div>
+<div>
+<h3>Données</h3>
+<p>MongoDB · DuckDB</p>
 </div>
 </div>
-<p class="take">« Regarde ce qui s’est passé dans les dix dernières minutes. »</p>
+</div>
+<p class="take">
+<span class="moon-scenario">Après un déploiement</span>« Regarde ce qui s’est passé dans les dix dernières minutes. »</p>
+<p class="moon-credit">Schéma adapté de Quentin Lhoest · AI Agents at Every Scale · 23 septembre 2026</p>
 </div>
 <div class="sources">
 <a href="https://huggingface.co/blog/huggingface/moon-bot" target="_blank" rel="noopener noreferrer">Hugging Face · Moon Bot, juin 2026</a>
+<a href="https://huggingface.co/buckets/lhoestq/talks/tree/AI_Agents_At_Every_scale-Open_Lakehouse_AI_Meetup.pdf" target="_blank" rel="noopener noreferrer">Quentin Lhoest · AI Agents at Every Scale</a>
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">11 / 31</div>
 </section>
 <section class="slide  " id="moongit-depart" aria-label="Diapositive 12">
@@ -441,6 +510,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <a href="https://cursor.com/blog/git-at-any-scale" target="_blank" rel="noopener noreferrer">Cursor · Git at any scale</a>
 <a href="https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/scaling-git/" target="_blank" rel="noopener noreferrer">GitLab · Scaling Git, référence de départ</a>
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">12 / 31</div>
 </section>
 <section class="slide  " id="moongit-perimetre" aria-label="Diapositive 13">
@@ -465,6 +535,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 </div>
 <div class="sources">
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">13 / 31</div>
 </section>
 <section class="slide  " id="moongit-shadow" aria-label="Diapositive 14">
@@ -491,6 +562,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 </div>
 <div class="sources">
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">14 / 31</div>
 </section>
 <section class="slide  " id="moongit-iterations" aria-label="Diapositive 15">
@@ -519,6 +591,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 </div>
 <div class="sources">
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">15 / 31</div>
 </section>
 <section class="slide  case-results" id="moongit-resultats" aria-label="Diapositive 16">
@@ -547,6 +620,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 </div>
 <div class="sources">
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">16 / 31</div>
 </section>
 <section class="slide  " id="moongit-latences" aria-label="Diapositive 17">
@@ -589,6 +663,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 </div>
 <div class="sources">
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">17 / 31</div>
 </section>
 <section class="slide  " id="moongit-pilotage" aria-label="Diapositive 18">
@@ -611,6 +686,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 </div>
 <div class="sources">
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">18 / 31</div>
 </section>
 <section class="slide  " id="parallele" aria-label="Diapositive 19">
@@ -637,6 +713,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <a href="https://git-scm.com/docs/git-worktree" target="_blank" rel="noopener noreferrer">Git · worktree</a>
 <a href="https://github.com/git/git/blob/master/Documentation/RelNotes/2.48.0.adoc" target="_blank" rel="noopener noreferrer">Git 2.48 · chemins relatifs</a>
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">19 / 31</div>
 </section>
 <section class="slide  " id="responsabilite" aria-label="Diapositive 20">
@@ -665,6 +742,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <div class="sources">
 <a href="https://huggingface.co/blog/huggingface/moon-bot" target="_blank" rel="noopener noreferrer">Hugging Face · Moon Bot, juin 2026</a>
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">20 / 31</div>
 </section>
 <section class="slide  " id="communication" aria-label="Diapositive 21">
@@ -686,6 +764,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 </div>
 <div class="sources">
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">21 / 31</div>
 </section>
 <section class="slide  " id="ouverture" aria-label="Diapositive 22">
@@ -719,6 +798,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <div class="sources">
 <a href="https://opensource.org/ai/open-source-ai-definition" target="_blank" rel="noopener noreferrer">OSI · Open Source AI Definition 1.0</a>
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">22 / 31</div>
 </section>
 <section class="slide  " id="performance" aria-label="Diapositive 23">
@@ -746,6 +826,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <a href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener noreferrer">Stanford · AI Index 2026</a>
 <a href="https://www.swebench.com/" target="_blank" rel="noopener noreferrer">SWE-bench · Protocole et résultats</a>
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">23 / 31</div>
 </section>
 <section class="slide  " id="hebergement" aria-label="Diapositive 24">
@@ -772,6 +853,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <a href="https://docs.vllm.ai/" target="_blank" rel="noopener noreferrer">vLLM · Documentation</a>
 <a href="https://docs.sglang.ai/" target="_blank" rel="noopener noreferrer">SGLang · Documentation</a>
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">24 / 31</div>
 </section>
 <section class="slide  " id="competences" aria-label="Diapositive 25">
@@ -797,6 +879,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <div class="sources">
 <a href="https://www.anthropic.com/research/claude-code-expertise" target="_blank" rel="noopener noreferrer">Anthropic · Expertise et Claude Code, 2026</a>
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">25 / 31</div>
 </section>
 <section class="slide  " id="apprendre" aria-label="Diapositive 26">
@@ -824,6 +907,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <div class="sources">
 <a href="https://arxiv.org/abs/2601.20245" target="_blank" rel="noopener noreferrer">Shen &amp; Tamkin · How AI Impacts Skill Formation, 2026</a>
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">26 / 31</div>
 </section>
 <section class="slide  " id="enseignement" aria-label="Diapositive 27">
@@ -857,6 +941,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <a href="https://github.com/mistralai/mistral-vibe" target="_blank" rel="noopener noreferrer">Mistral Vibe · code source</a>
 <a href="https://github.com/huggingface/moon-ide" target="_blank" rel="noopener noreferrer">Mon expérience · moon-ide</a>
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">27 / 31</div>
 </section>
 <section class="slide  " id="navier-stokes" aria-label="Diapositive 28">
@@ -885,6 +970,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <a href="https://github.com/openai/NavierStokesAndEuler" target="_blank" rel="noopener noreferrer">Preuves Lean · dépôt public</a>
 <a href="https://www.claymath.org/millennium/Navier-Stokes-Equation/" target="_blank" rel="noopener noreferrer">Clay · énoncé et statut</a>
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">28 / 31</div>
 </section>
 <section class="slide  " id="resultats-maths" aria-label="Diapositive 29">
@@ -911,6 +997,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <a href="https://www.anthropic.com/research/riemann-zeta" target="_blank" rel="noopener noreferrer">Anthropic · zêta, 10 août</a>
 <a href="https://www.anthropic.com/research/formalizing-fermats-last-theorem" target="_blank" rel="noopener noreferrer">Anthropic · Fermat, 4 septembre</a>
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">29 / 31</div>
 </section>
 <section class="slide  " id="lean" aria-label="Diapositive 30">
@@ -938,6 +1025,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <a href="https://lean-lang.org/theorem_proving_in_lean4/Introduction/" target="_blank" rel="noopener noreferrer">Lean · principes de vérification</a>
 <a href="https://github.com/openai/NavierStokesAndEuler" target="_blank" rel="noopener noreferrer">Exemple · recherche et preuves Lean</a>
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">30 / 31</div>
 </section>
 <section class="slide  " id="conclusion" aria-label="Diapositive 31">
@@ -951,9 +1039,12 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 </div>
 <p class="contact">Et dans deux ans ? La pratique continuera d’évoluer.<br>
 <strong>Eliott Coyac</strong> · @coyotte508 · Hugging Face</p>
+<p class="deck-link">Slides disponibles sur <a href="https://coyo.dev/#talks" target="_blank" rel="noopener noreferrer">coyo.dev/#talks</a>
+</p>
 </div>
 <div class="sources">
 </div>
+<footer class="event-footer">IMT Atlantique · Département informatique · 24 septembre 2026</footer>
 <div class="number">31 / 31</div>
 </section>
 </main>
@@ -1094,11 +1185,15 @@ const data=[
   },
   {
     "title": "moon-bot dans le travail de l’équipe",
-    "notes": "Exemple vécu : après le déploiement d’une PR risquée, on demande simplement à moon-bot de regarder ce qui s’est passé dans les dix dernières minutes. Il peut consulter les logs ES (Elasticsearch) et les autres signaux dont il dispose. Le gain est de lancer cette investigation depuis la conversation, sans devoir fouiller soi-même chaque outil. Cela prolonge le fil rouge : le travail continue après la mise en production. Ne pas inventer une liste de métriques, de sources ou une surveillance continue : je parle ici d’une demande ponctuelle. Le billet public décrit les sessions persistantes dans des buckets HF, les outils et des niveaux d’accès. Le bot GitHub utilise un déploiement moins privilégié, distinct du bot Slack. Le suivi après déploiement, les fonctions de revue et mon usage de l’auto-relecture viennent de mon retour d’expérience. Pour une PR peu risquée, ma propre relecture peut suffire selon les règles de l’équipe. L’identité du bot qui ouvre la PR ne suffit pas à établir une revue indépendante. Il faut respecter les protections du dépôt.",
+    "notes": "Schéma adapté de Quentin Lhoest, « AI Agents at Every Scale », Open Lakehouse + AI Meetup du 23 septembre 2026, pages 13–14 et 17–20. Il illustre le chemin entre la conversation, le harnais et les outils internes. Le modèle choisit des actions, le harnais exécute les appels autorisés et renvoie leurs résultats au modèle, puis une réponse revient dans la conversation. Le mot skills désigne ici les consignes et exemples qui aident l’agent à utiliser les outils. Les sources de droite sont des exemples accessibles selon les droits de la session ; elles ne signifient pas que le bot GitHub possède les mêmes accès que le bot Slack. Exemple vécu : après le déploiement d’une PR risquée, on demande simplement à moon-bot de regarder ce qui s’est passé dans les dix dernières minutes. Il peut consulter les logs ES (Elasticsearch) et les autres signaux dont il dispose. Le gain est de lancer cette investigation depuis la conversation, sans devoir fouiller soi-même chaque outil. Cela prolonge le fil rouge : le travail continue après la mise en production. Ne pas inventer une liste de métriques, de sources ou une surveillance continue : je parle ici d’une demande ponctuelle. Le billet public décrit les sessions persistantes dans des buckets HF, les outils et des niveaux d’accès. Le bot GitHub utilise un déploiement moins privilégié, distinct du bot Slack. Le suivi après déploiement, les fonctions de revue et mon usage de l’auto-relecture viennent de mon retour d’expérience. Pour une PR peu risquée, ma propre relecture peut suffire selon les règles de l’équipe. L’identité du bot qui ouvre la PR ne suffit pas à établir une revue indépendante. Il faut respecter les protections du dépôt. Repère pour l’oral et le Q/A : dans la répartition des usages présentée par Quentin Lhoest, le support et l’accompagnement client représentent 21 %, les questions techniques et la recherche dans le code 14 %, les requêtes sur les données de production 14 %, les procédures d’exploitation et demandes de confidentialité 11 %, les incidents et la performance 11 %, les revues de code et la livraison de correctifs 11 %, et la lutte contre les abus (trust & safety) 7 %. Cela illustre la diversité des usages au-delà de la génération de code. Source : Quentin Lhoest, « AI Agents at Every Scale », Open Lakehouse + AI Meetup, 23 septembre 2026, page 15. La période correspond probablement aux deux dernières semaines d’utilisation, selon mon estimation ; elle n’est pas précisée dans le PDF. Présenter ces chiffres comme des usages récents, sans affirmer une fenêtre exacte. Les catégories affichées totalisent 89 % ; le PDF ne détaille pas les 11 points restants.",
     "refs": [
       [
         "Hugging Face · Moon Bot, juin 2026",
         "https://huggingface.co/blog/huggingface/moon-bot"
+      ],
+      [
+        "Quentin Lhoest · AI Agents at Every Scale",
+        "https://huggingface.co/buckets/lhoestq/talks/tree/AI_Agents_At_Every_scale-Open_Lakehouse_AI_Meetup.pdf"
       ]
     ]
   },

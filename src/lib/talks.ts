@@ -15,6 +15,14 @@ export interface Talk {
 
 export const talks: Talk[] = [
 	{
+		id: "dev-in-ai-era",
+		title: "Développement en entreprise à l’ère de l’IA",
+		years: "2026",
+		href: "/talks/dev-in-ai-era/",
+		text: "Slides (in French) from a talk for IMT Atlantique’s Computer Science Department on September 24, 2026: AI agents in everyday engineering, moon-git in production, and ideas for teaching computer science.",
+		kind: "slides",
+	},
+	{
 		id: "hooks-everywhere",
 		title: "Hooks Everywhere",
 		years: "2023",
