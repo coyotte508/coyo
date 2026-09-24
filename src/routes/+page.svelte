@@ -211,7 +211,9 @@
 		<div class="mt-6 grid gap-5 sm:grid-cols-2">
 			{#each talksByDateDesc as talk (talk.id)}
 				{@const primary = talk.source ?? talk.href}
+				<!-- Standalone decks in static/talks must bypass the /talks/[slug] SPA route. -->
 				<div
+					data-sveltekit-reload={talk.kind === "slides"}
 					class="flex flex-col rounded-xl border border-neutral-200 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-lg dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-blue-600"
 				>
 					<div class="flex items-baseline justify-between gap-4">
