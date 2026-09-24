@@ -595,28 +595,28 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <div class="number">15 / 31</div>
 </section>
 <section class="slide  case-results" id="moongit-resultats" aria-label="Diapositive 16">
-<p class="part">moon-git · bilan du 23 septembre</p>
+<p class="part">moon-git · bilan du 24 septembre</p>
 <h2>Moins d’appels, beaucoup moins de saturation</h2>
 <div class="body">
-<p class="intro">Deux fenêtres de 12 h, aux mêmes horaires, à une semaine d’intervalle.</p>
+<p class="intro">Deux fenêtres de 12 h à une semaine d’intervalle, à trafic comparable.</p>
 <div class="metrics case-kpis">
 <div>
-<strong>−94 %</strong>
+<strong>−92 %</strong>
 <span>erreurs Gitaly<br>ResourceExhausted</span>
-<p class="absolute">1 553 622 → 99 918</p>
+<p class="absolute">4,0 millions → 335 000</p>
 </div>
 <div>
-<strong>−24 %</strong>
-<span>appels à Gitaly</span>
-<p class="absolute">1,98 → 1,50 milliard</p>
+<strong>−70 %</strong>
+<span>appels TreeEntry<br>à Gitaly</span>
+<p class="absolute">630 → 191 millions</p>
 </div>
 <div>
-<strong>+7 %</strong>
+<strong>+0,5 %</strong>
 <span>requêtes du Hub</span>
-<p class="absolute">821 → 880 millions</p>
+<p class="absolute">844 → 848 millions</p>
 </div>
 </div>
-<p class="take">Le service soulage l’existant à l’échelle du trafic réel.</p>
+<p class="take">Le pic de saturation observé pendant la fenêtre reste inclus dans ce bilan.</p>
 </div>
 <div class="sources">
 </div>
@@ -624,7 +624,7 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <div class="number">16 / 31</div>
 </section>
 <section class="slide  " id="moongit-latences" aria-label="Diapositive 17">
-<p class="part">moon-git · temps de réponse observés</p>
+<p class="part">moon-git · latences au 24 septembre</p>
 <h2>Les requêtes les plus lentes s’améliorent</h2>
 <div class="body">
 <p class="intro">p99 : 99 % des requêtes terminent en dessous de ce temps.</p>
@@ -633,33 +633,38 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <tr>
 <th>Route du Hub</th>
 <th>Semaine précédente</th>
-<th>Après bascule</th>
+<th>Avec TCP_NODELAY</th>
 <th>Variation</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th>Page des fichiers<small>tree · page web</small>
-</th>
-<td>3 098 ms</td>
-<td>1 099 ms</td>
-<td class="gain">−65 %</td>
+<th>Page des fichiers</th>
+<td>2 948 ms</td>
+<td>1 262 ms</td>
+<td class="gain">−57 %</td>
 </tr>
 <tr>
 <th>Page du dépôt</th>
-<td>1 008 ms</td>
-<td>324 ms</td>
-<td class="gain">−68 %</td>
+<td>789 ms</td>
+<td>333 ms</td>
+<td class="gain">−58 %</td>
 </tr>
 <tr>
 <th>API datasets</th>
-<td>1 122 ms</td>
-<td>421 ms</td>
-<td class="gain">−62 %</td>
+<td>1 102 ms</td>
+<td>324 ms</td>
+<td class="gain">−71 %</td>
+</tr>
+<tr>
+<th>Résolution de fichier</th>
+<td>104 ms</td>
+<td>50 ms</td>
+<td class="gain">−52 %</td>
 </tr>
 </tbody>
 </table>
-<p class="take">Les médianes changent peu. Les gains varient selon les routes et les quantiles.</p>
+<p class="take">TCP_NODELAY : le p95 de resolve passe de 32,4 à 19 ms.<br>Il est désormais meilleur que les 27,3 ms de référence.</p>
 </div>
 <div class="sources">
 </div>
@@ -1228,12 +1233,12 @@ const data=[
   },
   {
     "title": "Moins d’appels, beaucoup moins de saturation",
-    "notes": "Bilan d’observabilité partagé le 23 septembre 2026 : du 22 à 23 h au 23 à 11 h UTC, comparé au 15 à 23 h au 16 à 11 h UTC. La première fenêtre est entièrement après la bascule finale et le déploiement des resolvers du 22 à 15 h 37. Les volumes sont ceux du rapport, avec les arrondis indiqués. ResourceExhausted désigne le refus d’un appel faute de capacité disponible, pas forcément un épuisement global du cluster. C’est la comparaison des nombres absolus d’erreurs et d’appels, pas une expérience A/B ni une normalisation à trafic identique. Le trafic est supérieur de 7 %, sans que cela isole l’effet causal de moon-git : le mélange des requêtes et d’autres déploiements peuvent varier. Les données sont issues de la synthèse de logs et métriques fournie pour ce retour d’expérience. Le code et les commits documentent le mécanisme, pas un audit indépendant de ces agrégats. La forte baisse ResourceExhausted n’est pas à attribuer au seul dernier déploiement des resolvers : elle porte sur la comparaison de la semaine complète de changements.",
+    "notes": "Bilan d’observabilité partagé le 24 septembre 2026. Fenêtre actuelle : du 23 à 21 h au 24 à 9 h UTC, avec TCP_NODELAY. Référence Gitaly seul : du 16 à 21 h au 17 à 9 h UTC. Troisième fenêtre du rapport : du 22 à 21 h au 23 à 9 h UTC, sidecar activé sans TCP_NODELAY. Volumes Hub respectifs : 848, 844 et 885 millions. Les dates, horaires et volumes diffèrent du bilan du 23 septembre : ne pas réutiliser ses totaux de RPC ni son +7 % de trafic. Le nouveau rapport ne fournit pas le total de tous les RPCs Gitaly ; TreeEntry est ici une méthode précise, pas le total. Variations recalculées sur les chiffres arrondis fournis : ResourceExhausted −91,625 %, TreeEntry −69,68 %, trafic +0,47 %. ResourceExhausted est un statut RPC signalant une capacité indisponible, pas un nombre d’utilisateurs touchés. Le total de 335 000 inclut environ 238 000 erreurs pendant un pic du 23 à 22 h 50 au 23 h 10 UTC, sur un nœud Gitaly et les Praefects, à travers plusieurs méthodes. Le rapport suggère un incident de nœud ; la cause reste à confirmer. Ne pas présenter ce pic comme indépendant de moon-git sans investigation. Le « −94 % hors pic » du commentaire ne se recalcule pas sur les agrégats et durées fournis ; on conserve donc le bilan brut de toute la fenêtre. Les 108 000 erreurs ListCommitsByOid peuvent chevaucher les erreurs du pic : ne pas additionner ni diviser ce nombre par un total corrigé. Données de la synthèse fournie par Eliott, pas de nouvelle requête de production ni d’audit indépendant. Comparaison observationnelle, sans contrôle du mélange de requêtes ni des autres déploiements.",
     "refs": []
   },
   {
     "title": "Les requêtes les plus lentes s’améliorent",
-    "notes": "Mêmes fenêtres de 12 heures que la slide précédente. Ces trois routes illustrent les gains les plus parlants, pas toutes les routes. Les variations calculées sont arrondies. Le p95 de la page des fichiers passe aussi de 909 à 621 ms, celui de la page du dépôt de 270 à 204 ms et celui de l’API datasets de 227 à 138 ms. Le p50 est respectivement 251 à 245 ms, 38,5 à 34,1 ms et 11 à 12 ms. Les autres améliorations p99 du rapport : paths-info 369 à 185 ms ; blob 1000 à 513 ms ; raw 309 à 149 ms ; resolve 87 à 68 ms. Pour l’oral : resolve a un p95 dégradé (22,9 à 32,4 ms), mais un p99 amélioré (87 à 68 ms). Les petits fichiers ordinaires passent encore par Gitaly : les mettre en cache, notamment config.json, est la piste identifiée pour éviter ce détour, à tester si le besoin le justifie. Ne pas la présenter comme un gain déjà mesuré. API tree régresse : p95 43 à 69 ms et p99 369 à 584 ms ; le rapport évoque une hausse des requêtes sur des chemins absents. Le temps Gitaly ne baisse pas sur cette route (p95 32 à 52 ms). Parmi les 99 918 ResourceExhausted restants, 90 884 concernent ListCommitsByOid, soit 91 % : autre cible possible. Ma décision pour le moment : laisser tourner et observer. Autres nuances du bilan : FindChangedPaths passe de 0,96 à 48 millions d’appels, ListCommits de 1,3 à 8,5 millions ; leur attribution exige une segmentation par appelant, car le sidecar utilise aussi ces RPCs. La baisse brute des 5xx est trompeuse à cause d’un incident la semaine précédente : je ne la compte pas comme un gain. Zéro log de repli ne garantit pas zéro repli, certains sont seulement comptés en métriques. Source : bilan d’observabilité du 23 septembre fourni par Eliott et IndexSidecar.ts.",
+    "notes": "Mêmes fenêtres de 12 heures que la slide précédente. Le tableau compare Gitaly seul la semaine précédente au sidecar avec TCP_NODELAY. Les gains reflètent l’ensemble des changements entre ces fenêtres, pas TCP_NODELAY seul. Pour resolve, les trois p95 sont 27,3 ms (Gitaly seul), 32,4 ms (sidecar sans TCP_NODELAY), puis 19,0 ms (avec TCP_NODELAY). Les trois p99 sont 104, 69 et 50 ms. Baisse p95 de 30 % par rapport à la référence et de 41 % par rapport à la veille. Les séries horaires montrent une rupture vers 20 h UTC le 23 : p95 de 27–40 ms auparavant, puis 17–20 ms. Cette heure est déduite des métriques par le rapport, pas un horodatage de déploiement vérifié. Le correctif 5086ca3 du 23 septembre active TCP_NODELAY sur les sockets acceptées par le serveur gRPC et HTTP. Le chemin gRPC utilisait un flux de connexions personnalisé : le réglage du constructeur Tonic ne s’appliquait pas à ces sockets. Les petits échanges pouvaient attendre avec Nagle et les acquittements différés. Un test de non-régression utilise désormais le même chemin d’acceptation que la production. Exemple concret du pilotage par les métriques : une régression persistante conduit à une investigation, puis à un correctif réseau. La piste de cache des petits blobs reste possible pour réduire les appels Gitaly, mais elle n’est plus nécessaire pour corriger cette régression p95 dans le bilan actuel. Autres p95, dans l’ordre référence / veille / actuel : paths-info 156 / 138 / 89 ms ; datasets 188 / 141 / 122 ; page des fichiers 808 / 626 / 625 ; dépôt 239 / 203 / 201. Le rapport indique des médianes stables. Tout ne progresse pas : API tree p95 57 / 72 / 76 ms et p99 484 / 621 / 614 ; API models p95 22,3 / 24,5 / 24,3 et p99 71 / 80 / 85. Les requêtes additional_chat_templates sur des chemins absents sont une piste pour API tree, pas une explication isolée. Les 5xx sont 4 100 / 12 800 / 10 900, soit environ 2,7 fois la référence malgré leur faible part du trafic ; cause à analyser. FindChangedPaths passe de moins de 2 à 53 puis 47 millions d’appels. Le rapport dit que ce trafic ne vient pas de moon-git, mais le sidecar utilise cette méthode : demander une segmentation par appelant avant attribution. ListCommitsByOid passe de 11,7 à 12,3 puis 18,6 millions d’appels, et compte 108 000 ResourceExhausted dans la dernière fenêtre. La synthèse indique aucun repli, mais l’absence de lignes de logs ne suffit pas à garantir zéro repli ; ne pas en faire une promesse. Sources : bilan du 24 septembre fourni par Eliott, moon-git 5086ca3, crates/index-sidecar/src/boot.rs et tests/grpc_latency.rs.",
     "refs": []
   },
   {
