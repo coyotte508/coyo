@@ -112,7 +112,11 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 
 .case-table th,.case-table td{padding:19px 16px;font-size:27px}
 
-.case-table tbody th{width:37%;font-weight:650}
+.case-table thead th{font-size:21px;white-space:nowrap}
+
+.case-table tbody th{width:34%;font-weight:650}
+
+.case-table .route-star{color:var(--accent)}
 
 .case-table td{font-variant-numeric:tabular-nums;white-space:nowrap}
 
@@ -633,38 +637,45 @@ html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-
 <tr>
 <th>Route du Hub</th>
 <th>p95</th>
+<th>Gain p95</th>
 <th>p99</th>
 <th>Gain p99</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th>Page des fichiers</th>
+<th>Liste des fichiers</th>
 <td>808 → 625</td>
+<td class="gain">−23 %</td>
 <td>2 948 → 1 262</td>
 <td class="gain">−57 %</td>
 </tr>
 <tr>
-<th>Page du dépôt</th>
+<th>Page du modèle / dataset</th>
 <td>239 → 201</td>
+<td class="gain">−16 %</td>
 <td>789 → 333</td>
 <td class="gain">−58 %</td>
 </tr>
 <tr>
 <th>API datasets</th>
 <td>188 → 122</td>
+<td class="gain">−35 %</td>
 <td>1 102 → 324</td>
 <td class="gain">−71 %</td>
 </tr>
 <tr>
-<th>Résolution de fichier</th>
+<th>
+<span class="route-star" aria-hidden="true">★</span> Résolution de fichier<small>resolve · lien du fichier, ETag…</small>
+</th>
 <td>27,3 → 19</td>
+<td class="gain">−30 %</td>
 <td>104 → 50</td>
 <td class="gain">−52 %</td>
 </tr>
 </tbody>
 </table>
-<p class="take">Les médianes restent stables. Les gains varient selon les routes.</p>
+<p class="take">★ resolve est au cœur du Hub : c’est de loin la route la plus utilisée.</p>
 </div>
 <div class="sources">
 </div>
@@ -1238,7 +1249,7 @@ const data=[
   },
   {
     "title": "Les requêtes les plus lentes s’améliorent",
-    "notes": "Mêmes fenêtres de 12 heures que la slide précédente : du 16 à 21 h au 17 à 9 h UTC, puis du 23 à 21 h au 24 à 9 h UTC. Le tableau compare Gitaly seul la semaine précédente au dernier bilan avec moon-git. p95 et p99 sont les temps sous lesquels terminent respectivement 95 % et 99 % des requêtes mesurées. Les gains reflètent l’ensemble des changements entre ces fenêtres. Pour resolve, le p95 passe de 27,3 à 19 ms, soit −30 %, et le p99 de 104 à 50 ms, soit −52 %. Les autres gains p99 affichés sont arrondis : page des fichiers −57 %, dépôt −58 %, API datasets −71 %. Le rapport indique des médianes stables. Autres routes : paths-info p95 156 à 89 ms et p99 357 à 147 ms ; blob p95 391 à 321 ms et p99 1066 à 537 ms ; raw p95 93 à 70 ms et p99 249 à 166 ms. Tout ne progresse pas : API tree p95 57 à 76 ms et p99 484 à 614 ms ; API models p95 22,3 à 24,3 ms et p99 71 à 85 ms. Les requêtes additional_chat_templates sur des chemins absents sont une piste pour API tree, pas une explication isolée. Les 5xx passent de 4 100 à 10 900, soit environ 2,7 fois la référence malgré leur faible part du trafic ; cause à analyser. FindChangedPaths passe de moins de 2 à 47 millions d’appels. Le sidecar utilise cette méthode : demander une segmentation par appelant avant attribution. ListCommitsByOid passe de 11,7 à 18,6 millions d’appels, et compte 108 000 ResourceExhausted dans la dernière fenêtre. La piste de cache des petits blobs reste possible pour réduire les appels Gitaly. L’absence de lignes de logs de repli ne suffit pas à garantir zéro repli. Source : bilan d’observabilité du 24 septembre fourni par Eliott.",
+    "notes": "Mêmes fenêtres de 12 heures que la slide précédente : du 16 à 21 h au 17 à 9 h UTC, puis du 23 à 21 h au 24 à 9 h UTC. Le tableau compare Gitaly seul la semaine précédente au dernier bilan avec moon-git. p95 et p99 sont les temps sous lesquels terminent respectivement 95 % et 99 % des requêtes mesurées. Les gains reflètent l’ensemble des changements entre ces fenêtres. Pour resolve, le p95 passe de 27,3 à 19 ms, soit −30 %, et le p99 de 104 à 50 ms, soit −52 %. Les gains affichés sont arrondis : liste des fichiers p95 −23 % et p99 −57 %, page du modèle ou dataset p95 −16 % et p99 −58 %, API datasets p95 −35 % et p99 −71 %. L’étoile signale resolve, de loin la route la plus utilisée, au cœur du Hub selon mon retour d’expérience : elle permet notamment d’obtenir le lien d’un fichier ou son ETag. Aucun volume de requêtes spécifique à cette route n’est fourni pour la nouvelle fenêtre, donc ne pas en inventer. « Liste des fichiers » désigne ici la page web tree ; elle se distingue de la route API tree discutée plus bas. Le rapport indique des médianes stables. Autres routes : paths-info p95 156 à 89 ms et p99 357 à 147 ms ; blob p95 391 à 321 ms et p99 1066 à 537 ms ; raw p95 93 à 70 ms et p99 249 à 166 ms. Tout ne progresse pas : API tree p95 57 à 76 ms et p99 484 à 614 ms ; API models p95 22,3 à 24,3 ms et p99 71 à 85 ms. Les requêtes additional_chat_templates sur des chemins absents sont une piste pour API tree, pas une explication isolée. Les 5xx passent de 4 100 à 10 900, soit environ 2,7 fois la référence malgré leur faible part du trafic ; cause à analyser. FindChangedPaths passe de moins de 2 à 47 millions d’appels. Le sidecar utilise cette méthode : demander une segmentation par appelant avant attribution. ListCommitsByOid passe de 11,7 à 18,6 millions d’appels, et compte 108 000 ResourceExhausted dans la dernière fenêtre. La piste de cache des petits blobs reste possible pour réduire les appels Gitaly. L’absence de lignes de logs de repli ne suffit pas à garantir zéro repli. Source : bilan d’observabilité du 24 septembre fourni par Eliott.",
     "refs": []
   },
   {
