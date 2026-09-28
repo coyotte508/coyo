@@ -80,7 +80,7 @@
 				</div>
 			</div>
 			<p class="mt-6 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
-				I design complex projects from the ground up. I am proficient in programming and agents use. Looking to be part of the next moonshot.
+				I design complex projects from the ground up. I am proficient in programming and agents use. Looking to build the next moonshot.
 			</p>
 			<p class="mt-4 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
 				Taking full advantage of
