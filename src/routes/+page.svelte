@@ -85,7 +85,7 @@
 			<p class="mt-4 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
 				Taking full advantage of
 				AI for old & new projects.
-				I like sovereign companies: ones that own their IT and are not vendor-locked-in to hyperscalers.
+				I like sovereign companies: ones that own their IT and are not vendor-locked-in to one hyperscaler.
 			</p>
 			<p class="mt-4 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
 				Right now I'm helping scale
