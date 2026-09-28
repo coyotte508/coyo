@@ -80,17 +80,12 @@
 				</div>
 			</div>
 			<p class="mt-6 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
-				I design complex projects from the ground up. I am proficient in <b
-					class="font-semibold text-neutral-900 dark:text-white">Node.js</b
-				>
-				/ <b class="font-semibold text-neutral-900 dark:text-white">Typescript</b> /
-				<b class="font-semibold text-neutral-900 dark:text-white">Svelte</b>, and formerly
-				<b class="font-semibold text-neutral-900 dark:text-white">C++</b>.
+				I design complex projects from the ground up. I am proficient in programming and agents use. Looking to be part of the next moonshot.
 			</p>
 			<p class="mt-4 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
 				Taking full advantage of
-				<b class="font-semibold text-neutral-900 dark:text-white">Kimi K3</b> and other open-weight LLMs for old & new projects.
-				I like sovereign platforms: ones that own their IT and are not vendor-locked-in to hyperscalers.
+				AI for old & new projects.
+				I like sovereign companies: ones that own their IT and are not vendor-locked-in to hyperscalers.
 			</p>
 			<p class="mt-4 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
 				Right now I'm helping scale
